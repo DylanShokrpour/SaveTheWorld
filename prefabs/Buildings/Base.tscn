@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://tnmqbcenbch5"]
+
+[ext_resource type="Script" path="res://scripts/Base.cs" id="1_6cuiv"]
+[ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_rulra"]
+[ext_resource type="Script" path="res://components/DetectionComponent.cs" id="3_4gqut"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="4_wsyd7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n6ja0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4rjpl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxvry"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ffxpg"]
+material = SubResource("StandardMaterial3D_xxvry")
+
+[node name="Base" type="StaticBody3D"]
+script = ExtResource("1_6cuiv")
+
+[node name="HealthComponent" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_rulra")
+
+[node name="DetectionComponent" type="Area3D" parent="."]
+script = ExtResource("3_4gqut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
+shape = SubResource("SphereShape3D_n6ja0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4rjpl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_ffxpg")
+skeleton = NodePath("../..")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_wsyd7")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]

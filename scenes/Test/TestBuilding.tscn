@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bog22fx3632jl"]
+
+[ext_resource type="Script" path="res://scripts/Building.cs" id="1_fscct"]
+[ext_resource type="Script" path="res://components/DetectionComponent.cs" id="2_qq82q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loifi"]
+albedo_color = Color(0, 0.509804, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b74sd"]
+material = SubResource("StandardMaterial3D_loifi")
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_fscct")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_b74sd")
+
+[node name="DetectionComponent" type="Area3D" parent="."]
+script = ExtResource("2_qq82q")

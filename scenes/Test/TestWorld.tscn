@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=3 uid="uid://c6byir8d0b7ro"]
+
+[ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_2aadf"]
+[ext_resource type="Script" path="res://scripts/World.cs" id="1_x3gs8"]
+[ext_resource type="PackedScene" uid="uid://cgby4t2cdaokk" path="res://scenes/Test/TestSpawner.tscn" id="2_fqdl5"]
+[ext_resource type="Script" path="res://scripts/Wave.cs" id="4_3vu67"]
+[ext_resource type="PackedScene" uid="uid://bwyd7mdd8no0t" path="res://scenes/Test/TestGoon.tscn" id="5_dyha3"]
+[ext_resource type="Script" path="res://manager/WaveManager.cs" id="6_sk1jh"]
+[ext_resource type="PackedScene" uid="uid://tnmqbcenbch5" path="res://prefabs/Buildings/Base.tscn" id="7_0pogp"]
+[ext_resource type="PackedScene" uid="uid://c63jcbe8lwfvp" path="res://scenes/Test/TestGoon2.tscn" id="7_mp8cd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpdwc"]
+sky_top_color = Color(0.290196, 0.4, 0.854902, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_j6nye"]
+sky_material = SubResource("ProceduralSkyMaterial_kpdwc")
+
+[sub_resource type="Environment" id="Environment_xjoxk"]
+background_mode = 2
+sky = SubResource("Sky_j6nye")
+
+[sub_resource type="BoxMesh" id="BoxMesh_kdc4l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nruk1"]
+
+[sub_resource type="Curve3D" id="Curve3D_l8qfo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.263, 2, 24.036, 0, 0, 0, 0, 0, 0, -0.003, 2, 14.717, 0, 0, 0, 0, 0, 0, 10.098, 2, 15.043, 0, 0, 0, 0, 0, 0, 10.489, 2, 8.657, 0, 0, 0, 0, 0, 0, 2.604, 2, 8.592, 0, 0, 0, 0, 0, 0, 3, 2, -11),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vvvmi"]
+
+[node name="TestWorld" type="Node3D" node_paths=PackedStringArray("wave1")]
+script = ExtResource("1_x3gs8")
+wave1 = NodePath("TestSpawner/Wave1")
+
+[node name="Character" parent="." instance=ExtResource("1_2aadf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xjoxk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 1.5, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_kdc4l")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 1.5, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("BoxShape3D_nruk1")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_l8qfo")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.999611, 0, -0.0278891, 0, 1, 0, 0.0278891, 0, 0.999611, -0.263, 2, 24.036)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.90596, 0)
+mesh = SubResource("CylinderMesh_vvvmi")
+
+[node name="TestSpawner" parent="." node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
+path3D = NodePath("../Path3D")
+
+[node name="Wave1" type="Node3D" parent="TestSpawner"]
+script = ExtResource("4_3vu67")
+enemyList = Array[PackedScene]([ExtResource("5_dyha3"), ExtResource("5_dyha3"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd")])
+timeBetweenSpawn = 1
+
+[node name="Wave2" type="Node3D" parent="TestSpawner"]
+script = ExtResource("4_3vu67")
+enemyList = Array[PackedScene]([ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd")])
+timeBetweenSpawn = 1
+
+[node name="WaveManager" type="Node3D" parent="."]
+script = ExtResource("6_sk1jh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="Base" parent="." node_paths=PackedStringArray("path") instance=ExtResource("7_0pogp")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+path = NodePath("../Path3D")
