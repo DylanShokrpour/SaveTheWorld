@@ -181,37 +181,8 @@ script = ExtResource("15_u5cfo")
 
 [node name="AudioManager" type="Node3D" parent="."]
 script = ExtResource("15_p686e")
-
-[node name="Ambiance" type="Node3D" parent="AudioManager"]
-
-[node name="Ambiance1" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("20_3ck8a")
-
-[node name="Ambiance2" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("17_0twnn")
-
-[node name="Ambiance3" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("19_lfcpu")
-
-[node name="Ambiance4" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("20_yuv5s")
-
-[node name="EpicAmbiance" type="Node3D" parent="AudioManager"]
-
-[node name="EAmbiance1" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
-stream = ExtResource("19_lfcpu")
-
-[node name="EAmbiance2" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
-stream = ExtResource("13_31dwb")
-
-[node name="EAmbiance3" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
-stream = ExtResource("19_oqt50")
-
-[node name="BossMusic" type="AudioStreamPlayer" parent="AudioManager"]
-
-[node name="DefeatSound" type="AudioStreamPlayer" parent="AudioManager"]
-
-[node name="VictorySound" type="AudioStreamPlayer" parent="AudioManager"]
+ambiance = Array[AudioStream]([ExtResource("20_3ck8a"), ExtResource("17_0twnn"), ExtResource("19_lfcpu"), ExtResource("20_yuv5s")])
+epicAmbiance = Array[AudioStream]([ExtResource("19_lfcpu"), ExtResource("13_31dwb"), ExtResource("19_oqt50")])
 
 [node name="CurrentMusic" type="AudioStreamPlayer" parent="AudioManager"]
 autoplay = true
