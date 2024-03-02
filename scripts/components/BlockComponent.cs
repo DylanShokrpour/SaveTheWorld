@@ -9,12 +9,12 @@ public partial class BlockComponent : DetectionComponent {
 	public override void _Ready() {
 		base._Ready();
 		ValidBodyEntered += Block;
-		healthComponentOfParent = GetParent().GetFirstChildWhichIsA<HealthComponent>();
+		healthComponentOfParent = GetParent().FindFirstChild<HealthComponent>();
 	}
 
 	void Block(CharacterBody3D body) {
 		if (body.GetType() == targetType) {
-			var opponentHealthComponent = body.GetFirstChildWhichIsA<HealthComponent>();
+			var opponentHealthComponent = body.FindFirstChild<HealthComponent>();
 			healthComponentOfParent.TakeDamage(opponentHealthComponent.GetHealth());
 			opponentHealthComponent.TakeDamage(healthComponentOfParent.GetHealth());
 		}

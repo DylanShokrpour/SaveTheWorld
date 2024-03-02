@@ -19,9 +19,9 @@ public partial class WaveManager : Node3D {
 
 	public override void _Ready() {
 		ConfigureTimer();
-		waves = this.GetDescendantsWhichAreA<Wave>().ToList();
+		waves = this.GetDescendants<Wave>().ToList();
 		totalWaves = waves.Count;
-		spawners = this.GetDescendantsWhichAreA<Spawner>().ToList();
+		spawners = this.GetDescendants<Spawner>().ToList();
 		waveTimer.Timeout += NewWave;
 		NewWave();
 	}

@@ -6,7 +6,7 @@ public partial class Armour : StaticBody3D {
 	HealthComponent parentHealthComponent;
 
 	public override void _Ready() {
-		parentHealthComponent = GetParent().GetFirstChildOfClass<HealthComponent>();
+		parentHealthComponent = GetParent().FindFirstChildOfClass<HealthComponent>();
 		ActivateArmour();
 	}
 

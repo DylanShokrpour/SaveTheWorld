@@ -26,7 +26,7 @@ public partial class Healer : Area3D {
 	void Heal() {
 		GetBodies();
 		foreach (Node3D target in targets) {
-			var healthComponent = target.GetFirstChildWhichIsA<HealthComponent>();
+			var healthComponent = target.FindFirstChild<HealthComponent>();
 			healthComponent.AddHealth(healAmount);
 		}
 	}

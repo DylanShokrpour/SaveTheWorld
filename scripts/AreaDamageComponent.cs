@@ -18,7 +18,7 @@ public partial class AreaDamageComponent : Area3D {
 	public void Impact() {
 		GetBodies();
 		foreach (Node3D target in enemiesInRange) {
-			var targetHealth = target.GetFirstChildOfClass<HealthComponent>();
+			var targetHealth = target.FindFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(GetParent<Bullet>().damage);
 		}
 	}

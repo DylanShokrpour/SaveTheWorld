@@ -13,17 +13,17 @@ public partial class Converter : Area3D {
 
 	void FindBody(Node3D body) {
 		if (body is Building building && !isConverting)
-			if (building.GetFirstChildOfClass<PathFollowBuilding>() != null) {
+			if (building.FindFirstChildOfClass<PathFollowBuilding>() != null) {
 				isConverting = true;
-				Convert(building.GetFirstChildOfClass<BlockComponent>(),
-					building.GetFirstChildOfClass<PathFollowBuilding>());
+				Convert(building.FindFirstChildOfClass<BlockComponent>(),
+					building.FindFirstChildOfClass<PathFollowBuilding>());
 			}
 	}
 
 	async void Convert(BlockComponent block, PathFollowBuilding building) {
 		GetParent<Goon>().path.speed = 0;
 		building.ChangePathSpeed(0);
-		await this.YieldForSeconds(timeToConvert);
+		await this.WaitForSeconds(timeToConvert);
 		block.targetType = typeof(Building);
 		building.ChangePathSpeed(building.speed);
 		isConverting = false;

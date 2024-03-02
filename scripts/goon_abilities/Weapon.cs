@@ -15,8 +15,8 @@ public partial class Weapon : StaticBody3D {
 	}
 
 	void Attack(Node3D body) {
-		if ((body.GetFirstChildOfClass<HealthComponent>() != null) && body is Building) {
-			var healthComponent = body.GetFirstChildWhichIsA<HealthComponent>();
+		if ((body.FindFirstChildOfClass<HealthComponent>() != null) && body is Building) {
+			var healthComponent = body.FindFirstChild<HealthComponent>();
 			healthComponent.TakeDamage(damage * damageToTrackBuildingsModifer);
 		}
 	}

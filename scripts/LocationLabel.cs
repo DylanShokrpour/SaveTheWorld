@@ -23,7 +23,7 @@ public partial class LocationLabel : RichTextLabel {
 	}
 
 	async void DeActivate() {
-		await this.YieldForSeconds(2);
+		await this.WaitForSeconds(2);
 		RefreshTween();
 		tween.SetTrans(transitionType);
 		tween.TweenProperty(this, Control.PropertyName.GlobalPosition.ToString(),

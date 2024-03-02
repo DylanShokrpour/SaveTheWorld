@@ -75,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7, 0)
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735194, 0.393929, -0.849189)
 script = ExtResource("6_sk1jh")
-waveSpeed = 10
+waveDuration = 60
 
 [node name="Wave1" type="Node3D" parent="WaveManager"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)

@@ -33,7 +33,7 @@ public partial class FreeEnemy : CharacterBody3D {
 	}
 
 	async void OnDeath() {
-		await this.YieldForSeconds(1);
+		await this.WaitForSeconds(1);
 		QueueFree();
 	}
 

@@ -5,7 +5,7 @@ public partial class HealthBar : ProgressBar {
 	HealthComponent healthComponent;
 
 	public override void _Ready() {
-		healthComponent = GetOwner<Node3D>().GetFirstChildOfClass<HealthComponent>();
+		healthComponent = GetOwner<Node3D>().FindFirstChildOfClass<HealthComponent>();
 		UpdateBar();
 		healthComponent.OnHealthChange += UpdateBar;
 	}

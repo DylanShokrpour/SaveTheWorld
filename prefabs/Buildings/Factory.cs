@@ -16,7 +16,7 @@ public partial class Factory : Node3D {
 	void Spawn() {
 		var unit = spawnPrefab.Instantiate<Node3D>();
 		Path path;
-		var trackBuilding = unit.GetFirstChildWhichIsA<PathFollowBuilding>();
+		var trackBuilding = unit.FindFirstChild<PathFollowBuilding>();
 		path = new(-trackBuilding.speed);
 		pathFollowed.AddChild(path);
 		trackBuilding.path = path;

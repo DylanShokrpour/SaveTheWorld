@@ -9,7 +9,7 @@ public partial class StockMarket : Node {
 	Timer timeToChangeStocks;
 
 	public override void _Ready() {
-		stocks = this.GetDescendantsWhichAreA<Stock>().ToList();
+		stocks = this.GetDescendants<Stock>().ToList();
 		ConfigureTimer();
 	}
 
