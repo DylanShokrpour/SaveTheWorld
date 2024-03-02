@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c6byir8d0b7ro"]
+[gd_scene load_steps=39 format=3 uid="uid://c6byir8d0b7ro"]
 
 [ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_2aadf"]
 [ext_resource type="Script" path="res://scripts/World.cs" id="1_x3gs8"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c52lhoujo1vol" path="res://prefabs/Buildings/Wall.tscn" id="14_vshe5"]
 [ext_resource type="Script" path="res://scripts/manager/AudioManager.cs" id="15_p686e"]
 [ext_resource type="Script" path="res://scripts/LocationLabel.cs" id="15_u5cfo"]
+[ext_resource type="Texture2D" uid="uid://bes8olc6cmv6q" path="res://addons/kenney_prototype_textures/Light/texture_07.png" id="16_qjop5"]
 [ext_resource type="AudioStream" uid="uid://bdcspcnuvvddf" path="res://assets/audio/music/carnival-of-bizarre-177383.mp3" id="17_0twnn"]
 [ext_resource type="AudioStream" uid="uid://hr0xq4lfpba" path="res://assets/audio/music/Clown/clown.mp3" id="19_lfcpu"]
 [ext_resource type="AudioStream" uid="uid://bmiv21p4unore" path="res://assets/audio/music/Clown/dark-circus-113460.mp3" id="19_oqt50"]
@@ -46,6 +47,11 @@ point_count = 5
 [sub_resource type="NavigationMesh" id="NavigationMesh_urkii"]
 vertices = PackedVector3Array(-24.5, 1.25, -24.5, -24.5, 1.25, 24.5, 24.5, 1.25, 24.5, 24.5, 1.25, -24.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxv3l"]
+albedo_texture = ExtResource("16_qjop5")
+uv1_scale = Vector3(6, 6, 6)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_kdc4l"]
 
@@ -144,6 +150,7 @@ navigation_mesh = SubResource("NavigationMesh_urkii")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
 transform = Transform3D(50, 0, 0, 0, 1.5, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jxv3l")
 mesh = SubResource("BoxMesh_kdc4l")
 skeleton = NodePath("../../..")
 
