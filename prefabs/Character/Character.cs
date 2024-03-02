@@ -57,7 +57,7 @@ public partial class Character : CharacterBody3D {
 	}
 
 	void UpdateLabel() {
-		foodLabel.Text = "Food: " + food.GetCurrency();
+		foodLabel.Text = "Food: " + food.Amount;
 	}
 
 	public void AddResource(Currency resource) {

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 
 [GlobalClass]
@@ -8,26 +9,26 @@ public partial class Currency : Node {
 
 	[Signal]
 	public delegate void OnCurrencyChangedEventHandler();
+	public int Amount
+	{
+		get => amount;
+		set
+		{
+			amount = value;
+			if (amount <= 0)
+				EmitSignal(SignalName.OnBroke);
+			EmitSignal(SignalName.OnCurrencyChanged);
+		}
+	}
+	int amount;
 
-	int currency;
-
-	public void AddCurrency(int amount) {
-		currency += amount;
-		EmitSignal(SignalName.OnCurrencyChanged);
+	public void AddAmount(int amountToAdd) {
+		Debug.Assert(amountToAdd > 0, "Amount must be positive");
+		amount += amountToAdd;
 	}
 
-	public void RemoveCurrency(int amount) {
-		currency -= amount;
-		EmitSignal(SignalName.OnCurrencyChanged);
-		if (currency <= 0)
-			EmitSignal(SignalName.OnBroke);
+	public void RemoveAmount(int amountToRemove) {
+		Debug.Assert(amountToRemove > 0, "Amount must be positive");
+		amount -= amountToRemove;
 	}
-
-	public void SetCurrency(int amount) {
-		currency = amount;
-		if (currency <= 0)
-			EmitSignal(SignalName.OnBroke);
-	}
-
-	public int GetCurrency() => currency;
 }
