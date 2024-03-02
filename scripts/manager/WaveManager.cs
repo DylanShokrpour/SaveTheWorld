@@ -13,7 +13,6 @@ public partial class WaveManager : Node3D {
 	Timer waveTimer = new();
 	List<Wave> waves = new();
 	List<Spawner> spawners = new();
-	Wave currentWave;
 	public int waveCount;
 	public int totalWaves;
 
@@ -37,7 +36,7 @@ public partial class WaveManager : Node3D {
 		GD.Print("Starting new wave");
 		foreach (Spawner spawner in spawners) {
 			// ! An exception will be thrown when the waveCount exceeds the number of waves
-			currentWave = waves[waveCount];
+			Wave currentWave = waves[waveCount];
 			_ = spawner.SpawnGoonsInWave(currentWave);
 		}
 
