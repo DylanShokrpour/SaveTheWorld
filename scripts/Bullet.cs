@@ -13,7 +13,7 @@ public partial class Bullet : RigidBody3D {
 	public void OnCreated(Type type) {
 		targetType = type;
 		detectionComponent = GetNode<DetectionComponent>("DetectionComponent");
-		detectionComponent.ValidBodyEntered += BodyEntered;
+		detectionComponent.ValidBodyEntered += OnBodyEntered;
 		LinearVelocity = (targetPosition - GlobalPosition) * 10;
 		_ = NotHit();
 	}
@@ -33,7 +33,7 @@ public partial class Bullet : RigidBody3D {
 	}
 
 
-	void BodyEntered(Node3D body) {
+	void OnBodyEntered(Node3D body) {
 		if (body.GetType() == targetType) {
 			var targetHealth = body.FindFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(damage);
