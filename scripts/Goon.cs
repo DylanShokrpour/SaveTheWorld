@@ -11,10 +11,10 @@ public partial class Goon : CharacterBody3D {
 
 	public override void _EnterTree() {
 		healthComponent = GetNode<HealthComponent>("%HealthComponent");
-		healthComponent.OnDeath += die;
+		healthComponent.OnDeath += Die;
 	}
 
-	public void die() {
+	public void Die() {
 		GetParent().QueueFree();
 	}
 }

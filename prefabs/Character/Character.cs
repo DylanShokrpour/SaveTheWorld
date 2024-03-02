@@ -3,7 +3,7 @@ using Godot;
 public partial class Character : CharacterBody3D {
 	const int SPEED = 10;
 	const int ACCELERATION = 10;
-	const int sensitivity = 5;
+	const int SENSITIVITY = 5;
 	public Currency food = new();
 	RichTextLabel foodLabel;
 	float jumpPower = 10;
@@ -16,25 +16,25 @@ public partial class Character : CharacterBody3D {
 		head = GetNode<Node3D>("%Head");
 		camera = GetNode<Camera3D>("%PlayerCamera");
 		foodLabel = GetNode<RichTextLabel>("%FoodLabel");
-		food.OnCurrencyChange += updateLabel;
+		food.OnCurrencyChange += UpdateLabel;
 	}
 
 	public override void _PhysicsProcess(double delta) {
 		Vector2 inputDir =
 			Input.GetVector("movement_left", "movement_right", "movement_forward", "movement_backward");
 		Vector3 direction = head.GlobalTransform.Basis *
-		                    new Vector3(inputDir.X * sensitivity, 0, inputDir.Y * sensitivity);
+		                    new Vector3(inputDir.X * SENSITIVITY, 0, inputDir.Y * SENSITIVITY);
 		//implement delta into movement
 		if (direction != Vector3.Zero) {
 			velocity.X = direction.X * SPEED;
 			velocity.Z = direction.Z * SPEED;
-		}
-		else {
+		} else {
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, ACCELERATION);
 			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, ACCELERATION);
 		}
 
-		if (Input.IsActionPressed("movement_jump") && IsOnFloor()) velocity.Y = jumpPower;
+		if (Input.IsActionPressed("movement_jump") && IsOnFloor())
+			velocity.Y = jumpPower;
 		// Gravity (considering frame rate independence)
 		velocity.Y -= 5.8f * (float)delta;
 		Velocity = velocity;
@@ -55,8 +55,8 @@ public partial class Character : CharacterBody3D {
 		}
 	}
 
-	void updateLabel() {
-		foodLabel.Text = "Food: " + food.getCurrency();
+	void UpdateLabel() {
+		foodLabel.Text = "Food: " + food.GetCurrency();
 	}
 
 	public void AddResource(Currency resource) {

@@ -2,11 +2,11 @@ using Godot;
 using GodotExtensions.extensions.node;
 
 public partial class FreeEnemy : CharacterBody3D {
+	[Export] public int damage = 10;
+	[Export] public bool shooting;
 	//DONT FORGET MAKING INVESTMENTS IN A STOCK MARKET (2/15/2024)// OK OK I GET IT JEEZ I WILL WORK ON IT NOW PAST ME (2/20/2024)// YOU SAID YOU WILL WORK ON IT BUT IT IS  (2/24/2024) AND STILL NOTHING DAMIR 
 	[Export] float speed = 5f;
-	[Export] public int damage = 10;
 	public HealthComponent health;
-	[Export] public bool shooting;
 	public float gravity = 6f;
 	DetectionComponent detection;
 	DetectionComponent attackArea;
@@ -19,11 +19,12 @@ public partial class FreeEnemy : CharacterBody3D {
 		detection.ValidBodyEntered += Target;
 		detection.ValidBodyExited += RemoveTarget;
 		health = GetNode<HealthComponent>("%HealthComponent");
-		health.OnHealthChange += onDeath;
+		health.OnHealthChange += OnDeath;
 	}
 
 	public void Target(CharacterBody3D target) {
-		if (target is not Character) return;
+		if (target is not Character)
+			return;
 		targetComponent.SetTarget(target);
 	}
 
@@ -31,7 +32,7 @@ public partial class FreeEnemy : CharacterBody3D {
 		targetComponent.RemoveTarget();
 	}
 
-	public async void onDeath() {
+	public async void OnDeath() {
 		await this.YieldForSeconds(1);
 		QueueFree();
 	}
@@ -39,9 +40,11 @@ public partial class FreeEnemy : CharacterBody3D {
 	public override void _Process(double delta) {
 		Velocity = Velocity with { Y = Velocity.Y - gravity * (float)delta };
 		MoveAndSlide();
-		if (shooting) return;
-		if (targetComponent.DoesNotHaveTarget) return;
-		targetComponent.updateTarget();
+		if (shooting)
+			return;
+		if (targetComponent.DoesNotHaveTarget)
+			return;
+		targetComponent.UpdateTarget();
 		Vector3 nextLocation = targetComponent.GetNextPathPosition();
 		//Vector3 VelocityToTarget = (nextLocation - GlobalPosition).Normalized();
 		Velocity = Velocity with { X = nextLocation.X - GlobalPosition.X };

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ho8uu2ni0n4r"]
 
 [ext_resource type="Script" path="res://prefabs/Character/Character.cs" id="1_qtlbi"]
-[ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_6a6fo"]
-[ext_resource type="Script" path="res://prefabs/Bars/HealthBar.cs" id="3_5vftq"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="2_6a6fo"]
+[ext_resource type="Script" path="res://prefabs/ui/HealthBar/HealthBar.cs" id="3_5vftq"]
 [ext_resource type="Script" path="res://scripts/Currency.cs" id="4_m7owc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_for54"]

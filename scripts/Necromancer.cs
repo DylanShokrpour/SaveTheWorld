@@ -8,14 +8,14 @@ public partial class Necromancer : Node3D {
 
 	public override void _Ready() {
 		ConfigureTimer();
-		spawnTimer.Timeout += spawn;
+		spawnTimer.Timeout += Spawn;
 		pathCategory = GetParent().GetParent<Path>();
 	}
 
-	public void spawn() {
-		Goon unit = spawnPrefab.Instantiate<Goon>();
+	public void Spawn() {
+		var unit = spawnPrefab.Instantiate<Goon>();
 		Path path;
-		path = new Path(unit.speed);
+		path = new(unit.speed);
 		pathCategory.GetParent().AddChild(path);
 		path.Progress = pathCategory.Progress;
 		path.AddChild(unit);
@@ -23,7 +23,7 @@ public partial class Necromancer : Node3D {
 
 
 	void ConfigureTimer() {
-		spawnTimer = new Timer();
+		spawnTimer = new();
 		spawnTimer.WaitTime = spawnTime;
 		AddChild(spawnTimer);
 		spawnTimer.Start();

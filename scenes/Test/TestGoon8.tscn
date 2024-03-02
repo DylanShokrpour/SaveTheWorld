@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://b1u6bnvn8nn6s"]
 
 [ext_resource type="Script" path="res://scripts/Goon.cs" id="1_i1kg2"]
-[ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_xnq4m"]
-[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="3_kgfnn"]
-[ext_resource type="Script" path="res://scripts/GoonAbilitys/Converter.cs" id="4_kgjuk"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="2_xnq4m"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="3_kgfnn"]
+[ext_resource type="Script" path="res://scripts/goon_abilities/Converter.cs" id="4_kgjuk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciki8"]
 albedo_color = Color(0, 0.862745, 0.392157, 1)

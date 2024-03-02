@@ -11,10 +11,10 @@ public partial class Stock : Node {
 
 	public override void _Ready() {
 		currentValue = baseValue;
-		rand = new Random();
+		rand = new();
 	}
 
-	public void changeStockValue() {
+	public void ChangeStockValue() {
 		randN = rand.Next(-1, 1);
 		currentValue = (int)(currentValue + randN * changeRate);
 		randN = rand.Next(-1, 1);

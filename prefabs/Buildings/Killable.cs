@@ -5,10 +5,10 @@ public partial class Killable : Node3D {
 
 	public override void _Ready() {
 		healthComponent = GetNode<HealthComponent>("%HealthComponent");
-		healthComponent.OnDeath += die;
+		healthComponent.OnDeath += Die;
 	}
 
-	void die() {
+	void Die() {
 		QueueFree();
 	}
 }

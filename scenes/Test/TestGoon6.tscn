@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://sec6t5cnfse"]
 
 [ext_resource type="Script" path="res://scripts/Goon.cs" id="1_j0dhc"]
-[ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_37mvv"]
-[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="3_um183"]
-[ext_resource type="Script" path="res://components/DetectionComponent.cs" id="5_dhtk4"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="2_37mvv"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="3_um183"]
+[ext_resource type="Script" path="res://scripts/components/DetectionComponent.cs" id="5_dhtk4"]
 [ext_resource type="Script" path="res://scripts/Shield.cs" id="5_tb2ym"]
-[ext_resource type="Script" path="res://scripts/GoonAbilitys/Armour.cs" id="6_to55v"]
-[ext_resource type="Script" path="res://scripts/GoonAbilitys/Weapon.cs" id="7_aiytl"]
+[ext_resource type="Script" path="res://scripts/goon_abilities/Armour.cs" id="6_to55v"]
+[ext_resource type="Script" path="res://scripts/goon_abilities/Weapon.cs" id="7_aiytl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tenco"]
 albedo_color = Color(1, 0, 0, 1)
