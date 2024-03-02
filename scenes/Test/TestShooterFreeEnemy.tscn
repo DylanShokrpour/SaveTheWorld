@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="2_w4g0y"]
 [ext_resource type="Script" path="res://scripts/components/TargetComponent.cs" id="3_de3f0"]
 [ext_resource type="Script" path="res://scripts/components/DetectionComponent.cs" id="4_457g2"]
-[ext_resource type="Script" path="res://scripts/components/RangeComponent.cs" id="6_l6ogv"]
+[ext_resource type="Script" path="res://scripts/components/RangedAttackComponent.cs" id="6_l6ogv"]
 [ext_resource type="PackedScene" uid="uid://hkdl5adfod3v" path="res://scenes/Test/TestBullet.tscn" id="7_mv6xk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea73j"]

@@ -15,15 +15,15 @@ public partial class Bullet : RigidBody3D {
 		detectionComponent = GetNode<DetectionComponent>("DetectionComponent");
 		detectionComponent.ValidBodyEntered += BodyEntered;
 		LinearVelocity = (targetPosition - GlobalPosition) * 10;
-		NotHit();
+		_ = NotHit();
 	}
 
-	async Task NotHit() {
+	async Task NotHit() { // prevents from going into void
 		await this.WaitForSeconds(4);
 		DeleteBullet();
 	}
 
-	public async void DeleteBullet() {
+	public void DeleteBullet() {
 		if (HasNode("AreaDamageComponent")) {
 			var areaDamageComponent = GetNode<AreaDamageComponent>("AreaDamageComponent");
 			areaDamageComponent.Impact();

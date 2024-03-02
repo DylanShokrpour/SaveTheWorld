@@ -6,7 +6,7 @@ using Godot;
 /// <summary>
 ///     RangeComponent is a component that allows the parent to attack enemies in a certain range.
 /// </summary>
-public partial class RangeComponent : Node3D {
+public partial class RangedAttackComponent : Node3D {
 	[Export] int damage; // this is the damage the user does I KNOW I AM HILAROUS FOR USING TROLL COMMENTS
 	[Export] PackedScene prefabBullet;
 	[Export] int AttackSpeed = 1; //time per shot so yeah kinda the opposite...
