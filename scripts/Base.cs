@@ -2,6 +2,7 @@ using Godot;
 
 public partial class Base : Building {
 	[Export] public Path3D path;
+	RangedAttackComponent rangedAttackComponent;
 	DetectionComponent detectionComponent;
 	HealthComponent healthComponent;
 
@@ -9,6 +10,10 @@ public partial class Base : Building {
 		healthComponent = GetNode<HealthComponent>("%HealthComponent");
 		detectionComponent = GetNode<DetectionComponent>("DetectionComponent");
 		detectionComponent.ValidBodyEntered += Hit;
+		
+		rangedAttackComponent = GetNode<RangedAttackComponent>("RangedAttackComponent");
+		rangedAttackComponent.targetType = typeof(Goon);
+		
 		int lastPoint = path.Curve.PointCount - 1;
 		Position = path.Curve.GetPointPosition(lastPoint);
 	}

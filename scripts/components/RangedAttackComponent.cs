@@ -18,7 +18,6 @@ public partial class RangedAttackComponent : Node3D {
 	bool hasTarget;
 
 	public override void _Ready() {
-		FindTargetType();
 		ConfigureTimer(); // MAKE A LIST THAT STORES THE CLOSEST GOONS
 		detectionComponent = GetNode<DetectionComponent>("RangeDetectionComponent");
 		detectionComponent.ValidBodyEntered += OnDetected;
@@ -26,18 +25,11 @@ public partial class RangedAttackComponent : Node3D {
 		attackTimer.Timeout += Attack;
 	}
 
-	void FindTargetType() {
-		if ((GetParent().GetType() == typeof(Building)) || (GetParent().GetType() == typeof(Base)))
-			targetType = typeof(Goon);
-		else
-			targetType = typeof(Character);
-	}
 
 	void OnLost() {
 		enemiesInArea.Remove(currentTarget);
 		RemoveInvalidGoons();
 		hasTarget = false;
-		//attackTimer.Stop();
 	}
 
 	void OnDetected(CharacterBody3D target) {

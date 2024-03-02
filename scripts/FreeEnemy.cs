@@ -10,16 +10,22 @@ public partial class FreeEnemy : CharacterBody3D {
 	float gravity = 6f;
 	DetectionComponent detection;
 	DetectionComponent attackArea;
+	RangedAttackComponent rangedAttackComponent;
 	Vector3 velocity = Vector3.Zero;
 	TargetComponent targetComponent;
 
 	public override void _Ready() {
-		detection = GetNode<DetectionComponent>("%DetectionComponent");
 		targetComponent = GetNode<TargetComponent>("%TargetingComponent");
+		
+		detection = GetNode<DetectionComponent>("%DetectionComponent");
 		detection.ValidBodyEntered += Target;
 		detection.ValidBodyExited += RemoveTarget;
+		
 		health = GetNode<HealthComponent>("%HealthComponent");
 		health.OnHealthChange += OnDeath;
+		
+		rangedAttackComponent = GetNode<RangedAttackComponent>("RangedAttackComponent");
+		rangedAttackComponent.targetType = typeof(Character);
 	}
 
 	void Target(CharacterBody3D target) {

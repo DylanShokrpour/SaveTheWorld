@@ -46,15 +46,15 @@ skeleton = NodePath("../..")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 
-[node name="RangeComponent" type="Node3D" parent="."]
+[node name="RangedAttackComponent" type="Node3D" parent="."]
 script = ExtResource("5_o55hg")
 damage = 20
 prefabBullet = ExtResource("6_8epar")
 
-[node name="RangeDetectionComponent" type="Area3D" parent="RangeComponent"]
+[node name="RangeDetectionComponent" type="Area3D" parent="RangedAttackComponent"]
 script = ExtResource("3_4gqut")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RangeComponent/RangeDetectionComponent"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangedAttackComponent/RangeDetectionComponent"]
 shape = SubResource("SphereShape3D_4gbi5")
 
 [node name="Factory" type="Node3D" parent="."]

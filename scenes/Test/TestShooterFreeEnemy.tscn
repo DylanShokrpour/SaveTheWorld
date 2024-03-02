@@ -55,15 +55,15 @@ script = ExtResource("4_457g2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
 shape = SubResource("SphereShape3D_3g7ub")
 
-[node name="RangeComponent" type="Node3D" parent="."]
+[node name="RangedAttackComponent" type="Node3D" parent="."]
 script = ExtResource("6_l6ogv")
 damage = 20
 prefabBullet = ExtResource("7_mv6xk")
 
-[node name="RangeDetectionComponent" type="Area3D" parent="RangeComponent"]
+[node name="RangeDetectionComponent" type="Area3D" parent="RangedAttackComponent"]
 script = ExtResource("4_457g2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RangeComponent/RangeDetectionComponent"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangedAttackComponent/RangeDetectionComponent"]
 shape = SubResource("SphereShape3D_3g7ub")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
