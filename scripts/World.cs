@@ -20,7 +20,7 @@ public partial class World : Node3D {
 
 		locationLabel = GetNode<LocationLabel>("%LocationLabel");
 		locationLabel.Text = Name;
-		locationLabel.Activate();
+		_ = locationLabel.ShowLocationAnimation();
 
 		waveManager = GetNode<WaveManager>("WaveManager");
 		waveManager.NewWaveStarted += CheckForMusicChange;

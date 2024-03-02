@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Godot;
 using GodotExtensions.extensions.node;
 
@@ -12,23 +13,29 @@ public partial class LocationLabel : RichTextLabel {
 		//Color = new Color(1, 1, 1,1);
 	}
 
-	public void Activate() {
+	public async Task ShowLocationAnimation() {
+		await DropDown();
+		await this.WaitForSeconds(2);
+		await RetractUp(); // await does not really matter on the last one.
+	}
+	
+	async Task DropDown() {
 		Text = Font + GetOwner<Node3D>().Name;
 		RefreshTween();
 		tween.SetTrans(transitionType);
 		tween.TweenProperty(this, Control.PropertyName.GlobalPosition.ToString(),
 			new Vector2(Position.X, 20),
 			2);
-		DeActivate();
+		await ToSignal(tween, Tween.SignalName.Finished);
 	}
 
-	async void DeActivate() {
-		await this.WaitForSeconds(2);
+	async Task RetractUp() {
 		RefreshTween();
 		tween.SetTrans(transitionType);
 		tween.TweenProperty(this, Control.PropertyName.GlobalPosition.ToString(),
 			new Vector2(Position.X, -100),
 			2);
+		await ToSignal(tween, Tween.SignalName.Finished);
 	}
 
 	void RefreshTween() {
