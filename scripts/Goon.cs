@@ -1,13 +1,20 @@
+using System.Collections.Generic;
 using Godot;
-using System;
 
 public partial class Goon : CharacterBody3D {
 	[Export] public int damage = 10;
-	[Export] public int speed = 1;
+	[Export] public float speed = 1;
 	public HealthComponent healthComponent;
-	public PathFollow3D path;
-	public override void _Ready() {
-		healthComponent = GetNode<HealthComponent>("HealthComponent");
-		
+	public Path path;
+	public PathFollow3D parentFollow;
+	public List<Item> items = new();
+
+	public override void _EnterTree() {
+		healthComponent = GetNode<HealthComponent>("%HealthComponent");
+		healthComponent.OnDeath += die;
+	}
+
+	public void die() {
+		GetParent().QueueFree();
 	}
 }

@@ -9,7 +9,7 @@ public partial class Spawner : Node3D {
 	[Export] Timer spawnTimer;
 
 	public override void _Ready() {
-		Position = path3D.Curve.GetPointPosition(0);
+		GlobalPosition = path3D.Curve.GetPointPosition(0);
 	}
 
 	public async void startWave(Wave wave) {
@@ -21,9 +21,11 @@ public partial class Spawner : Node3D {
 
 	public void vanguardFactory(PackedScene goonPrefab) {
 		//Maybe it should have its own script but I will cry later when that bites my in the a
+
 		Goon goon = goonPrefab.Instantiate<Goon>();
 		Path path = new(goon.speed);
 		path3D.AddChild(path);
+		goon.path = path;
 		path.AddChild(goon);
 		//Bullet bulletInstance = bullet.Instantiate<Bullet>();
 	}

@@ -1,13 +1,55 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6byir8d0b7ro"]
+[gd_scene load_steps=37 format=3 uid="uid://c6byir8d0b7ro"]
 
 [ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_2aadf"]
 [ext_resource type="Script" path="res://scripts/World.cs" id="1_x3gs8"]
 [ext_resource type="PackedScene" uid="uid://cgby4t2cdaokk" path="res://scenes/Test/TestSpawner.tscn" id="2_fqdl5"]
 [ext_resource type="Script" path="res://scripts/Wave.cs" id="4_3vu67"]
+[ext_resource type="PackedScene" uid="uid://b1u6bnvn8nn6s" path="res://scenes/Test/TestGoon8.tscn" id="5_c5pxh"]
 [ext_resource type="PackedScene" uid="uid://bwyd7mdd8no0t" path="res://scenes/Test/TestGoon.tscn" id="5_dyha3"]
+[ext_resource type="PackedScene" uid="uid://ca3agjtwci5s7" path="res://scenes/Test/TestGoon7.tscn" id="6_busyq"]
 [ext_resource type="Script" path="res://manager/WaveManager.cs" id="6_sk1jh"]
 [ext_resource type="PackedScene" uid="uid://tnmqbcenbch5" path="res://prefabs/Buildings/Base.tscn" id="7_0pogp"]
+[ext_resource type="PackedScene" uid="uid://bee3g0por3ji4" path="res://scenes/Test/TestGoon5.tscn" id="7_d8648"]
 [ext_resource type="PackedScene" uid="uid://c63jcbe8lwfvp" path="res://scenes/Test/TestGoon2.tscn" id="7_mp8cd"]
+[ext_resource type="PackedScene" uid="uid://cdyrgsu3xva08" path="res://scenes/Test/TestGoon4.tscn" id="8_8qhww"]
+[ext_resource type="PackedScene" uid="uid://c2yar1osj2r75" path="res://scenes/Test/BossTestGoon.tscn" id="9_48nlp"]
+[ext_resource type="PackedScene" uid="uid://cym3cxbeknelh" path="res://scenes/Test/TestGoon3.tscn" id="10_qb576"]
+[ext_resource type="PackedScene" uid="uid://cd3d7acs8w1i3" path="res://scenes/Test/TestFreeEnemy.tscn" id="12_0frdt"]
+[ext_resource type="AudioStream" uid="uid://c8vyi6dschw8q" path="res://Assets/Audio/Music/NutCracker.mp3" id="13_31dwb"]
+[ext_resource type="PackedScene" uid="uid://c52lhoujo1vol" path="res://prefabs/Buildings/Wall.tscn" id="14_vshe5"]
+[ext_resource type="Script" path="res://manager/AudioManager.cs" id="15_p686e"]
+[ext_resource type="Script" path="res://scripts/LocationLabel.cs" id="15_u5cfo"]
+[ext_resource type="AudioStream" uid="uid://bdcspcnuvvddf" path="res://Assets/Audio/Music/carnival-of-bizarre-177383.mp3" id="17_0twnn"]
+[ext_resource type="AudioStream" uid="uid://dywrl78w2qw4c" path="res://Assets/Audio/Music/clown.mp3" id="19_lfcpu"]
+[ext_resource type="AudioStream" uid="uid://cs3pvx7r6woql" path="res://Assets/Audio/Music/dark-circus-113460.mp3" id="19_oqt50"]
+[ext_resource type="AudioStream" uid="uid://1e18eg1rw30t" path="res://Assets/Audio/Music/Adoption.mp3" id="20_3ck8a"]
+[ext_resource type="PackedScene" uid="uid://bog22fx3632jl" path="res://scenes/Test/TestBuilding.tscn" id="20_i4loj"]
+[ext_resource type="AudioStream" uid="uid://b8bf820t8io78" path="res://DANGER/Instrumental.mp3" id="20_yuv5s"]
+[ext_resource type="PackedScene" uid="uid://bqowd4itlvmko" path="res://scenes/Test/TestShooterFreeEnemy.tscn" id="21_aepx3"]
+[ext_resource type="Script" path="res://scripts/StockMarket.cs" id="22_3t81j"]
+[ext_resource type="PackedScene" uid="uid://jq1drkfb8u43" path="res://scenes/Test/TestBuilding2.tscn" id="25_0uq6f"]
+
+[sub_resource type="Curve3D" id="Curve3D_6chdn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.271201, 0, 21.0972, 0, 0, 0, 0, 0, 0, -0.504115, 0, 15.1967, 0, 0, 0, 0, 0, 0, 7.64786, 0, 14.9638, 0, 0, 0, 0, 0, 0, 7.7255, 0, 10.2279, 0, 0, 0, 0, 0, 0, -1.35813, 0, 9.99496, 0, 0, 0, 0, 0, 0, -0.271201, 0, 3.08519, 0, 0, 0, 0, 0, 0, -0.686973, 0, -1.14262),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_l8qfo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 18.9488, 0, 23.2856, 0, 0, 0, 0, 0, 0, 19.0154, 0, 15.631, 0, 0, 0, 0, 0, 0, 11.627, 0, 8.30918, 0, 0, 0, 0, 0, 0, 12.3592, 0, -0.410434, 0, 0, 0, 0, 0, 0, 0.910512, 0, -0.676681),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_urkii"]
+vertices = PackedVector3Array(-24.5, 1.25, -24.5, -24.5, 1.25, 24.5, 24.5, 1.25, 24.5, 24.5, 1.25, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kdc4l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nruk1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpdwc"]
 sky_top_color = Color(0.290196, 0.4, 0.854902, 1)
@@ -19,72 +61,183 @@ sky_material = SubResource("ProceduralSkyMaterial_kpdwc")
 [sub_resource type="Environment" id="Environment_xjoxk"]
 background_mode = 2
 sky = SubResource("Sky_j6nye")
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_kdc4l"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nruk1"]
-
-[sub_resource type="Curve3D" id="Curve3D_l8qfo"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.263, 2, 24.036, 0, 0, 0, 0, 0, 0, -0.003, 2, 14.717, 0, 0, 0, 0, 0, 0, 10.098, 2, 15.043, 0, 0, 0, 0, 0, 0, 10.489, 2, 8.657, 0, 0, 0, 0, 0, 0, 2.604, 2, 8.592, 0, 0, 0, 0, 0, 0, 3, 2, -11),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vvvmi"]
-
-[node name="TestWorld" type="Node3D" node_paths=PackedStringArray("wave1")]
+[node name="TestWorld" type="Node3D" node_paths=PackedStringArray("wave1", "wave2")]
 script = ExtResource("1_x3gs8")
-wave1 = NodePath("TestSpawner/Wave1")
+wave1 = NodePath("WaveManager/Wave1")
+wave2 = NodePath("WaveManager/Wave2")
 
 [node name="Character" parent="." instance=ExtResource("1_2aadf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xjoxk")
+[node name="WaveManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735194, 0.393929, -0.849189)
+script = ExtResource("6_sk1jh")
+waveSpeed = 10
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Wave1" type="Node3D" parent="WaveManager"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
+script = ExtResource("4_3vu67")
+enemyList = Array[PackedScene]([ExtResource("5_c5pxh"), ExtResource("5_c5pxh"), ExtResource("6_busyq"), ExtResource("7_d8648"), ExtResource("8_8qhww")])
+timeBetweenSpawn = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="Wave2" type="Node3D" parent="WaveManager"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
+script = ExtResource("4_3vu67")
+enemyList = Array[PackedScene]([ExtResource("10_qb576"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd")])
+timeBetweenSpawn = 1
+
+[node name="Wave3" type="Node3D" parent="WaveManager"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
+script = ExtResource("4_3vu67")
+enemyList = Array[PackedScene]([ExtResource("5_dyha3"), ExtResource("5_dyha3"), ExtResource("7_mp8cd"), ExtResource("10_qb576"), ExtResource("10_qb576")])
+timeBetweenSpawn = 1
+
+[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path3D", "spawnTimer") instance=ExtResource("2_fqdl5")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 9.5)
+path3D = NodePath("../../Path/Path3D2")
+spawnTimer = NodePath("../TestSpawner/Timer")
+
+[node name="TestSpawner" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 0)
+path3D = NodePath("../../Path/Path3D")
+
+[node name="Wave4" type="Node3D" parent="WaveManager"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
+script = ExtResource("4_3vu67")
+enemyList = Array[PackedScene]([ExtResource("9_48nlp"), ExtResource("9_48nlp")])
+timeBetweenSpawn = 1
+
+[node name="Path" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="Path3D2" type="Path3D" parent="Path"]
+curve = SubResource("Curve3D_6chdn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path/Path3D2"]
+transform = Transform3D(0.99519, 0, 0.0978691, 0, 1, 0, -0.0978691, 0, 0.99519, -0.528415, 0, 0.469688)
+progress = 37.5059
+
+[node name="Path3D" type="Path3D" parent="Path"]
+curve = SubResource("Curve3D_l8qfo")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path/Path3D"]
+transform = Transform3D(0.999962, 0, -0.00870042, 0, 1, 0, 0.00870042, 0, 0.999962, 18.9488, 0, 23.2856)
+
+[node name="Spawners" type="Node3D" parent="Path"]
+
+[node name="Base" parent="Path" node_paths=PackedStringArray("path") instance=ExtResource("7_0pogp")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.8, 0, 0)
+path = NodePath("../Path3D")
+
+[node name="FreeEnemy" parent="." instance=ExtResource("12_0frdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.9, 15.1)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_urkii")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
 transform = Transform3D(50, 0, 0, 0, 1.5, 0, 0, 0, 50, 0, 0, 0)
 mesh = SubResource("BoxMesh_kdc4l")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
 transform = Transform3D(50, 0, 0, 0, 1.5, 0, 0, 0, 50, 0, 0, 0)
 shape = SubResource("BoxShape3D_nruk1")
 
-[node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_l8qfo")
+[node name="Wall" parent="." instance=ExtResource("14_vshe5")]
+transform = Transform3D(-1.99239, 0, -0.174312, 0, 2, 0, 0.174312, 0, -1.99239, 7.8, 1.9, 8.8)
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999611, 0, -0.0278891, 0, 1, 0, 0.0278891, 0, 0.999611, -0.263, 2, 24.036)
+[node name="MapUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.90596, 0)
-mesh = SubResource("CylinderMesh_vvvmi")
-
-[node name="TestSpawner" parent="." node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
+[node name="LocationLabel" type="RichTextLabel" parent="MapUI"]
 unique_name_in_owner = true
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
-path3D = NodePath("../Path3D")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -269.5
+offset_top = -100.0
+offset_right = 269.5
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 61
+bbcode_enabled = true
+text = "Bro why it no work BRO"
+fit_content = true
+script = ExtResource("15_u5cfo")
 
-[node name="Wave1" type="Node3D" parent="TestSpawner"]
-script = ExtResource("4_3vu67")
-enemyList = Array[PackedScene]([ExtResource("5_dyha3"), ExtResource("5_dyha3"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd")])
-timeBetweenSpawn = 1
+[node name="AudioManager" type="Node3D" parent="."]
+script = ExtResource("15_p686e")
 
-[node name="Wave2" type="Node3D" parent="TestSpawner"]
-script = ExtResource("4_3vu67")
-enemyList = Array[PackedScene]([ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd"), ExtResource("7_mp8cd")])
-timeBetweenSpawn = 1
+[node name="Ambiance" type="Node3D" parent="AudioManager"]
 
-[node name="WaveManager" type="Node3D" parent="."]
-script = ExtResource("6_sk1jh")
+[node name="Ambiance1" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
+stream = ExtResource("20_3ck8a")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+[node name="Ambiance2" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
+stream = ExtResource("17_0twnn")
 
-[node name="Base" parent="." node_paths=PackedStringArray("path") instance=ExtResource("7_0pogp")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-path = NodePath("../Path3D")
+[node name="Ambiance3" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
+stream = ExtResource("19_lfcpu")
+
+[node name="Ambiance4" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
+stream = ExtResource("20_yuv5s")
+
+[node name="EpicAmbiance" type="Node3D" parent="AudioManager"]
+
+[node name="EAmbiance1" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
+stream = ExtResource("19_lfcpu")
+
+[node name="EAmbiance2" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
+stream = ExtResource("13_31dwb")
+
+[node name="EAmbiance3" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
+stream = ExtResource("19_oqt50")
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="DefeatSound" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="CurrentMusic" type="AudioStreamPlayer" parent="AudioManager"]
+autoplay = true
+
+[node name="TestShooterFreeEnemy" parent="." instance=ExtResource("21_aepx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8, 6.5, -5.3)
+
+[node name="TestBuilding" parent="." instance=ExtResource("20_i4loj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7879, 4.1, 11.7)
+
+[node name="Bullets" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="StockMarket" type="Node3D" parent="."]
+script = ExtResource("22_3t81j")
+WaitTime = 1
+
+[node name="Building" parent="." instance=ExtResource("25_0uq6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, -13.5)
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 29.9, -31.2)
+shadow_enabled = true
+shadow_blur = 2.325
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource("Environment_xjoxk")

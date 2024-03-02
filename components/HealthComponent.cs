@@ -1,8 +1,6 @@
 using Godot;
-using System;
 
-public partial class HealthComponent : Node3D
-{
+public partial class HealthComponent : Node3D {
 	[Signal]
 	public delegate void OnHealthChangeEventHandler();
 
@@ -10,7 +8,7 @@ public partial class HealthComponent : Node3D
 	public delegate void OnDeathEventHandler();
 
 	[Export] public int health = 100;
-
+	[Export] public float damageModifier = 1;
 	public int GetHealth() => health;
 
 	public void AddHealth(int amount) {
@@ -18,14 +16,14 @@ public partial class HealthComponent : Node3D
 	}
 
 	public void TakeDamage(int amount) {
-		health -= amount;
+		health -= (int)(amount * damageModifier);
 		EmitSignal("OnHealthChange");
-		if(health <= 0) {
-			EmitSignal("OnDeath");
-		}
+		if (health <= 0) EmitSignal("OnDeath");
 	}
 
 	public void SetHealth(int amount) {
 		health = amount;
+		EmitSignal("OnHealthChange");
+		if (health <= 0) EmitSignal("OnDeath");
 	}
 }

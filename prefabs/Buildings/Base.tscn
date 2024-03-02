@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://tnmqbcenbch5"]
+[gd_scene load_steps=14 format=3 uid="uid://tnmqbcenbch5"]
 
 [ext_resource type="Script" path="res://scripts/Base.cs" id="1_6cuiv"]
 [ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_rulra"]
 [ext_resource type="Script" path="res://components/DetectionComponent.cs" id="3_4gqut"]
 [ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="4_wsyd7"]
+[ext_resource type="Script" path="res://components/RangeComponent.cs" id="5_o55hg"]
+[ext_resource type="PackedScene" uid="uid://hkdl5adfod3v" path="res://scenes/Test/TestBullet.tscn" id="6_8epar"]
+[ext_resource type="PackedScene" uid="uid://bxmwfvnv8andu" path="res://scenes/Test/TestTrackBuilding.tscn" id="8_0af0c"]
+[ext_resource type="Script" path="res://prefabs/Buildings/Factory.cs" id="9_ecmob"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_n6ja0"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2f8n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4rjpl"]
 
@@ -14,6 +18,9 @@ albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ffxpg"]
 material = SubResource("StandardMaterial3D_xxvry")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4gbi5"]
+radius = 10.0
 
 [node name="Base" type="StaticBody3D"]
 script = ExtResource("1_6cuiv")
@@ -26,7 +33,7 @@ script = ExtResource("2_rulra")
 script = ExtResource("3_4gqut")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
-shape = SubResource("SphereShape3D_n6ja0")
+shape = SubResource("BoxShape3D_q2f8n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4rjpl")
@@ -38,3 +45,19 @@ skeleton = NodePath("../..")
 [node name="HealthBar" parent="." instance=ExtResource("4_wsyd7")]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="RangeComponent" type="Node3D" parent="."]
+script = ExtResource("5_o55hg")
+damage = 20
+prefabBullet = ExtResource("6_8epar")
+
+[node name="RangeDetectionComponent" type="Area3D" parent="RangeComponent"]
+script = ExtResource("3_4gqut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangeComponent/RangeDetectionComponent"]
+shape = SubResource("SphereShape3D_4gbi5")
+
+[node name="Factory" type="Node3D" parent="."]
+script = ExtResource("9_ecmob")
+spawnPrefab = ExtResource("8_0af0c")
+spawnTime = 3

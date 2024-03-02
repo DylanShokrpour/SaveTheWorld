@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://bee3g0por3ji4"]
+
+[ext_resource type="Script" path="res://components/HealthComponent.cs" id="1_isvmx"]
+[ext_resource type="Script" path="res://scripts/Goon.cs" id="1_xicsp"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="2_7mnym"]
+[ext_resource type="Script" path="res://scripts/Ghost.cs" id="4_s85ur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciki8"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.188235)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t6e0n"]
+material = SubResource("StandardMaterial3D_ciki8")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhpew"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2dyfj"]
+viewport_path = NodePath("HealthComponent/SubViewport")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_xicsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_t6e0n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qhpew")
+
+[node name="HealthComponent" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_isvmx")
+
+[node name="SubViewport" type="SubViewport" parent="HealthComponent"]
+size = Vector2i(512, 22)
+
+[node name="HealthBar" parent="HealthComponent/SubViewport" instance=ExtResource("2_7mnym")]
+
+[node name="Health" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_2dyfj")
+
+[node name="Ghost" type="Node3D" parent="."]
+script = ExtResource("4_s85ur")
+sineAmplitude = 0.01

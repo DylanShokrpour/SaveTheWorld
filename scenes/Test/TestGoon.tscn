@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_3jvai"]
 [ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="3_jwkap"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tenco"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3hx4"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ch54x"]
-material = SubResource("StandardMaterial3D_tenco")
+material = SubResource("StandardMaterial3D_g3hx4")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cuac"]
 
@@ -18,7 +18,7 @@ viewport_path = NodePath("HealthComponent/SubViewport")
 [node name="TestGoon" type="CharacterBody3D"]
 script = ExtResource("1_2ky77")
 damage = 2
-speed = 3
+speed = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ch54x")

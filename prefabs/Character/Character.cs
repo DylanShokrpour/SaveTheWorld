@@ -1,10 +1,11 @@
 using Godot;
-using System;
 
 public partial class Character : CharacterBody3D {
 	const int SPEED = 10;
 	const int ACCELERATION = 10;
 	const int sensitivity = 5;
+	public Currency food = new();
+	RichTextLabel foodLabel;
 	float jumpPower = 10;
 	Vector3 velocity;
 	Node3D head;
@@ -14,6 +15,8 @@ public partial class Character : CharacterBody3D {
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		head = GetNode<Node3D>("%Head");
 		camera = GetNode<Camera3D>("%PlayerCamera");
+		foodLabel = GetNode<RichTextLabel>("%FoodLabel");
+		food.OnCurrencyChange += updateLabel;
 	}
 
 	public override void _PhysicsProcess(double delta) {
@@ -50,5 +53,13 @@ public partial class Character : CharacterBody3D {
 			camera.Rotation = cameraRot;
 			//lookDir.Rotation = camera.Rotation;
 		}
+	}
+
+	void updateLabel() {
+		foodLabel.Text = "Food: " + food.getCurrency();
+	}
+
+	public void AddResource(Currency resource) {
+		//food.AddCurrency(resource);
 	}
 }

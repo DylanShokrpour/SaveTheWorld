@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://degj0y2pnynkq"]
+
+[ext_resource type="Script" path="res://scripts/Bullet.cs" id="1_e4ee7"]
+[ext_resource type="Script" path="res://AreaDamageComponent.cs" id="2_ri855"]
+[ext_resource type="Script" path="res://components/DetectionComponent.cs" id="3_ddeun"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_paqri"]
+radius = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j28un"]
+albedo_color = Color(0, 0, 0.203922, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i2jm0"]
+material = SubResource("StandardMaterial3D_j28un")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ux3us"]
+
+[node name="TestExplosiveBullet" type="RigidBody3D"]
+script = ExtResource("1_e4ee7")
+
+[node name="AreaDamageComponent" type="Area3D" parent="."]
+script = ExtResource("2_ri855")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDamageComponent"]
+shape = SubResource("SphereShape3D_paqri")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_i2jm0")
+
+[node name="DetectionComponent" type="Area3D" parent="."]
+script = ExtResource("3_ddeun")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
+shape = SubResource("SphereShape3D_ux3us")

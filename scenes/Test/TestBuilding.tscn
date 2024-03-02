@@ -1,19 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bog22fx3632jl"]
+[gd_scene load_steps=8 format=3 uid="uid://bog22fx3632jl"]
 
 [ext_resource type="Script" path="res://scripts/Building.cs" id="1_fscct"]
 [ext_resource type="Script" path="res://components/DetectionComponent.cs" id="2_qq82q"]
+[ext_resource type="PackedScene" uid="uid://hkdl5adfod3v" path="res://scenes/Test/TestBullet.tscn" id="3_6llhk"]
+[ext_resource type="Script" path="res://components/RangeComponent.cs" id="3_xu8t0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loifi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jboqi"]
 albedo_color = Color(0, 0.509804, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_b74sd"]
-material = SubResource("StandardMaterial3D_loifi")
+material = SubResource("StandardMaterial3D_jboqi")
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_hilwr"]
+radius = 10.0
+
+[node name="TestBuilding" type="StaticBody3D"]
 script = ExtResource("1_fscct")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_b74sd")
 
-[node name="DetectionComponent" type="Area3D" parent="."]
+[node name="RangeComponent" type="Node3D" parent="."]
+script = ExtResource("3_xu8t0")
+damage = 70
+prefabBullet = ExtResource("3_6llhk")
+
+[node name="RangeDetectionComponent" type="Area3D" parent="RangeComponent"]
 script = ExtResource("2_qq82q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangeComponent/RangeDetectionComponent"]
+shape = SubResource("SphereShape3D_hilwr")

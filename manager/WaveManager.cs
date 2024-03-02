@@ -1,30 +1,54 @@
-using Godot;
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Godot;
+using GodotExtensions.extensions.node;
 
+/// <summary>
+///     This class is responsible for managing the waves of enemies
+/// </summary>
 public partial class WaveManager : Node3D {
-	List<Wave> waves = new List<Wave>();
-	List<Spawner> spawners = new List<Spawner>();
+	[Signal]
+	public delegate void newWaveStartEventHandler();
+
+	[Export] int waveSpeed;
+	Timer waveTimer = new();
+	List<Wave> waves = new();
+	List<Spawner> spawners = new();
 	Wave currentWave;
-	int waveCount;
+	public int waveCount;
+	public int totalWaves;
+
 	public override void _Ready() {
-		Spawner spawner = GetNode<Spawner>("%TestSpawner");
-		spawners.Add(spawner);
+		ConfigureTimer();
+		waves = this.GetDescendantsWhichAreA<Wave>().ToList();
+		totalWaves = waves.Count;
+		spawners = this.GetDescendantsWhichAreA<Spawner>().ToList();
+		//Spawner spawner = GetNode<Spawner>("%TestSpawner");
+		//spawners.Add(spawner);
+		waveTimer.Timeout += newWave;
 		newWave();
 	}
 
-	public void addWave(Wave wave) {
-		waves.Add(wave);
+
+	public void addSpawner(Spawner spawn) {
+		spawners.Add(spawn);
 	}
 
 	public void newWave() {
 		foreach (Spawner spawner in
-		spawners) {
+		         spawners) {
 			currentWave = waves[waveCount];
 			spawner.startWave(currentWave);
-			
 		}
+
 		waveCount++;
+		EmitSignal(SignalName.newWaveStart);
+	}
+
+	void ConfigureTimer() {
+		waveTimer = new Timer();
+		waveTimer.WaitTime = waveSpeed;
+		AddChild(waveTimer);
+		waveTimer.Start();
 	}
 }

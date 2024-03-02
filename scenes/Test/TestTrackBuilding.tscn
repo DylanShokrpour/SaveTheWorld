@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxmwfvnv8andu"]
+
+[ext_resource type="Script" path="res://scenes/Test/PathFollowBuilding.cs" id="1_4pmjj"]
+[ext_resource type="Script" path="res://scripts/Building.cs" id="1_cloit"]
+[ext_resource type="Script" path="res://components/BlockComponent.cs" id="2_wn6ik"]
+[ext_resource type="Script" path="res://components/HealthComponent.cs" id="3_q8hmo"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="4_xo2nv"]
+[ext_resource type="Script" path="res://prefabs/Buildings/Killable.cs" id="5_bvbtq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d228h"]
+albedo_color = Color(0.211765, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tkaw8"]
+material = SubResource("StandardMaterial3D_d228h")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mqok"]
+size = Vector3(0.5, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aiap0"]
+viewport_path = NodePath("HealthComponent/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmvkr"]
+
+[node name="TrackBuilding" type="StaticBody3D"]
+script = ExtResource("1_cloit")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tkaw8")
+
+[node name="BlockComponent2" type="Area3D" parent="."]
+script = ExtResource("2_wn6ik")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlockComponent2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00045862, 0, 0)
+shape = SubResource("BoxShape3D_1mqok")
+
+[node name="HealthComponent" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_q8hmo")
+health = 300
+
+[node name="SubViewport" type="SubViewport" parent="HealthComponent"]
+size = Vector2i(512, 22)
+
+[node name="HealthBar" parent="HealthComponent/SubViewport" instance=ExtResource("4_xo2nv")]
+
+[node name="Health" type="Sprite3D" parent="HealthComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_aiap0")
+
+[node name="Killable" type="Node3D" parent="."]
+script = ExtResource("5_bvbtq")
+
+[node name="FollowPath" type="Node3D" parent="."]
+script = ExtResource("1_4pmjj")
+speed = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wmvkr")

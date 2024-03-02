@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cftqh5wp6w2i8"]
+
+[ext_resource type="Script" path="res://scripts/Mineable/NaturalResource.cs" id="1_fwv4y"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_fwv4y")

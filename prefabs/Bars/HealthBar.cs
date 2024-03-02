@@ -1,10 +1,11 @@
 using Godot;
-using System;
+using GodotExtensions.extensions.node;
 
 public partial class HealthBar : ProgressBar {
 	HealthComponent healthComponent;
+
 	public override void _Ready() {
-		healthComponent = GetNode<HealthComponent>("%HealthComponent");
+		healthComponent = GetOwner<Node3D>().GetFirstChildOfClass<HealthComponent>();
 		Value = healthComponent.health;
 		healthComponent.OnHealthChange += updateBar;
 	}
