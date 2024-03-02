@@ -9,7 +9,7 @@ using GodotExtensions.extensions.node;
 public partial class WaveManager : Node3D {
 	[Signal] public delegate void NewWaveStartedEventHandler();
 
-	[Export] int waveSpeed;
+	[Export] int waveDuration;
 	Timer waveTimer = new();
 	List<Wave> waves = new();
 	List<Spawner> spawners = new();
@@ -32,6 +32,7 @@ public partial class WaveManager : Node3D {
 	}
 
 	void NewWave() {
+		GD.Print("Starting new wave");
 		foreach (Spawner spawner in
 		         spawners) {
 			currentWave = waves[waveCount];
@@ -44,7 +45,7 @@ public partial class WaveManager : Node3D {
 
 	void ConfigureTimer() {
 		waveTimer = new();
-		waveTimer.WaitTime = waveSpeed;
+		waveTimer.WaitTime = waveDuration;
 		AddChild(waveTimer);
 		waveTimer.Start();
 	}
