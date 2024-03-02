@@ -10,7 +10,6 @@ public partial class FreeEnemy : CharacterBody3D {
 	float gravity = 6f;
 	DetectionComponent detection;
 	DetectionComponent attackArea;
-	RangedAttackComponent rangedAttackComponent;
 	Vector3 velocity = Vector3.Zero;
 	TargetComponent targetComponent;
 
@@ -24,8 +23,9 @@ public partial class FreeEnemy : CharacterBody3D {
 		health = GetNode<HealthComponent>("%HealthComponent");
 		health.OnHealthChange += OnDeath;
 		
-		rangedAttackComponent = GetNode<RangedAttackComponent>("RangedAttackComponent");
-		rangedAttackComponent.targetType = typeof(Character);
+		var rangedAttackComponent = GetNodeOrNull<RangedAttackComponent>("RangedAttackComponent");
+		if (rangedAttackComponent != null)
+			rangedAttackComponent.targetType = typeof(Character);
 	}
 
 	void Target(CharacterBody3D target) {
