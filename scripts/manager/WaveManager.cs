@@ -38,7 +38,7 @@ public partial class WaveManager : Node3D {
 		foreach (Spawner spawner in spawners) {
 			// ! An exception will be thrown when the waveCount exceeds the number of waves
 			currentWave = waves[waveCount];
-			spawner.StartWave(currentWave);
+			_ = spawner.SpawnGoonsInWave(currentWave);
 		}
 
 		waveCount++;
