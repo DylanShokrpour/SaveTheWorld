@@ -16,7 +16,7 @@ public partial class Base : Building {
 	void Hit(CharacterBody3D character) {
 		if (character is Goon goon) {
 			healthComponent.TakeDamage(goon.damage);
-			goon.healthComponent.SetHealth(0);
+			goon.HealthComponent.SetHealth(0);
 		}
 	}
 }

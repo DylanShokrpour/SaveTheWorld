@@ -7,7 +7,7 @@ public partial class SplitGoon : Node3D {
 
 	public override void _Ready() {
 		parentGoon = GetParent<Goon>();
-		parentGoon.healthComponent.OnDeath += Die;
+		parentGoon.HealthComponent.OnDeath += Die;
 	}
 
 	void Die() {
