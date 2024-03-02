@@ -14,7 +14,7 @@ public partial class Base : Building {
 	}
 
 	public void Hit(CharacterBody3D character) {
-		if (character is Goon goon && (goon.path != null)) {
+		if (character is Goon goon) {
 			healthComponent.TakeDamage(goon.damage);
 			goon.healthComponent.SetHealth(0);
 		}

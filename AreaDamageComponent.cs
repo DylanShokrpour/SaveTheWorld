@@ -10,19 +10,15 @@ public partial class AreaDamageComponent : Area3D {
 
 	void GetBodies() {
 		targetType = GetParent<Bullet>().targetType;
-		foreach (Node3D body in GetOverlappingBodies()) {
-			GD.Print(body.GetType() + " type " + targetType);
+		foreach (Node3D body in GetOverlappingBodies())
 			if (body.GetType() == targetType)
 				enemiesInRange.Add(body);
-		}
 	}
 
 	public void impact() {
-		GD.Print("IMPCAT");
 		GetBodies();
 		foreach (Node3D target in enemiesInRange) {
 			HealthComponent targetHealth = target.GetFirstChildOfClass<HealthComponent>();
-			GD.Print("AMOUNT " + targetHealth.Name);
 			targetHealth.TakeDamage(GetParent<Bullet>().damage);
 		}
 	}

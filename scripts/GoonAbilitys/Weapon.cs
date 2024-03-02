@@ -18,7 +18,6 @@ public partial class Weapon : StaticBody3D {
 		if ((body.GetFirstChildOfClass<HealthComponent>() != null) && body is Building) {
 			HealthComponent healthComponent = body.GetFirstChildWhichIsA<HealthComponent>();
 			healthComponent.TakeDamage(damage * damageToTrackBuildingsModifer);
-			GD.Print("HAY");
 		}
 	}
 }

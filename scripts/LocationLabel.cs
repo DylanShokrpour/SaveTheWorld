@@ -19,7 +19,6 @@ public partial class LocationLabel : RichTextLabel {
 		tween.TweenProperty(this, Control.PropertyName.GlobalPosition.ToString(),
 			new Vector2(Position.X, 20),
 			2);
-		GD.Print(Position);
 		DeActivate();
 	}
 
@@ -30,8 +29,6 @@ public partial class LocationLabel : RichTextLabel {
 		tween.TweenProperty(this, Control.PropertyName.GlobalPosition.ToString(),
 			new Vector2(Position.X, -100),
 			2);
-		GD.Print(Position);
-		GD.Print(Text);
 	}
 
 	public void RefreshTween() {

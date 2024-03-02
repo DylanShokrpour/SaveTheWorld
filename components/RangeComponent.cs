@@ -36,7 +36,6 @@ public partial class RangeComponent : Node3D {
 		EnemiesInArea.Remove(currentTarget);
 		EnemiesInArea = GarbageCollector();
 		hasTarget = false;
-		GD.Print("LOST");
 		//attackTimer.Stop();
 	}
 
@@ -51,19 +50,17 @@ public partial class RangeComponent : Node3D {
 		EnemiesInArea = GarbageCollector();
 		if (EnemiesInArea.Count == 0) return;
 		if (!IsInstanceValid(EnemiesInArea[0])) return;
+		if (!IsInstanceValid(currentTarget)) return;
 		if (currentTarget.GetParent() is Path path)
 			shootBulletAtTarget(path);
-		else {
+		else
 			shootBulletAtTarget(currentTarget);
-			GD.Print(currentTarget.Position);
-		}
 	}
 
 	void shootBulletAtTarget(Node3D targetLocation) {
 		Bullet bullet = createBullet();
 		bullet.targetType = targetType;
 		bullet.targetPosition = targetLocation.GlobalPosition;
-		GD.Print(currentTarget);
 		bullet.damage = damage;
 		bullet.onCreated(targetType);
 	}
@@ -96,12 +93,10 @@ public partial class RangeComponent : Node3D {
 				GD.Print("NONVALID");
 			else
 				GD.Print(goon);
-		GD.Print(list.Count);
 	}
 
 
 	List<Node3D> GarbageCollector() {
-		GD.Print("GARBAGE COLLECTOR");
 		List<Node3D> newList = EnemiesInArea.Where(goon => (goon != null) && IsInstanceValid(goon)).ToList();
 		PrintGoonList(newList);
 		return newList;

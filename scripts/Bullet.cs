@@ -16,7 +16,6 @@ public partial class Bullet : RigidBody3D {
 		detectionComponent.ValidBodyEntered += BodyEntered;
 		LinearVelocity = (targetPosition - GlobalPosition) * 10;
 		NotHit();
-		GD.Print("IMPCATTTTTTT");
 	}
 
 	public async Task NotHit() {
@@ -25,7 +24,6 @@ public partial class Bullet : RigidBody3D {
 	}
 
 	public async void deleteBullet() {
-		GD.Print("IMPCATTTTTTT");
 		if (HasNode("AreaDamageComponent")) {
 			AreaDamageComponent areaDamageComponent = GetNode<AreaDamageComponent>("AreaDamageComponent");
 			areaDamageComponent.impact();
@@ -37,7 +35,6 @@ public partial class Bullet : RigidBody3D {
 
 	public void BodyEntered(Node3D body) {
 		if (body.GetType() == targetType) {
-			GD.Print("IMPCATTT");
 			HealthComponent targetHealth = body.GetFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(damage);
 			deleteBullet();

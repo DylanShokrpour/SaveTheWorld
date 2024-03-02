@@ -12,16 +12,12 @@ public partial class Converter : Area3D {
 	}
 
 	void FindBody(Node3D body) {
-		GD.Print("Body name " + body.Name);
-		if (body is Building building && !isConverting) {
-			GD.Print("FOUND");
+		if (body is Building building && !isConverting)
 			if (building.GetFirstChildOfClass<PathFollowBuilding>() != null) {
 				isConverting = true;
-				GD.Print("found building with pathFollowBuilding component");
 				convert(building.GetFirstChildOfClass<BlockComponent>(),
 					building.GetFirstChildOfClass<PathFollowBuilding>());
 			}
-		}
 	}
 
 	async void convert(BlockComponent block, PathFollowBuilding building) {

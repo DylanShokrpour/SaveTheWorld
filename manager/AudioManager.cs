@@ -58,7 +58,6 @@ public partial class AudioManager : Node {
 
 	public void PlayAmbiance() {
 		currentMusic.Stop();
-		GD.Print("AMIABCE");
 		int randN = new Random().Next(0, ambiance.Count);
 		currentMusic = ambiance[randN];
 		currentMusic.VolumeDb = -10;

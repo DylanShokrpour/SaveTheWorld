@@ -36,10 +36,6 @@ public partial class DetectionComponent : Area3D {
 	}
 
 	public void BulletEntered(Node3D body) {
-		GD.Print("BULLET DETECTED" + body.Name);
-		if (body is Bullet bullet) {
-			EmitSignal(SignalName.ValidBulletDetected, bullet);
-			GD.Print("BULLET DETECTED1111");
-		}
+		if (body is Bullet bullet) EmitSignal(SignalName.ValidBulletDetected, bullet);
 	}
 }

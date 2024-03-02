@@ -12,7 +12,6 @@ public partial class Shield : StaticBody3D {
 
 	public void Hit(Bullet bullet) {
 		shieldHealth.TakeDamage(bullet.damage);
-		GD.Print("BULL GOON");
 		bullet.deleteBullet();
 	}
 }

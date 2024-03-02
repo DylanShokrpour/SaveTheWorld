@@ -20,7 +20,6 @@ public partial class World : Node3D {
 		spawner2 = GetNode<Spawner>("%TestSpawner2");
 		waveManager = GetNode<WaveManager>("WaveManager");
 		locationLabel = GetNode<LocationLabel>("%LocationLabel");
-		GD.Print(locationLabel.Name);
 		locationLabel.Text = Name;
 		locationLabel.Activate();
 		audioManager.PlayAmbiance();

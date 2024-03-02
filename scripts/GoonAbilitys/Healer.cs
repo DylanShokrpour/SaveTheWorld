@@ -18,11 +18,9 @@ public partial class Healer : Area3D {
 
 	void GetBodies() {
 		targets = new List<Node3D>();
-		foreach (Node3D body in GetOverlappingBodies()) {
-			GD.Print(body.GetType() + " type " + targetType);
+		foreach (Node3D body in GetOverlappingBodies())
 			if (body.GetType() == targetType)
 				targets.Add(body);
-		}
 	}
 
 	void heal() {

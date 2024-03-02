@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/Mineable/NaturalResource.cs" id="1_fwv4y"]
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" node_paths=PackedStringArray("goods")]
 script = ExtResource("1_fwv4y")
+goods = []

@@ -14,7 +14,6 @@ public partial class Factory : Node3D {
 	}
 
 	public void spawn() {
-		GD.Print("SPAWNED");
 		Node3D unit = spawnPrefab.Instantiate<Node3D>();
 		Path path;
 		PathFollowBuilding trackBuilding = unit.GetFirstChildWhichIsA<PathFollowBuilding>();
