@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c6byir8d0b7ro"]
+[gd_scene load_steps=39 format=3 uid="uid://c6byir8d0b7ro"]
 
 [ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_2aadf"]
 [ext_resource type="Script" path="res://scripts/World.cs" id="1_x3gs8"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1u6bnvn8nn6s" path="res://scenes/Test/TestGoon8.tscn" id="5_c5pxh"]
 [ext_resource type="PackedScene" uid="uid://bwyd7mdd8no0t" path="res://scenes/Test/TestGoon.tscn" id="5_dyha3"]
 [ext_resource type="PackedScene" uid="uid://ca3agjtwci5s7" path="res://scenes/Test/TestGoon7.tscn" id="6_busyq"]
-[ext_resource type="Script" path="res://manager/WaveManager.cs" id="6_sk1jh"]
+[ext_resource type="Script" path="res://scripts/manager/WaveManager.cs" id="6_sk1jh"]
 [ext_resource type="PackedScene" uid="uid://tnmqbcenbch5" path="res://prefabs/Buildings/Base.tscn" id="7_0pogp"]
 [ext_resource type="PackedScene" uid="uid://bee3g0por3ji4" path="res://scenes/Test/TestGoon5.tscn" id="7_d8648"]
 [ext_resource type="PackedScene" uid="uid://c63jcbe8lwfvp" path="res://scenes/Test/TestGoon2.tscn" id="7_mp8cd"]
@@ -15,14 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://c2yar1osj2r75" path="res://scenes/Test/BossTestGoon.tscn" id="9_48nlp"]
 [ext_resource type="PackedScene" uid="uid://cym3cxbeknelh" path="res://scenes/Test/TestGoon3.tscn" id="10_qb576"]
 [ext_resource type="PackedScene" uid="uid://cd3d7acs8w1i3" path="res://scenes/Test/TestFreeEnemy.tscn" id="12_0frdt"]
-[ext_resource type="AudioStream" uid="uid://c8vyi6dschw8q" path="res://Assets/Audio/Music/NutCracker.mp3" id="13_31dwb"]
+[ext_resource type="AudioStream" uid="uid://c8vyi6dschw8q" path="res://assets/audio/music/NutCracker.mp3" id="13_31dwb"]
 [ext_resource type="PackedScene" uid="uid://c52lhoujo1vol" path="res://prefabs/Buildings/Wall.tscn" id="14_vshe5"]
-[ext_resource type="Script" path="res://manager/AudioManager.cs" id="15_p686e"]
+[ext_resource type="Script" path="res://scripts/manager/AudioManager.cs" id="15_p686e"]
 [ext_resource type="Script" path="res://scripts/LocationLabel.cs" id="15_u5cfo"]
-[ext_resource type="AudioStream" uid="uid://bdcspcnuvvddf" path="res://Assets/Audio/Music/carnival-of-bizarre-177383.mp3" id="17_0twnn"]
-[ext_resource type="AudioStream" uid="uid://dywrl78w2qw4c" path="res://Assets/Audio/Music/clown.mp3" id="19_lfcpu"]
-[ext_resource type="AudioStream" uid="uid://cs3pvx7r6woql" path="res://Assets/Audio/Music/dark-circus-113460.mp3" id="19_oqt50"]
-[ext_resource type="AudioStream" uid="uid://1e18eg1rw30t" path="res://Assets/Audio/Music/Adoption.mp3" id="20_3ck8a"]
+[ext_resource type="Texture2D" uid="uid://bes8olc6cmv6q" path="res://addons/kenney_prototype_textures/Light/texture_07.png" id="16_qjop5"]
+[ext_resource type="AudioStream" uid="uid://bdcspcnuvvddf" path="res://assets/audio/music/carnival-of-bizarre-177383.mp3" id="17_0twnn"]
+[ext_resource type="AudioStream" uid="uid://hr0xq4lfpba" path="res://assets/audio/music/Clown/clown.mp3" id="19_lfcpu"]
+[ext_resource type="AudioStream" uid="uid://bmiv21p4unore" path="res://assets/audio/music/Clown/dark-circus-113460.mp3" id="19_oqt50"]
+[ext_resource type="AudioStream" uid="uid://1e18eg1rw30t" path="res://assets/audio/music/Adoption.mp3" id="20_3ck8a"]
 [ext_resource type="PackedScene" uid="uid://bog22fx3632jl" path="res://scenes/Test/TestBuilding.tscn" id="20_i4loj"]
 [ext_resource type="AudioStream" uid="uid://b8bf820t8io78" path="res://DANGER/Instrumental.mp3" id="20_yuv5s"]
 [ext_resource type="PackedScene" uid="uid://bqowd4itlvmko" path="res://scenes/Test/TestShooterFreeEnemy.tscn" id="21_aepx3"]
@@ -46,6 +47,12 @@ point_count = 5
 [sub_resource type="NavigationMesh" id="NavigationMesh_urkii"]
 vertices = PackedVector3Array(-24.5, 1.25, -24.5, -24.5, 1.25, 24.5, 24.5, 1.25, 24.5, 24.5, 1.25, -24.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxv3l"]
+albedo_texture = ExtResource("16_qjop5")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_kdc4l"]
 
@@ -75,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7, 0)
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735194, 0.393929, -0.849189)
 script = ExtResource("6_sk1jh")
-waveSpeed = 10
+waveDuration = 60
 
 [node name="Wave1" type="Node3D" parent="WaveManager"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
@@ -144,6 +151,7 @@ navigation_mesh = SubResource("NavigationMesh_urkii")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
 transform = Transform3D(50, 0, 0, 0, 1.5, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jxv3l")
 mesh = SubResource("BoxMesh_kdc4l")
 skeleton = NodePath("../../..")
 
@@ -181,37 +189,8 @@ script = ExtResource("15_u5cfo")
 
 [node name="AudioManager" type="Node3D" parent="."]
 script = ExtResource("15_p686e")
-
-[node name="Ambiance" type="Node3D" parent="AudioManager"]
-
-[node name="Ambiance1" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("20_3ck8a")
-
-[node name="Ambiance2" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("17_0twnn")
-
-[node name="Ambiance3" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("19_lfcpu")
-
-[node name="Ambiance4" type="AudioStreamPlayer" parent="AudioManager/Ambiance"]
-stream = ExtResource("20_yuv5s")
-
-[node name="EpicAmbiance" type="Node3D" parent="AudioManager"]
-
-[node name="EAmbiance1" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
-stream = ExtResource("19_lfcpu")
-
-[node name="EAmbiance2" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
-stream = ExtResource("13_31dwb")
-
-[node name="EAmbiance3" type="AudioStreamPlayer" parent="AudioManager/EpicAmbiance"]
-stream = ExtResource("19_oqt50")
-
-[node name="BossMusic" type="AudioStreamPlayer" parent="AudioManager"]
-
-[node name="DefeatSound" type="AudioStreamPlayer" parent="AudioManager"]
-
-[node name="VictorySound" type="AudioStreamPlayer" parent="AudioManager"]
+ambiance = Array[AudioStream]([ExtResource("20_3ck8a"), ExtResource("17_0twnn"), ExtResource("19_lfcpu"), ExtResource("20_yuv5s")])
+epicAmbiance = Array[AudioStream]([ExtResource("19_lfcpu"), ExtResource("13_31dwb"), ExtResource("19_oqt50")])
 
 [node name="CurrentMusic" type="AudioStreamPlayer" parent="AudioManager"]
 autoplay = true

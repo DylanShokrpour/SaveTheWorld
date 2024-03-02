@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c52lhoujo1vol"]
 
 [ext_resource type="Script" path="res://scripts/Building.cs" id="1_27tpg"]
-[ext_resource type="Script" path="res://components/BlockComponent.cs" id="3_e8get"]
-[ext_resource type="Script" path="res://components/HealthComponent.cs" id="3_jdlom"]
-[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/Bars/HealthBar.tscn" id="4_iyl0y"]
+[ext_resource type="Script" path="res://scripts/components/BlockComponent.cs" id="3_e8get"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="3_jdlom"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="4_iyl0y"]
 [ext_resource type="Script" path="res://prefabs/Buildings/Killable.cs" id="5_1mhua"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgygt"]

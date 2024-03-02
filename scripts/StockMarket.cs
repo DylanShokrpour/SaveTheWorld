@@ -4,17 +4,17 @@ using Godot;
 using GodotExtensions.extensions.node;
 
 public partial class StockMarket : Node {
+	[Export] int WaitTime;
 	List<Stock> stocks = new();
 	Timer timeToChangeStocks;
-	[Export] int WaitTime;
 
 	public override void _Ready() {
-		stocks = this.GetDescendantsWhichAreA<Stock>().ToList();
+		stocks = this.GetDescendants<Stock>().ToList();
 		ConfigureTimer();
 	}
 
 	void ConfigureTimer() {
-		timeToChangeStocks = new Timer();
+		timeToChangeStocks = new();
 		timeToChangeStocks.WaitTime = WaitTime;
 		AddChild(timeToChangeStocks);
 		timeToChangeStocks.Start();
@@ -22,7 +22,8 @@ public partial class StockMarket : Node {
 	}
 
 	void ChangeStockPrices() {
-		foreach (Stock stock in stocks) stock.changeStockValue();
+		foreach (Stock stock in stocks)
+			stock.ChangeStockValue();
 	}
 	//for each ( Loser d in ryanMemearpour.getDescendantsWhichAreA<Loser>(){ d.queueFree(); } :(
 }

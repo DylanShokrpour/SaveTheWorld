@@ -4,13 +4,13 @@ using Godot;
 using GodotExtensions.extensions.node;
 
 public partial class Bullet : RigidBody3D {
+	[Export] public float speed;
 	public Vector3 targetPosition;
 	DetectionComponent detectionComponent;
 	public int damage;
-	[Export] public float speed;
 	public Type targetType;
 
-	public void onCreated(Type type) {
+	public void OnCreated(Type type) {
 		targetType = type;
 		detectionComponent = GetNode<DetectionComponent>("DetectionComponent");
 		detectionComponent.ValidBodyEntered += BodyEntered;
@@ -18,26 +18,26 @@ public partial class Bullet : RigidBody3D {
 		NotHit();
 	}
 
-	public async Task NotHit() {
-		await this.YieldForSeconds(4);
-		deleteBullet();
+	async Task NotHit() {
+		await this.WaitForSeconds(4);
+		DeleteBullet();
 	}
 
-	public async void deleteBullet() {
+	public async void DeleteBullet() {
 		if (HasNode("AreaDamageComponent")) {
-			AreaDamageComponent areaDamageComponent = GetNode<AreaDamageComponent>("AreaDamageComponent");
-			areaDamageComponent.impact();
+			var areaDamageComponent = GetNode<AreaDamageComponent>("AreaDamageComponent");
+			areaDamageComponent.Impact();
 		}
 
 		QueueFree();
 	}
 
 
-	public void BodyEntered(Node3D body) {
+	void BodyEntered(Node3D body) {
 		if (body.GetType() == targetType) {
-			HealthComponent targetHealth = body.GetFirstChildOfClass<HealthComponent>();
+			var targetHealth = body.FindFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(damage);
-			deleteBullet();
+			DeleteBullet();
 		}
 	}
 }

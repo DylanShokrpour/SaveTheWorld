@@ -7,16 +7,16 @@ public partial class SplitGoon : Node3D {
 
 	public override void _Ready() {
 		parentGoon = GetParent<Goon>();
-		parentGoon.healthComponent.OnDeath += die;
+		parentGoon.healthComponent.OnDeath += Die;
 	}
 
-	void die() {
-		for (int i = 0; i < amount; i++) {
-			Goon goon = prefabGoon.Instantiate<Goon>();
+	void Die() {
+		for (var i = 0; i < amount; i++) {
+			var goon = prefabGoon.Instantiate<Goon>();
 			GetParent().AddChild(goon);
 			goon.GlobalTransform = GlobalTransform;
 		}
 	}
 
-	void createGoon() { }
+	void CreateGoon() { }
 }

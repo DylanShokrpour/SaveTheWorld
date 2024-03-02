@@ -1,9 +1,8 @@
+using System.Threading.Tasks;
 using Godot;
+using GodotExtensions.extensions.node;
 
 public partial class Spawner : Node3D {
-	public Wave currentWave;
-
-	//[Export] PathFollow3D path;
 	[Export] Path3D path3D;
 	[Export] int timeBetweenSpawns = 5;
 	[Export] Timer spawnTimer;
@@ -12,21 +11,19 @@ public partial class Spawner : Node3D {
 		GlobalPosition = path3D.Curve.GetPointPosition(0);
 	}
 
-	public async void startWave(Wave wave) {
+	/// <returns>Once all the enemies in the wave have been spawned</returns>
+	public async Task SpawnGoonsInWave(Wave wave) {
 		foreach (PackedScene enemy in wave.enemyList) {
-			await ToSignal(GetTree().CreateTimer(wave.timeBetweenSpawn), SceneTreeTimer.SignalName.Timeout);
-			vanguardFactory(enemy);
+			await this.WaitForSeconds(wave.timeBetweenSpawn);
+			SpawnGoon(enemy);
 		}
 	}
 
-	public void vanguardFactory(PackedScene goonPrefab) {
-		//Maybe it should have its own script but I will cry later when that bites my in the a
-
-		Goon goon = goonPrefab.Instantiate<Goon>();
+	 void SpawnGoon(PackedScene goonPrefab) {
+		var goon = goonPrefab.Instantiate<Goon>();
 		Path path = new(goon.speed);
 		path3D.AddChild(path);
 		goon.path = path;
 		path.AddChild(goon);
-		//Bullet bulletInstance = bullet.Instantiate<Bullet>();
 	}
 }

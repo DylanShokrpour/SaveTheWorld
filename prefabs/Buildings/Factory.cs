@@ -9,28 +9,28 @@ public partial class Factory : Node3D {
 
 	public override void _Ready() {
 		ConfigureTimer();
-		spawnTimer.Timeout += spawn;
+		spawnTimer.Timeout += Spawn;
 		pathFollowed = GetParent<Base>().path;
 	}
 
-	public void spawn() {
-		Node3D unit = spawnPrefab.Instantiate<Node3D>();
+	void Spawn() {
+		var unit = spawnPrefab.Instantiate<Node3D>();
 		Path path;
-		PathFollowBuilding trackBuilding = unit.GetFirstChildWhichIsA<PathFollowBuilding>();
-		path = new Path(-trackBuilding.speed);
+		var trackBuilding = unit.FindFirstChild<PathFollowBuilding>();
+		path = new(-trackBuilding.speed);
 		pathFollowed.AddChild(path);
 		trackBuilding.path = path;
 		path.ProgressRatio = 1f;
 		path.AddChild(unit);
 	}
 
-	void changePathFollowed(Path3D newPath) {
+	void ChangePathFollowed(Path3D newPath) {
 		pathFollowed = newPath;
 	}
 
 
 	void ConfigureTimer() {
-		spawnTimer = new Timer();
+		spawnTimer = new();
 		spawnTimer.WaitTime = spawnTime;
 		AddChild(spawnTimer);
 		spawnTimer.Start();

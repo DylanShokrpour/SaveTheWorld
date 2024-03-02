@@ -1,9 +1,9 @@
 using Godot;
 
 public partial class Base : Building {
+	[Export] public Path3D path;
 	DetectionComponent detectionComponent;
 	HealthComponent healthComponent;
-	[Export] public Path3D path;
 
 	public override void _Ready() {
 		healthComponent = GetNode<HealthComponent>("%HealthComponent");
@@ -13,7 +13,7 @@ public partial class Base : Building {
 		Position = path.Curve.GetPointPosition(lastPoint);
 	}
 
-	public void Hit(CharacterBody3D character) {
+	void Hit(CharacterBody3D character) {
 		if (character is Goon goon) {
 			healthComponent.TakeDamage(goon.damage);
 			goon.healthComponent.SetHealth(0);

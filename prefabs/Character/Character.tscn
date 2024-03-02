@@ -1,13 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://ho8uu2ni0n4r"]
+[gd_scene load_steps=9 format=3 uid="uid://ho8uu2ni0n4r"]
 
 [ext_resource type="Script" path="res://prefabs/Character/Character.cs" id="1_qtlbi"]
-[ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_6a6fo"]
-[ext_resource type="Script" path="res://prefabs/Bars/HealthBar.cs" id="3_5vftq"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="2_6a6fo"]
+[ext_resource type="Script" path="res://prefabs/ui/HealthBar/HealthBar.cs" id="3_5vftq"]
 [ext_resource type="Script" path="res://scripts/Currency.cs" id="4_m7owc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_for54"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3ibsh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpq17"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45of8"]
+bg_color = Color(1, 0, 0.00392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Character" type="CharacterBody3D"]
 script = ExtResource("1_qtlbi")
@@ -38,21 +61,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="FoodLabel" type="RichTextLabel" parent="UI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 40.0
+offset_right = 128.0
 offset_bottom = 40.0
 bbcode_enabled = true
 text = "ggg"
 
 [node name="HP" type="ProgressBar" parent="UI"]
-modulate = Color(1, 0, 0.00392157, 1)
-layout_mode = 0
-offset_top = 40.0
-offset_right = 552.0
-offset_bottom = 55.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.884
+anchor_right = 0.5
+anchor_bottom = 0.884
+offset_left = -256.0
+offset_top = 0.167969
+offset_right = 256.0
+offset_bottom = 15.168
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lpq17")
+theme_override_styles/fill = SubResource("StyleBoxFlat_45of8")
 value = 100.0
 show_percentage = false
 script = ExtResource("3_5vftq")

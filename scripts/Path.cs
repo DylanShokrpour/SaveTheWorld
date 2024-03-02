@@ -1,13 +1,13 @@
 using Godot;
 
 public partial class Path : PathFollow3D {
-	public float Speed;
+	public float speed;
 
-	public Path(float Speed) {
-		this.Speed = Speed;
+	public Path(float speed) {
+		this.speed = speed;
 	}
 
 	public override void _PhysicsProcess(double delta) {
-		Progress += Speed * (float)delta;
+		Progress += speed * (float)delta;
 	}
 }
