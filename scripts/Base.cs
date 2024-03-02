@@ -13,7 +13,7 @@ public partial class Base : Building {
 		Position = path.Curve.GetPointPosition(lastPoint);
 	}
 
-	public void Hit(CharacterBody3D character) {
+	void Hit(CharacterBody3D character) {
 		if (character is Goon goon) {
 			healthComponent.TakeDamage(goon.damage);
 			goon.healthComponent.SetHealth(0);

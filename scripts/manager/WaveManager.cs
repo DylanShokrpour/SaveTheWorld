@@ -31,7 +31,7 @@ public partial class WaveManager : Node3D {
 		spawners.Add(spawn);
 	}
 
-	public void NewWave() {
+	void NewWave() {
 		foreach (Spawner spawner in
 		         spawners) {
 			currentWave = waves[waveCount];

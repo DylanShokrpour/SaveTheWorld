@@ -12,7 +12,7 @@ public partial class BlockComponent : DetectionComponent {
 		healthComponentOfParent = GetParent().GetFirstChildWhichIsA<HealthComponent>();
 	}
 
-	public void Block(CharacterBody3D body) {
+	void Block(CharacterBody3D body) {
 		if (body.GetType() == targetType) {
 			var opponentHealthComponent = body.GetFirstChildWhichIsA<HealthComponent>();
 			healthComponentOfParent.TakeDamage(opponentHealthComponent.GetHealth());

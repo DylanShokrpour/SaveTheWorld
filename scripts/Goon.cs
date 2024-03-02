@@ -14,7 +14,7 @@ public partial class Goon : CharacterBody3D {
 		healthComponent.OnDeath += Die;
 	}
 
-	public void Die() {
+	void Die() {
 		GetParent().QueueFree();
 	}
 }

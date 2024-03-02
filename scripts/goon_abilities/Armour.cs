@@ -10,7 +10,7 @@ public partial class Armour : StaticBody3D {
 		ActivateArmour();
 	}
 
-	public void ActivateArmour() {
+	void ActivateArmour() {
 		parentHealthComponent.damageModifier =
 			1 / amourStrength; //i wanted it so increasing amourStrength would make damage decrease slower
 	}

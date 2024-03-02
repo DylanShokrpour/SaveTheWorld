@@ -22,7 +22,7 @@ public partial class LocationLabel : RichTextLabel {
 		DeActivate();
 	}
 
-	public async void DeActivate() {
+	async void DeActivate() {
 		await this.YieldForSeconds(2);
 		RefreshTween();
 		tween.SetTrans(transitionType);
@@ -31,7 +31,7 @@ public partial class LocationLabel : RichTextLabel {
 			2);
 	}
 
-	public void RefreshTween() {
+	void RefreshTween() {
 		if (tween != null) {
 			tween.Stop();
 			tween.Kill();

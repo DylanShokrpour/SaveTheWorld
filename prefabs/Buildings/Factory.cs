@@ -13,7 +13,7 @@ public partial class Factory : Node3D {
 		pathFollowed = GetParent<Base>().path;
 	}
 
-	public void Spawn() {
+	void Spawn() {
 		var unit = spawnPrefab.Instantiate<Node3D>();
 		Path path;
 		var trackBuilding = unit.GetFirstChildWhichIsA<PathFollowBuilding>();

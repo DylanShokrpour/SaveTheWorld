@@ -19,7 +19,7 @@ public partial class Spawner : Node3D {
 		}
 	}
 
-	public void VanguardFactory(PackedScene goonPrefab) {
+	void VanguardFactory(PackedScene goonPrefab) {
 		//Maybe it should have its own script but I will cry later when that bites my in the a
 
 		var goon = goonPrefab.Instantiate<Goon>();

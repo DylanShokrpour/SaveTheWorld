@@ -6,11 +6,11 @@ public partial class HealthBar : ProgressBar {
 
 	public override void _Ready() {
 		healthComponent = GetOwner<Node3D>().GetFirstChildOfClass<HealthComponent>();
-		Value = healthComponent.health;
+		UpdateBar();
 		healthComponent.OnHealthChange += UpdateBar;
 	}
 
-	public void UpdateBar() {
+	void UpdateBar() {
 		Value = healthComponent.health;
 	}
 }

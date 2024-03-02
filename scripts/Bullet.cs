@@ -18,7 +18,7 @@ public partial class Bullet : RigidBody3D {
 		NotHit();
 	}
 
-	public async Task NotHit() {
+	async Task NotHit() {
 		await this.YieldForSeconds(4);
 		DeleteBullet();
 	}
@@ -33,7 +33,7 @@ public partial class Bullet : RigidBody3D {
 	}
 
 
-	public void BodyEntered(Node3D body) {
+	void BodyEntered(Node3D body) {
 		if (body.GetType() == targetType) {
 			var targetHealth = body.GetFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(damage);

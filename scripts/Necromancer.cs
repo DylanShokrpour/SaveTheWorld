@@ -12,7 +12,7 @@ public partial class Necromancer : Node3D {
 		pathCategory = GetParent().GetParent<Path>();
 	}
 
-	public void Spawn() {
+	void Spawn() {
 		var unit = spawnPrefab.Instantiate<Goon>();
 		Path path;
 		path = new(unit.speed);

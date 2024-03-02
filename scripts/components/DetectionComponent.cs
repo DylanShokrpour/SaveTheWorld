@@ -20,7 +20,7 @@ public partial class DetectionComponent : Area3D {
 		BodyExited += CheckBodyTypeLeft;
 	}
 
-	public void CheckBodyType(Node3D body) {
+	void CheckBodyType(Node3D body) {
 		if (body is CharacterBody3D body3D && (body3D != Owner)) {
 			target = body as CharacterBody3D;
 			EmitSignal(SignalName.ValidBodyEntered, body);
@@ -28,14 +28,14 @@ public partial class DetectionComponent : Area3D {
 	}
 
 
-	public void CheckBodyTypeLeft(Node3D body) {
+	void CheckBodyTypeLeft(Node3D body) {
 		if (body == target) {
 			target = null;
 			EmitSignal(SignalName.ValidBodyExited);
 		}
 	}
 
-	public void BulletEntered(Node3D body) {
+	void BulletEntered(Node3D body) {
 		if (body is Bullet bullet)
 			EmitSignal(SignalName.ValidBulletDetected, bullet);
 	}
