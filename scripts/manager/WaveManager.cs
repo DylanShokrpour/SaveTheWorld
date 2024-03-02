@@ -22,31 +22,26 @@ public partial class WaveManager : Node3D {
 		waves = this.GetDescendants<Wave>().ToList();
 		totalWaves = waves.Count;
 		spawners = this.GetDescendants<Spawner>().ToList();
-		waveTimer.Timeout += NewWave;
-		NewWave();
+		waveTimer.Timeout += StartNewWave;
+		StartNewWave();
+	}
+	
+	void ConfigureTimer() {
+		waveTimer = new();
+		waveTimer.WaitTime = waveDuration;
+		AddChild(waveTimer);
+		waveTimer.Start();
 	}
 
-
-	public void AddSpawner(Spawner spawn) {
-		spawners.Add(spawn);
-	}
-
-	void NewWave() {
+	void StartNewWave() {
 		GD.Print("Starting new wave");
-		foreach (Spawner spawner in
-		         spawners) {
+		foreach (Spawner spawner in spawners) {
+			// ! An exception will be thrown when the waveCount exceeds the number of waves
 			currentWave = waves[waveCount];
 			spawner.StartWave(currentWave);
 		}
 
 		waveCount++;
 		EmitSignal(SignalName.NewWaveStarted);
-	}
-
-	void ConfigureTimer() {
-		waveTimer = new();
-		waveTimer.WaitTime = waveDuration;
-		AddChild(waveTimer);
-		waveTimer.Start();
 	}
 }
