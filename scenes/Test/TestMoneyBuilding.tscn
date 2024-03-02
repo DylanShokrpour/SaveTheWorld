@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwiw2ks0joir4"]
 
 [ext_resource type="Script" path="res://scripts/Building.cs" id="1_jb74w"]
-[ext_resource type="Script" path="res://scripts/GeneratorComponent.cs" id="2_ga7rw"]
+[ext_resource type="Script" path="res://scripts/CurrencyGenerator.cs" id="2_ga7rw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loifi"]
 albedo_color = Color(1, 0.290196, 0.741176, 1)
