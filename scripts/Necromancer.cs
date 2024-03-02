@@ -14,14 +14,12 @@ public partial class Necromancer : Node3D {
 
 	void Spawn() {
 		var unit = spawnPrefab.Instantiate<Goon>();
-		Path path;
-		path = new(unit.speed);
+		Path path = new(unit.speed);
 		pathCategory.GetParent().AddChild(path);
 		path.Progress = pathCategory.Progress;
 		path.AddChild(unit);
 	}
-
-
+	
 	void ConfigureTimer() {
 		spawnTimer = new();
 		spawnTimer.WaitTime = spawnTime;

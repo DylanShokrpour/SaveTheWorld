@@ -22,8 +22,8 @@ public partial class DetectionComponent : Area3D {
 
 	void CheckBodyType(Node3D body) {
 		if (body is CharacterBody3D body3D && (body3D != Owner)) {
-			target = body as CharacterBody3D;
-			EmitSignal(SignalName.ValidBodyEntered, body);
+			target = body3D;
+			EmitSignal(SignalName.ValidBodyEntered, body3D);
 		}
 	}
 

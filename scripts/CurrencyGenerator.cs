@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class GeneratorComponent : Node3D {
+public partial class CurrencyGenerator : Node3D {
 	[Export] CurrentType currencyType;
 	[Export] int waitTime;
 	[Export] bool oneShot;
@@ -9,7 +9,7 @@ public partial class GeneratorComponent : Node3D {
 	Timer currencyTimer;
 	Food food;
 
-	public GeneratorComponent(Character owner) {
+	public CurrencyGenerator(Character owner) {
 		character = owner;
 	}
 
