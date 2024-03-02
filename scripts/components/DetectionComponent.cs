@@ -36,6 +36,7 @@ public partial class DetectionComponent : Area3D {
 	}
 
 	public void BulletEntered(Node3D body) {
-		if (body is Bullet bullet) EmitSignal(SignalName.ValidBulletDetected, bullet);
+		if (body is Bullet bullet)
+			EmitSignal(SignalName.ValidBulletDetected, bullet);
 	}
 }

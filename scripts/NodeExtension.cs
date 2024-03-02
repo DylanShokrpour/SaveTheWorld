@@ -63,7 +63,7 @@ public enum MaxDescendantRecursionDepth {
 			if (child.Name == name)
 				return child as T; // can fail!
 
-			T? descendant = child.FindFirstDescendantWithName<T>(name);
+			var descendant = child.FindFirstDescendantWithName<T>(name);
 			if (descendant != null)
 				return descendant;
 		}
@@ -77,7 +77,7 @@ public enum MaxDescendantRecursionDepth {
 			if (child is T t && (child.Name == name))
 				return t;
 
-			T? descendant = child.FindFirstDescendantWithNameWhichIsA<T>(name);
+			var descendant = child.FindFirstDescendantWithNameWhichIsA<T>(name);
 			if (descendant != null)
 				return descendant;
 		}
@@ -90,7 +90,7 @@ public enum MaxDescendantRecursionDepth {
 			if ((child.GetType() == typeof(T)) && (child.Name == name))
 				return child as T;
 
-			T? descendant = child.FindFirstDescendantWithNameOfClass<T>(name);
+			var descendant = child.FindFirstDescendantWithNameOfClass<T>(name);
 			if (descendant != null)
 				return descendant;
 		}
@@ -103,7 +103,7 @@ public enum MaxDescendantRecursionDepth {
 		foreach (Node child in node.GetChildren()) {
 			if (child is T t)
 				return t;
-			T? descendant = child.FindFirstDescendantWhichIsA<T>();
+			var descendant = child.FindFirstDescendantWhichIsA<T>();
 			if (descendant != null)
 				return descendant;
 		}
@@ -116,7 +116,7 @@ public enum MaxDescendantRecursionDepth {
 			if (IsRightClass(child))
 				return child as T;
 
-			T? descendant = child.FindFirstDescendantOfClass<T>();
+			var descendant = child.FindFirstDescendantOfClass<T>();
 			if (descendant != null)
 				return descendant;
 		}
@@ -242,7 +242,7 @@ public enum MaxDescendantRecursionDepth {
 		TaskCompletionSource<T> tcs = new();
 
 		// because can break if node-paths are used.
-		T? existing = node.GetChildWithName<T>(name);
+		var existing = node.GetChildWithName<T>(name);
 		if (existing != null)
 			return Task.FromResult(existing);
 
@@ -271,7 +271,7 @@ public enum MaxDescendantRecursionDepth {
 	public static Task<T> WaitForChildWhichIsA<T>(this Node node) where T : Node {
 		TaskCompletionSource<T?> tcs = new();
 
-		T? existing = node.GetFirstChildWhichIsA<T>();
+		var existing = node.GetFirstChildWhichIsA<T>();
 		if (existing != null)
 			return Task.FromResult(existing);
 
@@ -291,7 +291,7 @@ public enum MaxDescendantRecursionDepth {
 	public static Task<T> WaitForChildOfClass<T>(this Node node) where T : Node {
 		TaskCompletionSource<T> tcs = new();
 
-		T? existing = node.GetFirstChildOfClass<T>();
+		var existing = node.GetFirstChildOfClass<T>();
 		if (existing != null)
 			return Task.FromResult(existing);
 
@@ -416,13 +416,12 @@ public enum MaxDescendantRecursionDepth {
 		string nodeName = node.Name;
 		string typeName = node.GetType().Name;
 
-		string message = $"Node with name: \"{nodeName}\" of type: \"({typeName})\"";
+		var message = $"Node with name: \"{nodeName}\" of type: \"({typeName})\"";
 
 		if (node.IsInsideTree()) {
 			string path = node.GetPath();
 			message += $" at node-path: \"{path}\"";
-		}
-		else
+		} else
 			message += " (not in tree)";
 
 		// if it has a script
@@ -432,8 +431,7 @@ public enum MaxDescendantRecursionDepth {
 			script = scriptVariant.As<Script>();
 			string scriptPath = script.ResourcePath;
 			message += $" with script: \"{scriptPath}\"";
-		}
-		else
+		} else
 			message += " (no script)";
 
 		return message;

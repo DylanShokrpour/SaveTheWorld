@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Godot;
 using Godot.Collections;
-using GodotExtensions.extensions.node;
 
 public partial class AudioManager : Node {
 	[Export] public Array<AudioStream> ambiance;
@@ -23,14 +19,14 @@ public partial class AudioManager : Node {
 		player.Stream = stream;
 		player.Play();
 	}
-	
+
 	public void PlayRandomAmbiance() {
-		var stream = ambiance.PickRandom();
+		AudioStream stream = ambiance.PickRandom();
 		PlayStream(stream);
 	}
-	
+
 	public void PlayRandomEpicAmbiance() {
-		var stream = epicAmbiance.PickRandom();
+		AudioStream stream = epicAmbiance.PickRandom();
 		PlayStream(stream);
 	}
 }

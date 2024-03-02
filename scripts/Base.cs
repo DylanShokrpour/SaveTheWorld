@@ -1,9 +1,9 @@
 using Godot;
 
 public partial class Base : Building {
+	[Export] public Path3D path;
 	DetectionComponent detectionComponent;
 	HealthComponent healthComponent;
-	[Export] public Path3D path;
 
 	public override void _Ready() {
 		healthComponent = GetNode<HealthComponent>("%HealthComponent");

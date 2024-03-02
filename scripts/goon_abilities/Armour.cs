@@ -2,8 +2,8 @@ using Godot;
 using GodotExtensions.extensions.node;
 
 public partial class Armour : StaticBody3D {
-	HealthComponent parentHealthComponent;
 	[Export] float amourStrength = 1;
+	HealthComponent parentHealthComponent;
 
 	public override void _Ready() {
 		parentHealthComponent = GetParent().GetFirstChildOfClass<HealthComponent>();

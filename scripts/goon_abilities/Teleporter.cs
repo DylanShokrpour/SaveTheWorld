@@ -1,8 +1,8 @@
 using Godot;
 
 public partial class Teleporter : Node3D {
-	PathFollow3D path;
 	[Export] float teleportDistance;
+	PathFollow3D path;
 	Timer teleportTimer;
 
 
@@ -18,7 +18,7 @@ public partial class Teleporter : Node3D {
 
 	void ConfigureTimer() {
 		// IMPLEMENT LATER
-		teleportTimer = new Timer();
+		teleportTimer = new();
 		teleportTimer.WaitTime = 1;
 		AddChild(teleportTimer);
 		teleportTimer.Start();
