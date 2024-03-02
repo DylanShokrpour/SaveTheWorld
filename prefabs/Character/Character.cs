@@ -16,7 +16,7 @@ public partial class Character : CharacterBody3D {
 		head = GetNode<Node3D>("%Head");
 		camera = GetNode<Camera3D>("%PlayerCamera");
 		foodLabel = GetNode<RichTextLabel>("%FoodLabel");
-		food.OnCurrencyChange += UpdateLabel;
+		food.OnCurrencyChanged += UpdateLabel;
 	}
 
 	public override void _PhysicsProcess(double delta) {

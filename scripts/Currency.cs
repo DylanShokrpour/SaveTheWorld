@@ -7,18 +7,18 @@ public partial class Currency : Node {
 	public delegate void OnBrokeEventHandler(); // Blud is broke :skull:
 
 	[Signal]
-	public delegate void OnCurrencyChangeEventHandler();
+	public delegate void OnCurrencyChangedEventHandler();
 
 	int currency;
 
 	public void AddCurrency(int amount) {
 		currency += amount;
-		EmitSignal(SignalName.OnCurrencyChange);
+		EmitSignal(SignalName.OnCurrencyChanged);
 	}
 
 	public void RemoveCurrency(int amount) {
 		currency -= amount;
-		EmitSignal(SignalName.OnCurrencyChange);
+		EmitSignal(SignalName.OnCurrencyChanged);
 		if (currency <= 0)
 			EmitSignal(SignalName.OnBroke);
 	}
