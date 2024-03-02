@@ -35,7 +35,7 @@ public partial class RangeComponent : Node3D {
 
 	void OnLost() {
 		enemiesInArea.Remove(currentTarget);
-		enemiesInArea = GarbageCollector();
+		RemoveInvalidGoons();
 		hasTarget = false;
 		//attackTimer.Stop();
 	}
@@ -43,14 +43,14 @@ public partial class RangeComponent : Node3D {
 	void OnDetected(CharacterBody3D target) {
 		if (target.GetType() == targetType)
 			enemiesInArea.Add(target);
-		enemiesInArea = GarbageCollector();
+		RemoveInvalidGoons();
 		if (enemiesInArea.Count == 0)
 			return;
 		currentTarget = enemiesInArea[0];
 	}
 
 	void Attack() {
-		enemiesInArea = GarbageCollector();
+		RemoveInvalidGoons();
 		if (enemiesInArea.Count == 0)
 			return;
 		if (!IsInstanceValid(enemiesInArea[0]))
@@ -87,25 +87,23 @@ public partial class RangeComponent : Node3D {
 
 	void GetNextTarget() {
 		OnLost();
-		enemiesInArea = GarbageCollector();
+		
+		RemoveInvalidGoons();
 		if (enemiesInArea.Count == 0)
 			return;
 		currentTarget = enemiesInArea[0];
 	}
 
+	void RemoveInvalidGoons() {
+		enemiesInArea.RemoveAll(goon => !IsInstanceValid(goon));
+	}
+	
 	void PrintGoonList(List<Node3D> list) {
 		GD.Print("_____________________________");
 		foreach (Node3D goon in list)
 			if (!IsInstanceValid(goon))
 				GD.Print("NONVALID");
 			else
-				GD.Print(goon);
-	}
-
-
-	List<Node3D> GarbageCollector() {
-		List<Node3D> newList = enemiesInArea.Where(goon => (goon != null) && IsInstanceValid(goon)).ToList();
-		PrintGoonList(newList);
-		return newList;
+				GD.Print("Goon: " + goon.Name);
 	}
 }
