@@ -233,7 +233,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8, 6.5, -5.3)
 
 [node name="TestBuilding" parent="." instance=ExtResource("20_i4loj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7879, 4.1, 11.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9879, 4.1, 9.3)
 
 [node name="Bullets" type="Node3D" parent="."]
 unique_name_in_owner = true

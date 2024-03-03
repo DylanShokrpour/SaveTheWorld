@@ -5,7 +5,7 @@ using GodotExtensions.extensions.node;
 
 public partial class WorldSelector : Control {
 	[Signal]
-	public delegate void onLevelChangeEventHandler();
+	public delegate void onLevelChangeEventHandler(bool direction);
 
 	List<WorldMenu> worldMenus;
 	int currentMapSelectedIndex;
@@ -22,8 +22,15 @@ public partial class WorldSelector : Control {
 		updateVisuals();
 	}
 
-	void changeLevel() {
-		currentMapSelectedIndex++;
+	void changeLevel(bool direction) {
+		if(currentMapSelectedIndex <= 0 && direction == false) return;
+		if(currentMapSelectedIndex == worldMenus.Count - 1 && direction == true) return;
+		if (direction == true) {
+			currentMapSelectedIndex++;
+		}
+		else {
+			currentMapSelectedIndex--;
+		}
 		updateVisuals();
 	}
 

@@ -22,6 +22,11 @@ public partial class RangedAttackComponent : Node3D {
 		detectionComponent.ValidBodyEntered += OnDetected;
 		detectionComponent.ValidBodyExited += GetNextTarget;
 		attackTimer.Timeout += Attack;
+		determineTargetType();
+	}
+	void determineTargetType() {
+		if (GetParent().GetType() == typeof(Building))
+			targetType = typeof(Goon);
 	}
 
 	public override void _Process(double delta) {

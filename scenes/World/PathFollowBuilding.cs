@@ -7,7 +7,7 @@ public partial class PathFollowBuilding : Node3D {
 	public override void _Ready() {
 		// This will be accessed by the spawner
 	}
-
+	
 	public void ChangePathSpeed(float newSpeed) {
 		path.speed = speed;
 	}
