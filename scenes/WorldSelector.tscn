@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://xloi3t6mhn7d"]
+[gd_scene load_steps=26 format=3 uid="uid://xloi3t6mhn7d"]
 
 [ext_resource type="Script" path="res://scripts/WorldSelector.cs" id="1_suk4y"]
 [ext_resource type="Texture2D" uid="uid://dg3y5xfrukgri" path="res://assets/images/Circus1.webp" id="1_vnkbh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://01xacy28kqq2" path="res://assets/images/WildWest2.webp" id="6_6l44c"]
 [ext_resource type="Texture2D" uid="uid://calx1wjjn45e3" path="res://assets/images/Arrow.png" id="6_curla"]
 [ext_resource type="Script" path="res://scripts/ChangeMapButton.cs" id="6_j63hx"]
+[ext_resource type="FontFile" uid="uid://bvfa7s6offpqh" path="res://assets/font/waflerd-demo-version/Waflerd DEMO VERSION.otf" id="6_k00ew"]
 [ext_resource type="Texture2D" uid="uid://d2g00n68w4oif" path="res://assets/images/WildWest.webp" id="6_sojx6"]
 [ext_resource type="Script" path="res://scripts/MenuAudioManager.cs" id="11_e7jpn"]
 [ext_resource type="AudioStream" uid="uid://hr0xq4lfpba" path="res://assets/audio/music/Clown/clown.mp3" id="11_j7vyr"]
@@ -21,8 +22,11 @@
 [ext_resource type="AudioStream" uid="uid://dvadqh33ntn8d" path="res://assets/audio/music/chinese-music-traditional-new-year-celebration-115500.mp3" id="19_7o2kb"]
 [ext_resource type="Texture2D" uid="uid://bpptweqhqdgo3" path="res://assets/images/SnowyWorld1.png" id="20_vwhxs"]
 [ext_resource type="Texture2D" uid="uid://brhwix0v550xw" path="res://assets/images/SnowyWorld2.png" id="21_tlice"]
+[ext_resource type="Texture2D" uid="uid://buj6wyhnwadv1" path="res://assets/images/SnowyMountain.png" id="22_bvhp1"]
+[ext_resource type="AudioStream" uid="uid://bqe6w2iw2tqh5" path="res://DANGER/EvilChristmas.mp3" id="24_rv5xb"]
 
 [sub_resource type="Theme" id="Theme_nqsts"]
+default_font = ExtResource("6_k00ew")
 
 [node name="WorldSelector" type="Control"]
 layout_mode = 3
@@ -59,7 +63,7 @@ offset_right = 47.0
 offset_bottom = -202.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "fdsfsddsffs"
+text = "Choose Map"
 
 [node name="ChangeLevel" type="TextureButton" parent="CurrentImage"]
 layout_mode = 1
@@ -127,6 +131,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("12_epe1j")
-images = Array[Texture2D]([ExtResource("20_vwhxs"), ExtResource("21_tlice")])
-music = ExtResource("14_uka60")
+images = Array[Texture2D]([ExtResource("20_vwhxs"), ExtResource("21_tlice"), ExtResource("22_bvhp1")])
+music = ExtResource("24_rv5xb")
 color = Color(0, 0.662745, 1, 1)
