@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dl6txdhvvviyu"]
+
+[ext_resource type="Texture2D" uid="uid://d3gah6ps84m54" path="res://scenes/SnowWorld/assets/snow_field_puresky_2k.exr" id="1_1h6i7"]
+[ext_resource type="Terrain3DStorage" uid="uid://b0ptk1y4yegac" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_storage.res" id="1_biomm"]
+[ext_resource type="Terrain3DMaterial" uid="uid://c5lviigehrd5i" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_material.res" id="2_pfj11"]
+[ext_resource type="Terrain3DTextureList" uid="uid://d1jb7jc2tx61t" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_texture_list.res" id="3_1arhm"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eo0gm"]
+panorama = ExtResource("1_1h6i7")
+
+[sub_resource type="Sky" id="Sky_j6nye"]
+sky_material = SubResource("PanoramaSkyMaterial_eo0gm")
+
+[sub_resource type="Environment" id="Environment_pmuub"]
+background_mode = 2
+sky = SubResource("Sky_j6nye")
+tonemap_mode = 3
+tonemap_white = 4.0
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_energy = 0.6
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0001
+
+[node name="SnowWorld" type="Node3D"]
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource("Environment_pmuub")
+
+[node name="Terrain3D" type="Terrain3D" parent="Enviroment"]
+storage = ExtResource("1_biomm")
+material = ExtResource("2_pfj11")
+texture_list = ExtResource("3_1arhm")
+render_cast_shadows = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 0.946176, 0.323653, 0, -0.323653, 0.946176, 0, 29.9, -31.2)
+light_volumetric_fog_energy = 15000.0
+shadow_enabled = true
+shadow_blur = 2.325
