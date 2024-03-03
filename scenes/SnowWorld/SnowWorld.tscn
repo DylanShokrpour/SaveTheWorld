@@ -1,16 +1,32 @@
-[gd_scene load_steps=18 format=3 uid="uid://dl6txdhvvviyu"]
+[gd_scene load_steps=23 format=3 uid="uid://dl6txdhvvviyu"]
 
 [ext_resource type="Texture2D" uid="uid://d3gah6ps84m54" path="res://scenes/SnowWorld/assets/images/snow_field_puresky_2k.exr" id="1_1h6i7"]
+[ext_resource type="PackedScene" uid="uid://tnmqbcenbch5" path="res://prefabs/Buildings/Base.tscn" id="1_arp01"]
 [ext_resource type="Terrain3DStorage" uid="uid://b0ptk1y4yegac" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_storage.res" id="1_biomm"]
+[ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_y2dtl"]
+[ext_resource type="PackedScene" uid="uid://cgby4t2cdaokk" path="res://scenes/World/TestSpawner.tscn" id="2_awxhh"]
 [ext_resource type="Terrain3DMaterial" uid="uid://c5lviigehrd5i" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_material.res" id="2_pfj11"]
 [ext_resource type="Terrain3DTextureList" uid="uid://d1jb7jc2tx61t" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_texture_list.res" id="3_1arhm"]
 [ext_resource type="AudioStream" uid="uid://dikbo3620i6ip" path="res://scenes/SnowWorld/assets/music/carol-of-the-bells-hip-hop-version-christmas-music-for-video-vlog-171731.mp3" id="5_0cc8a"]
+[ext_resource type="Script" path="res://scripts/LocationLabel.cs" id="5_g8kxb"]
 [ext_resource type="AudioStream" uid="uid://bqwkwairf5jhe" path="res://scenes/SnowWorld/assets/music/deck-the-halls-hip-hop-version-christmas-music-for-video-vlog-60sec-172531.mp3" id="6_6rxyr"]
 [ext_resource type="AudioStream" uid="uid://okl4csqlf8is" path="res://scenes/SnowWorld/assets/music/jingle-bells-background-christmas-music-in-dance-tropical-house-style-171038.mp3" id="7_1pf4g"]
 [ext_resource type="AudioStream" uid="uid://bt5omoyvt0g58" path="res://scenes/SnowWorld/assets/music/jingle-bells-background-hip-hop-music-for-new-yearx27s-videos-170723.mp3" id="8_e3efp"]
 [ext_resource type="AudioStream" uid="uid://ym8shop0um6i" path="res://scenes/SnowWorld/assets/music/silent-night-christmas-music-for-video-vlog-hip-hop-version-174362.mp3" id="9_etnhc"]
 [ext_resource type="AudioStream" uid="uid://croglg6iiptqc" path="res://scenes/SnowWorld/assets/music/the-nutcracker-dance-of-the-sugar-plum-fairy-electro-house-version-173832.mp3" id="10_kg7ye"]
 [ext_resource type="AudioStream" uid="uid://b7fxh5c8rueli" path="res://scenes/SnowWorld/assets/music/we-wish-you-a-merry-christmas-hip-hop-version-music-for-video-vlog-172818.mp3" id="11_bb7la"]
+
+[sub_resource type="Curve3D" id="Curve3D_o3y3g"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 18.9488, 0, 23.2856, 0, 0, 0, 0, 0, 0, 19.0154, 0, 15.631, 0, 0, 0, 0, 0, 0, 11.627, 0, 8.30918, 0, 0, 0, 0, 0, 0, 12.3592, 0, -0.410434, 0, 0, 0, 0, 0, 0, 0.910512, 0, -0.676681),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vofmn"]
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eo0gm"]
 panorama = ExtResource("1_1h6i7")
@@ -29,9 +45,6 @@ sdfgi_energy = 0.6
 glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0001
-
-[sub_resource type="BoxMesh" id="BoxMesh_v07ds"]
-size = Vector3(1, 2, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pwhr7"]
 streams_count = 7
@@ -66,6 +79,43 @@ func _change_audio() -> void:
 
 [node name="SnowWorld" type="Node3D"]
 
+[node name="Character" parent="." instance=ExtResource("1_y2dtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7, 0)
+
+[node name="Base" parent="." node_paths=PackedStringArray("path") instance=ExtResource("1_arp01")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.8, 0, 0)
+path = NodePath("../Paths/Path1")
+
+[node name="Paths" type="Node3D" parent="."]
+
+[node name="Path1" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25557, -9.17968)
+curve = SubResource("Curve3D_o3y3g")
+
+[node name="Visual" type="CSGPolygon3D" parent="Paths/Path1"]
+material_override = SubResource("StandardMaterial3D_vofmn")
+polygon = PackedVector2Array(-0.1, -0.1, -0.1, 0.1, 0.1, 0.1, 0.1, -0.1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("path3D") instance=ExtResource("2_awxhh")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 0)
+path3D = NodePath("../Paths/Path1")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Bullets" type="Node3D" parent="."]
+unique_name_in_owner = true
+
 [node name="Enviroment" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
@@ -83,11 +133,32 @@ light_volumetric_fog_energy = 15000.0
 shadow_enabled = true
 shadow_blur = 2.325
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74531, 0)
-mesh = SubResource("BoxMesh_v07ds")
+[node name="MapUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LocationLabel" type="RichTextLabel" parent="MapUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -269.5
+offset_top = -100.0
+offset_right = 269.5
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 61
+bbcode_enabled = true
+text = "Bro why it no work BRO"
+fit_content = true
+script = ExtResource("5_g8kxb")
+
+[node name="AmbientMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_pwhr7")
 volume_db = -20.0
 autoplay = true

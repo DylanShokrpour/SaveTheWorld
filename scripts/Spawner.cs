@@ -4,8 +4,6 @@ using GodotExtensions.extensions.node;
 
 public partial class Spawner : Node3D {
 	[Export] Path3D path3D;
-	[Export] int timeBetweenSpawns = 5;
-	[Export] Timer spawnTimer;
 
 	public override void _Ready() {
 		GlobalPosition = path3D.Curve.GetPointPosition(0);
@@ -19,7 +17,7 @@ public partial class Spawner : Node3D {
 		}
 	}
 
-	 void SpawnGoon(PackedScene goonPrefab) {
+	void SpawnGoon(PackedScene goonPrefab) {
 		var goon = goonPrefab.Instantiate<Goon>();
 		Path path = new(goon.speed);
 		path3D.AddChild(path);

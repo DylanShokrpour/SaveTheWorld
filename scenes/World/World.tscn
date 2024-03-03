@@ -108,11 +108,10 @@ script = ExtResource("4_3vu67")
 enemyList = Array[PackedScene]([ExtResource("5_dyha3"), ExtResource("5_dyha3"), ExtResource("7_mp8cd"), ExtResource("10_qb576"), ExtResource("10_qb576")])
 timeBetweenSpawn = 1
 
-[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path3D", "spawnTimer") instance=ExtResource("2_fqdl5")]
+[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 9.5)
 path3D = NodePath("../../Path/Path3D2")
-spawnTimer = NodePath("../TestSpawner/Timer")
 
 [node name="TestSpawner" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
 unique_name_in_owner = true
