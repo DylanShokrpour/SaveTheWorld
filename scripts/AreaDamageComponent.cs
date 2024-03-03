@@ -5,18 +5,15 @@ using Godot;
 using GodotExtensions.extensions.node;
 
 public partial class AreaDamageComponent : Area3D {
-	Type targetType;
 
-	public void Impact(int damage) {
-		foreach (Node3D target in GetEnemiesInRange()) {
+	public void Impact(int damage, Type targetType) {
+		foreach (Node3D target in GetEnemiesInRange(targetType)) {
 			var targetHealth = target.FindFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(damage);
 		}
 	}
 
-	List<Node3D> GetEnemiesInRange() {
-		targetType = GetParent<Bullet>().targetType;
-
+	List<Node3D> GetEnemiesInRange(Type targetType) {
 		return GetOverlappingBodies()
 			.Where(body => body.GetType() == targetType)
 			.ToList();

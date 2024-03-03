@@ -10,12 +10,11 @@ public partial class RangedAttackComponent : Node3D {
 	[Export] int damage; // this is the damage the user does I KNOW I AM HILAROUS FOR USING TROLL COMMENTS
 	[Export] PackedScene prefabBullet;
 	[Export] int AttackSpeed = 1; //time per shot so yeah kinda the opposite...
-	List<Node3D> enemiesInArea = new();
+	readonly List<Node3D> enemiesInArea = new();
 	public Type targetType;
 	Timer attackTimer;
 	DetectionComponent detectionComponent;
 	Node3D currentTarget;
-	bool hasTarget;
 
 	public override void _Ready() {
 		ConfigureTimer(); // MAKE A LIST THAT STORES THE CLOSEST GOONS
@@ -25,27 +24,31 @@ public partial class RangedAttackComponent : Node3D {
 		attackTimer.Timeout += Attack;
 	}
 
-
-	void OnLost() {
-		enemiesInArea.Remove(currentTarget);
-		RemoveInvalidGoons();
-		hasTarget = false;
+	public override void _Process(double delta) {
+		enemiesInArea.RemoveAll(goon => !IsInstanceValid(goon));
 	}
+
 
 	void OnDetected(CharacterBody3D target) {
 		if (target.GetType() == targetType)
 			enemiesInArea.Add(target);
-		RemoveInvalidGoons();
+		if (enemiesInArea.Count == 0)
+			return;
+		currentTarget = enemiesInArea.First();
+	}
+
+	void GetNextTarget() {
+		enemiesInArea.Remove(currentTarget);
+
 		if (enemiesInArea.Count == 0)
 			return;
 		currentTarget = enemiesInArea[0];
 	}
 
 	void Attack() {
-		RemoveInvalidGoons();
 		if (enemiesInArea.Count == 0)
 			return;
-		if (!IsInstanceValid(enemiesInArea[0]))
+		if (!IsInstanceValid(enemiesInArea.First()))
 			return;
 		if (!IsInstanceValid(currentTarget))
 			return;
@@ -66,6 +69,7 @@ public partial class RangedAttackComponent : Node3D {
 	Bullet CreateBullet() {
 		var bullet = prefabBullet.Instantiate<Bullet>();
 		GetTree().CurrentScene.GetNode("%Bullets").AddChild(bullet);
+		// ! Depends on parent...
 		bullet.GlobalPosition = GetParent<Node3D>().GlobalPosition;
 		return bullet;
 	}
@@ -77,19 +81,7 @@ public partial class RangedAttackComponent : Node3D {
 		attackTimer.Start();
 	}
 
-	void GetNextTarget() {
-		OnLost();
-		
-		RemoveInvalidGoons();
-		if (enemiesInArea.Count == 0)
-			return;
-		currentTarget = enemiesInArea[0];
-	}
 
-	void RemoveInvalidGoons() {
-		enemiesInArea.RemoveAll(goon => !IsInstanceValid(goon));
-	}
-	
 	void PrintGoonList(List<Node3D> list) {
 		GD.Print("_____________________________");
 		foreach (Node3D goon in list)

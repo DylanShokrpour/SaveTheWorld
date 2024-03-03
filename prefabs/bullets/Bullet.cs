@@ -26,7 +26,7 @@ public partial class Bullet : RigidBody3D {
 
 	public void DeleteBullet() {
 		var areaDamageComponent = GetNodeOrNull<AreaDamageComponent>("AreaDamageComponent");
-		areaDamageComponent?.Impact(damage);
+		areaDamageComponent?.Impact(damage, targetType);
 		QueueFree();
 	}
 
