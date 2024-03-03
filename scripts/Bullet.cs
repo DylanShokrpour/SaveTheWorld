@@ -13,27 +13,24 @@ public partial class Bullet : RigidBody3D {
 	public void OnCreated(Type type) {
 		targetType = type;
 		detectionComponent = GetNode<DetectionComponent>("DetectionComponent");
-		detectionComponent.ValidBodyEntered += BodyEntered;
+		detectionComponent.ValidBodyEntered += OnBodyEntered;
 		LinearVelocity = (targetPosition - GlobalPosition) * 10;
-		NotHit();
+		_ = NotHit();
 	}
 
 	async Task NotHit() {
+		// prevents from going into void
 		await this.WaitForSeconds(4);
 		DeleteBullet();
 	}
 
-	public async void DeleteBullet() {
-		if (HasNode("AreaDamageComponent")) {
-			var areaDamageComponent = GetNode<AreaDamageComponent>("AreaDamageComponent");
-			areaDamageComponent.Impact();
-		}
-
+	public void DeleteBullet() {
+		var areaDamageComponent = GetNodeOrNull<AreaDamageComponent>("AreaDamageComponent");
+		areaDamageComponent?.Impact(damage);
 		QueueFree();
 	}
 
-
-	void BodyEntered(Node3D body) {
+	void OnBodyEntered(Node3D body) {
 		if (body.GetType() == targetType) {
 			var targetHealth = body.FindFirstChildOfClass<HealthComponent>();
 			targetHealth.TakeDamage(damage);

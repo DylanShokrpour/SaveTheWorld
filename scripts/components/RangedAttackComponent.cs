@@ -6,7 +6,7 @@ using Godot;
 /// <summary>
 ///     RangeComponent is a component that allows the parent to attack enemies in a certain range.
 /// </summary>
-public partial class RangeComponent : Node3D {
+public partial class RangedAttackComponent : Node3D {
 	[Export] int damage; // this is the damage the user does I KNOW I AM HILAROUS FOR USING TROLL COMMENTS
 	[Export] PackedScene prefabBullet;
 	[Export] int AttackSpeed = 1; //time per shot so yeah kinda the opposite...
@@ -18,7 +18,6 @@ public partial class RangeComponent : Node3D {
 	bool hasTarget;
 
 	public override void _Ready() {
-		FindTargetType();
 		ConfigureTimer(); // MAKE A LIST THAT STORES THE CLOSEST GOONS
 		detectionComponent = GetNode<DetectionComponent>("RangeDetectionComponent");
 		detectionComponent.ValidBodyEntered += OnDetected;
@@ -26,18 +25,11 @@ public partial class RangeComponent : Node3D {
 		attackTimer.Timeout += Attack;
 	}
 
-	void FindTargetType() {
-		if ((GetParent().GetType() == typeof(Building)) || (GetParent().GetType() == typeof(Base)))
-			targetType = typeof(Goon);
-		else
-			targetType = typeof(Character);
-	}
 
 	void OnLost() {
 		enemiesInArea.Remove(currentTarget);
 		RemoveInvalidGoons();
 		hasTarget = false;
-		//attackTimer.Stop();
 	}
 
 	void OnDetected(CharacterBody3D target) {

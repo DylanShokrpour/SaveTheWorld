@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://jq1drkfb8u43"]
 
 [ext_resource type="Script" path="res://scripts/Building.cs" id="1_2kbbq"]
-[ext_resource type="Script" path="res://scripts/components/RangeComponent.cs" id="2_qxlh5"]
+[ext_resource type="Script" path="res://scripts/components/RangedAttackComponent.cs" id="2_qxlh5"]
 [ext_resource type="PackedScene" uid="uid://degj0y2pnynkq" path="res://scenes/Test/TestExplosiveBullet.tscn" id="3_r0fmc"]
 [ext_resource type="Script" path="res://scripts/components/DetectionComponent.cs" id="4_sqb2w"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c6byir8d0b7ro"]
+[gd_scene load_steps=41 format=3 uid="uid://c6byir8d0b7ro"]
 
 [ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_2aadf"]
 [ext_resource type="Script" path="res://scripts/World.cs" id="1_x3gs8"]
@@ -37,12 +37,20 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bc72"]
+no_depth_test = true
+shading_mode = 0
+
 [sub_resource type="Curve3D" id="Curve3D_l8qfo"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 18.9488, 0, 23.2856, 0, 0, 0, 0, 0, 0, 19.0154, 0, 15.631, 0, 0, 0, 0, 0, 0, 11.627, 0, 8.30918, 0, 0, 0, 0, 0, 0, 12.3592, 0, -0.410434, 0, 0, 0, 0, 0, 0, 0.910512, 0, -0.676681),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fghdk"]
+no_depth_test = true
+shading_mode = 0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_urkii"]
 vertices = PackedVector3Array(-24.5, 1.25, -24.5, -24.5, 1.25, 24.5, 24.5, 1.25, 24.5, 24.5, 1.25, -24.5)
@@ -125,6 +133,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 [node name="Path3D2" type="Path3D" parent="Path"]
 curve = SubResource("Curve3D_6chdn")
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path/Path3D2"]
+material_override = SubResource("StandardMaterial3D_6bc72")
+polygon = PackedVector2Array(-0.1, -0.1, -0.1, 0.1, 0.1, 0.1, 0.1, -0.1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
 [node name="PathFollow3D" type="PathFollow3D" parent="Path/Path3D2"]
 transform = Transform3D(0.99519, 0, 0.0978691, 0, 1, 0, -0.0978691, 0, 0.99519, -0.528415, 0, 0.469688)
 progress = 37.5059
@@ -134,6 +156,20 @@ curve = SubResource("Curve3D_l8qfo")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path/Path3D"]
 transform = Transform3D(0.999962, 0, -0.00870042, 0, 1, 0, 0.00870042, 0, 0.999962, 18.9488, 0, 23.2856)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path/Path3D"]
+material_override = SubResource("StandardMaterial3D_fghdk")
+polygon = PackedVector2Array(-0.1, -0.1, -0.1, 0.1, 0.1, 0.1, 0.1, -0.1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
 [node name="Spawners" type="Node3D" parent="Path"]
 

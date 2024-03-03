@@ -14,12 +14,18 @@ public partial class FreeEnemy : CharacterBody3D {
 	TargetComponent targetComponent;
 
 	public override void _Ready() {
-		detection = GetNode<DetectionComponent>("%DetectionComponent");
 		targetComponent = GetNode<TargetComponent>("%TargetingComponent");
+		
+		detection = GetNode<DetectionComponent>("%DetectionComponent");
 		detection.ValidBodyEntered += Target;
 		detection.ValidBodyExited += RemoveTarget;
+		
 		health = GetNode<HealthComponent>("%HealthComponent");
 		health.OnHealthChange += OnDeath;
+		
+		var rangedAttackComponent = GetNodeOrNull<RangedAttackComponent>("RangedAttackComponent");
+		if (rangedAttackComponent != null)
+			rangedAttackComponent.targetType = typeof(Character);
 	}
 
 	void Target(CharacterBody3D target) {

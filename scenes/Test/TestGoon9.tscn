@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="1_6or17"]
 [ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="2_rpttv"]
 [ext_resource type="Script" path="res://scripts/goon_abilities/Flying.cs" id="3_mxm1k"]
-[ext_resource type="Script" path="res://scripts/components/RangeComponent.cs" id="4_oh6tn"]
+[ext_resource type="Script" path="res://scripts/components/RangedAttackComponent.cs" id="4_oh6tn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isilv"]
 albedo_color = Color(0.705882, 0.662745, 1, 1)
