@@ -25,5 +25,4 @@ public partial class StockMarket : Node {
 		foreach (Stock stock in stocks)
 			stock.ChangeStockValue();
 	}
-	//for each ( Loser d in ryanMemearpour.getDescendantsWhichAreA<Loser>(){ d.queueFree(); } :(
 }
