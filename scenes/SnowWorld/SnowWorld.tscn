@@ -59,6 +59,7 @@ func _ready() -> void:
 	finished.connect(_change_audio)
 
 func _change_audio() -> void:
+	# assuming its a AudioStreamRandomizer
 	stop()
 	play()
 "
@@ -88,6 +89,6 @@ mesh = SubResource("BoxMesh_v07ds")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_pwhr7")
-volume_db = -16.0
+volume_db = -20.0
 autoplay = true
 script = SubResource("GDScript_5fwa0")
