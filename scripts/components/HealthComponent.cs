@@ -6,7 +6,7 @@ public partial class HealthComponent : Node3D {
 	public delegate void OnDeathEventHandler();
 
 	[Signal]
-	public delegate void OnHealthChangeEventHandler();
+	public delegate void OnHealthChangedEventHandler();
 
 	[Export] public int health = 100;
 	[Export] public float damageModifier = 1;
@@ -18,15 +18,15 @@ public partial class HealthComponent : Node3D {
 
 	public void TakeDamage(int amount) {
 		health -= (int)(amount * damageModifier);
-		EmitSignal("OnHealthChange");
+		EmitSignal(SignalName.OnHealthChanged);
 		if (health <= 0)
-			EmitSignal("OnDeath");
+			EmitSignal(SignalName.OnDeath);
 	}
 
 	public void SetHealth(int amount) {
 		health = amount;
-		EmitSignal("OnHealthChange");
+		EmitSignal(SignalName.OnHealthChanged);
 		if (health <= 0)
-			EmitSignal("OnDeath");
+			EmitSignal(SignalName.OnDeath);
 	}
 }

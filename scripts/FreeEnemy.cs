@@ -21,7 +21,7 @@ public partial class FreeEnemy : CharacterBody3D {
 		detection.ValidBodyExited += RemoveTarget;
 		
 		health = GetNode<HealthComponent>("%HealthComponent");
-		health.OnHealthChange += OnDeath;
+		health.OnHealthChanged += OnDeath;
 		
 		var rangedAttackComponent = GetNodeOrNull<RangedAttackComponent>("RangedAttackComponent");
 		if (rangedAttackComponent != null)

@@ -8,7 +8,7 @@ public partial class Teleporter : Node3D {
 
 	public override void _Ready() {
 		path = GetParent<Goon>().path;
-		GetParent<Goon>().HealthComponent.OnHealthChange += Teleport;
+		GetParent<Goon>().HealthComponent.OnHealthChanged += Teleport;
 		ConfigureTimer();
 	}
 
