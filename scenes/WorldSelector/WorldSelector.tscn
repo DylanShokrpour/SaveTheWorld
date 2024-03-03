@@ -1,17 +1,20 @@
-[gd_scene load_steps=27 format=3 uid="uid://xloi3t6mhn7d"]
+[gd_scene load_steps=37 format=3 uid="uid://xloi3t6mhn7d"]
 
 [ext_resource type="Script" path="res://scenes/WorldSelector/WorldSelector.cs" id="1_suk4y"]
-[ext_resource type="Texture2D" uid="uid://dg3y5xfrukgri" path="res://assets/images/Circus1.webp" id="1_vnkbh"]
 [ext_resource type="Script" path="res://scenes/WorldSelector/MenuImageChanger.cs" id="2_321u2"]
-[ext_resource type="Texture2D" uid="uid://bgpyu0kvfmgh8" path="res://assets/images/Circus2.webp" id="3_i3f1r"]
+[ext_resource type="Texture2D" uid="uid://b3ot3rpay1hsn" path="res://DANGER/HardSkull/1712.png" id="3_jd8ke"]
 [ext_resource type="Texture2D" uid="uid://cw2xyk3624eyd" path="res://DANGER/FreePicButton/GreyArrow.png" id="4_670jl"]
-[ext_resource type="Texture2D" uid="uid://cy1lvchok23fq" path="res://assets/images/Circus3.webp" id="4_oe58g"]
-[ext_resource type="Texture2D" uid="uid://cf4tbi5fapriu" path="res://assets/images/SecretCircus.webp" id="5_o0ii7"]
+[ext_resource type="Texture2D" uid="uid://bo4uok1co3h6x" path="res://DANGER/ExtremeSkull/1058.png" id="4_ermi2"]
 [ext_resource type="Texture2D" uid="uid://01xacy28kqq2" path="res://assets/images/WildWest2.webp" id="6_6l44c"]
 [ext_resource type="Script" path="res://scenes/WorldSelector/ChangeMapButton.cs" id="6_j63hx"]
 [ext_resource type="FontFile" uid="uid://bvfa7s6offpqh" path="res://assets/font/waflerd-demo-version/Waflerd DEMO VERSION.otf" id="6_k00ew"]
 [ext_resource type="Texture2D" uid="uid://d2g00n68w4oif" path="res://assets/images/WildWest.webp" id="6_sojx6"]
 [ext_resource type="Texture2D" uid="uid://5aegmw6jdp8i" path="res://DANGER/FreePicButton/Cool_Game_Buttons.png" id="7_csacm"]
+[ext_resource type="Texture2D" uid="uid://bwm0bmg0jr51x" path="res://assets/images/Designer (4).png" id="7_th1o3"]
+[ext_resource type="Texture2D" uid="uid://bqgswdtplsrxs" path="res://assets/images/Designer (5).png" id="8_6fu15"]
+[ext_resource type="Texture2D" uid="uid://dcn2tshhc768y" path="res://assets/images/Designer (6).png" id="9_iyp6t"]
+[ext_resource type="Texture2D" uid="uid://cv71cexiv5515" path="res://assets/images/Designer (7).png" id="10_jvp78"]
+[ext_resource type="Texture2D" uid="uid://o8biuvh338tx" path="res://assets/images/EvilCircus.png" id="11_30gvh"]
 [ext_resource type="Script" path="res://scenes/WorldSelector/MenuAudioManager.cs" id="11_e7jpn"]
 [ext_resource type="AudioStream" uid="uid://hr0xq4lfpba" path="res://assets/audio/music/Clown/clown.mp3" id="11_j7vyr"]
 [ext_resource type="Script" path="res://scenes/WorldSelector/WorldMenu.cs" id="12_epe1j"]
@@ -25,6 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://brhwix0v550xw" path="res://assets/images/SnowyWorld2.png" id="21_tlice"]
 [ext_resource type="Texture2D" uid="uid://buj6wyhnwadv1" path="res://assets/images/SnowyMountain.png" id="22_bvhp1"]
 [ext_resource type="AudioStream" uid="uid://bqe6w2iw2tqh5" path="res://DANGER/EvilChristmas.mp3" id="24_rv5xb"]
+[ext_resource type="Texture2D" uid="uid://b4u1to5rqeyq8" path="res://DANGER/EasySkull/1268 (1).png" id="26_bsqjl"]
+[ext_resource type="Texture2D" uid="uid://cjh7ui1g0roty" path="res://DANGER/LevelDifficultySkull/7743811.png" id="26_ky20k"]
+[ext_resource type="Script" path="res://scenes/WorldSelector/DifficultySkullContainer.cs" id="26_mbsp5"]
+[ext_resource type="Texture2D" uid="uid://b1y20i604d8j" path="res://assets/images/RichHouse.png" id="31_7n48o"]
+[ext_resource type="Texture2D" uid="uid://ccerja3eb1m20" path="res://assets/images/RichHouseJaystation.png" id="32_ualxa"]
+[ext_resource type="Texture2D" uid="uid://dqau8evhu0r8x" path="res://assets/images/BlackRichHouse.png" id="33_7xlaq"]
+[ext_resource type="AudioStream" uid="uid://ccb87bkrr4sat" path="res://assets/audio/music/MoneyMusic.mp3" id="34_bctr3"]
 
 [sub_resource type="Theme" id="Theme_nqsts"]
 default_font = ExtResource("6_k00ew")
@@ -37,17 +47,69 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_suk4y")
+MapDiffcultySkulls = Array[Texture2D]([ExtResource("26_bsqjl"), ExtResource("3_jd8ke"), ExtResource("4_ermi2")])
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -20.0
+script = ExtResource("11_e7jpn")
+
+[node name="Circus" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("7_th1o3"), ExtResource("8_6fu15"), ExtResource("9_iyp6t"), ExtResource("10_jvp78"), ExtResource("11_30gvh")])
+music = ExtResource("11_j7vyr")
+color = Color(1, 0, 0.509804, 1)
+mapDifficulty = 0
+
+[node name="Tww" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("6_sojx6"), ExtResource("6_6l44c")])
+music = ExtResource("14_uka60")
+color = Color(1, 0.52549, 0, 1)
+mapDifficulty = 2
+
+[node name="China" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("15_ide7j"), ExtResource("16_3aosp"), ExtResource("17_xal4i"), ExtResource("18_7hoth")])
+music = ExtResource("19_7o2kb")
+color = Color(1, 0, 0, 1)
+mapDifficulty = 2
+
+[node name="Snow" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("20_vwhxs"), ExtResource("21_tlice"), ExtResource("22_bvhp1")])
+music = ExtResource("24_rv5xb")
+color = Color(0, 0.662745, 1, 1)
+
+[node name="Mansion" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.00705, 0.94852)
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("31_7n48o"), ExtResource("32_ualxa"), ExtResource("33_7xlaq")])
+music = ExtResource("34_bctr3")
+color = Color(1, 0.870588, 0, 1)
+mapDifficulty = 2
 
 [node name="CurrentImage" type="TextureRect" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_vnkbh")
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("33_7xlaq")
 expand_mode = 1
 script = ExtResource("2_321u2")
 
@@ -58,15 +120,14 @@ anchor_left = 0.0269097
 anchor_top = -0.0465116
 anchor_right = 4.4375
 anchor_bottom = 4.66042
-offset_left = 953.0
-offset_top = 295.0
-offset_right = 2873.0
-offset_bottom = 1260.03
+offset_left = 952.03
+offset_top = 338.14
+offset_right = 2872.03
+offset_bottom = 1303.17
 scale = Vector2(0.03, 0.03)
 texture_normal = ExtResource("4_670jl")
 script = ExtResource("6_j63hx")
 direction = true
-metadata/_edit_use_anchors_ = true
 
 [node name="LevelName" type="RichTextLabel" parent="CurrentImage"]
 unique_name_in_owner = true
@@ -74,8 +135,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -374.5
-offset_right = 374.5
+offset_left = -374.0
+offset_right = 375.0
 offset_bottom = 210.0
 grow_horizontal = 2
 theme = SubResource("Theme_nqsts")
@@ -90,10 +151,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -170.0
-offset_top = -139.0
-offset_right = 1660.0
-offset_bottom = 563.0
+offset_left = -145.0
+offset_top = -167.0
+offset_right = 1685.0
+offset_bottom = 535.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.2, 0.12)
@@ -101,10 +162,10 @@ texture_normal = ExtResource("7_csacm")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CurrentImage"]
 layout_mode = 0
-offset_left = 429.0
-offset_top = 506.0
-offset_right = 795.0
-offset_bottom = 590.0
+offset_left = 452.0
+offset_top = 481.0
+offset_right = 818.0
+offset_bottom = 565.0
 theme_override_fonts/normal_font = ExtResource("6_k00ew")
 theme_override_font_sizes/normal_font_size = 70
 text = "Select Map
@@ -117,53 +178,69 @@ anchor_left = -0.680556
 anchor_top = -0.0465116
 anchor_right = 3.73003
 anchor_bottom = 4.66042
-offset_left = 953.0
-offset_top = 295.0
-offset_right = 2873.0
-offset_bottom = 1260.03
+offset_left = 952.031
+offset_top = 338.14
+offset_right = 2872.04
+offset_bottom = 1303.17
 rotation = -6.28319
 scale = Vector2(-0.03, 0.03)
 texture_normal = ExtResource("4_670jl")
 script = ExtResource("6_j63hx")
-metadata/_edit_use_anchors_ = true
 
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="CurrentImage"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -343.0
+offset_bottom = 244.0
+grow_horizontal = 0
+
+[node name="DifficultySkullContainer" type="HBoxContainer" parent="CurrentImage/VBoxContainer"]
 unique_name_in_owner = true
-volume_db = -20.0
-script = ExtResource("11_e7jpn")
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("26_mbsp5")
 
-[node name="Circus" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("12_epe1j")
-images = Array[Texture2D]([ExtResource("1_vnkbh"), ExtResource("3_i3f1r"), ExtResource("4_oe58g"), ExtResource("5_o0ii7")])
-music = ExtResource("11_j7vyr")
-color = Color(1, 0, 0.509804, 1)
+[node name="PanelContainer" type="PanelContainer" parent="CurrentImage/VBoxContainer/DifficultySkullContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Tww" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("12_epe1j")
-images = Array[Texture2D]([ExtResource("6_sojx6"), ExtResource("6_6l44c")])
-music = ExtResource("14_uka60")
-color = Color(1, 0.52549, 0, 1)
+[node name="Difficulty1" type="TextureRect" parent="CurrentImage/VBoxContainer/DifficultySkullContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("26_ky20k")
+expand_mode = 2
 
-[node name="China" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("12_epe1j")
-images = Array[Texture2D]([ExtResource("15_ide7j"), ExtResource("16_3aosp"), ExtResource("17_xal4i"), ExtResource("18_7hoth")])
-music = ExtResource("19_7o2kb")
-color = Color(1, 0, 0, 1)
+[node name="PanelContainer2" type="PanelContainer" parent="CurrentImage/VBoxContainer/DifficultySkullContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Snow" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("12_epe1j")
-images = Array[Texture2D]([ExtResource("20_vwhxs"), ExtResource("21_tlice"), ExtResource("22_bvhp1")])
-music = ExtResource("24_rv5xb")
-color = Color(0, 0.662745, 1, 1)
+[node name="Difficulty2" type="TextureRect" parent="CurrentImage/VBoxContainer/DifficultySkullContainer/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("26_ky20k")
+expand_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CurrentImage/VBoxContainer/DifficultySkullContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Difficulty3" type="TextureRect" parent="CurrentImage/VBoxContainer/DifficultySkullContainer/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("26_ky20k")
+expand_mode = 2
+
+[node name="DiffcultySlider" type="HSlider" parent="CurrentImage/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 3.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CurrentImage/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="MapDifficultySkull" type="TextureRect" parent="CurrentImage/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("26_bsqjl")
+expand_mode = 3
