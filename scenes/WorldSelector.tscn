@@ -1,0 +1,132 @@
+[gd_scene load_steps=23 format=3 uid="uid://fhgi4csuaicj"]
+
+[ext_resource type="Script" path="res://scripts/WorldSelector.cs" id="1_suk4y"]
+[ext_resource type="Texture2D" uid="uid://dg3y5xfrukgri" path="res://Assets/Images/Circus1.webp" id="1_vnkbh"]
+[ext_resource type="Script" path="res://scripts/MenuImageChanger.cs" id="2_321u2"]
+[ext_resource type="Texture2D" uid="uid://bgpyu0kvfmgh8" path="res://Assets/Images/Circus2.webp" id="3_i3f1r"]
+[ext_resource type="Texture2D" uid="uid://cy1lvchok23fq" path="res://Assets/Images/Circus3.webp" id="4_oe58g"]
+[ext_resource type="Texture2D" uid="uid://cf4tbi5fapriu" path="res://Assets/Images/SecretCircus.webp" id="5_o0ii7"]
+[ext_resource type="Texture2D" uid="uid://01xacy28kqq2" path="res://Assets/Images/WildWest2.webp" id="6_6l44c"]
+[ext_resource type="Texture2D" uid="uid://calx1wjjn45e3" path="res://Assets/Images/Arrow.png" id="6_curla"]
+[ext_resource type="Script" path="res://scripts/ChangeMapButton.cs" id="6_j63hx"]
+[ext_resource type="Texture2D" uid="uid://d2g00n68w4oif" path="res://Assets/Images/WildWest.webp" id="6_sojx6"]
+[ext_resource type="Script" path="res://scripts/MenuAudioManager.cs" id="11_e7jpn"]
+[ext_resource type="AudioStream" uid="uid://hr0xq4lfpba" path="res://Assets/Audio/Music/Clown/clown.mp3" id="11_j7vyr"]
+[ext_resource type="Script" path="res://scripts/WorldMenu.cs" id="12_epe1j"]
+[ext_resource type="AudioStream" uid="uid://ycl4pnkfiy55" path="res://DANGER/StarBoardStudios.mp3" id="14_uka60"]
+[ext_resource type="Texture2D" uid="uid://b3lwyq6v0kyay" path="res://Assets/Images/ChinaTown2.png" id="15_ide7j"]
+[ext_resource type="Texture2D" uid="uid://d1wox3o3q3ic2" path="res://Assets/Images/ChinaTown3.png" id="16_3aosp"]
+[ext_resource type="Texture2D" uid="uid://bd3xwgrytmlce" path="res://Assets/Images/ChinaTown.png" id="17_xal4i"]
+[ext_resource type="Texture2D" uid="uid://bip75bwqfk5be" path="res://Assets/Images/PixelChinaTown4.png" id="18_7hoth"]
+[ext_resource type="AudioStream" uid="uid://dvadqh33ntn8d" path="res://Assets/Audio/Music/chinese-music-traditional-new-year-celebration-115500.mp3" id="19_7o2kb"]
+[ext_resource type="Texture2D" uid="uid://bpptweqhqdgo3" path="res://Assets/Images/SnowyWorld1.png" id="20_vwhxs"]
+[ext_resource type="Texture2D" uid="uid://brhwix0v550xw" path="res://Assets/Images/SnowyWorld2.png" id="21_tlice"]
+
+[sub_resource type="Theme" id="Theme_nqsts"]
+
+[node name="WorldSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_suk4y")
+
+[node name="CurrentImage" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vnkbh")
+expand_mode = 1
+script = ExtResource("2_321u2")
+
+[node name="Button" type="Button" parent="CurrentImage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -233.0
+offset_right = 47.0
+offset_bottom = -202.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "fdsfsddsffs"
+
+[node name="ChangeLevel" type="TextureButton" parent="CurrentImage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.00776239
+anchor_bottom = -0.00776239
+offset_left = 953.0
+offset_top = 295.0
+offset_right = 2873.0
+offset_bottom = 1260.03
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("6_curla")
+script = ExtResource("6_j63hx")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelName" type="RichTextLabel" parent="CurrentImage"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -374.5
+offset_right = 374.5
+offset_bottom = 210.0
+grow_horizontal = 2
+theme = SubResource("Theme_nqsts")
+theme_override_font_sizes/normal_font_size = 136
+bbcode_enabled = true
+text = "Circus"
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -20.0
+script = ExtResource("11_e7jpn")
+
+[node name="Circus" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("1_vnkbh"), ExtResource("3_i3f1r"), ExtResource("4_oe58g"), ExtResource("5_o0ii7")])
+music = ExtResource("11_j7vyr")
+color = Color(1, 0, 0.509804, 1)
+
+[node name="Tww" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("6_sojx6"), ExtResource("6_6l44c")])
+music = ExtResource("14_uka60")
+color = Color(1, 0.52549, 0, 1)
+
+[node name="China" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("15_ide7j"), ExtResource("16_3aosp"), ExtResource("17_xal4i"), ExtResource("18_7hoth")])
+music = ExtResource("19_7o2kb")
+color = Color(1, 0, 0, 1)
+
+[node name="Snow" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_epe1j")
+images = Array[Texture2D]([ExtResource("20_vwhxs"), ExtResource("21_tlice")])
+music = ExtResource("14_uka60")
+color = Color(0, 0.662745, 1, 1)

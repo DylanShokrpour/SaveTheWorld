@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dwwss1kfafkj8"
-path="res://.godot/imported/EmoteFort.mp3-e0179154cc08d4ed73a9c583f44e670b.mp3str"
+path="res://.godot/imported/EmoteFort.mp3-ab71a984d39e5bbeff9fff51f3bb8473.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/music/Retro/EmoteFort.mp3"
-dest_files=["res://.godot/imported/EmoteFort.mp3-e0179154cc08d4ed73a9c583f44e670b.mp3str"]
+source_file="res://Assets/Audio/Music/Retro/EmoteFort.mp3"
+dest_files=["res://.godot/imported/EmoteFort.mp3-ab71a984d39e5bbeff9fff51f3bb8473.mp3str"]
 
 [params]
 

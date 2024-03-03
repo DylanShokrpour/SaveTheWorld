@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://byip0fjsglk7w"
-path="res://.godot/imported/funk-it-49967.mp3-1450ccdae1e3414d79a28a3aff4c2f28.mp3str"
+path="res://.godot/imported/funk-it-49967.mp3-0cb9279c3a51ace97c6f7d9081ce9cea.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/music/Retro/funk-it-49967.mp3"
-dest_files=["res://.godot/imported/funk-it-49967.mp3-1450ccdae1e3414d79a28a3aff4c2f28.mp3str"]
+source_file="res://Assets/Audio/Music/Retro/funk-it-49967.mp3"
+dest_files=["res://.godot/imported/funk-it-49967.mp3-0cb9279c3a51ace97c6f7d9081ce9cea.mp3str"]
 
 [params]
 

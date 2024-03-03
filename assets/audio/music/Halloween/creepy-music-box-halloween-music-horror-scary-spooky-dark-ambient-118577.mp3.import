@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ern0u0ner1oi"
-path="res://.godot/imported/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3-f86f8a8761f41e6723b1cf90cf7e249b.mp3str"
+path="res://.godot/imported/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3-951fb2bae9691653549ebe08cfbf6be9.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/music/Halloween/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3"
-dest_files=["res://.godot/imported/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3-f86f8a8761f41e6723b1cf90cf7e249b.mp3str"]
+source_file="res://Assets/Audio/Music/Halloween/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3"
+dest_files=["res://.godot/imported/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3-951fb2bae9691653549ebe08cfbf6be9.mp3str"]
 
 [params]
 

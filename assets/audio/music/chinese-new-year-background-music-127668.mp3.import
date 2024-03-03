@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://chyv7n7b54kt"
-path="res://.godot/imported/chinese-new-year-background-music-127668.mp3-a89eefb19a3605917b536469cae23cd7.mp3str"
+path="res://.godot/imported/chinese-new-year-background-music-127668.mp3-fa2c36387255a14df6209da0c6a4f896.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/music/chinese-new-year-background-music-127668.mp3"
-dest_files=["res://.godot/imported/chinese-new-year-background-music-127668.mp3-a89eefb19a3605917b536469cae23cd7.mp3str"]
+source_file="res://Assets/Audio/Music/chinese-new-year-background-music-127668.mp3"
+dest_files=["res://.godot/imported/chinese-new-year-background-music-127668.mp3-fa2c36387255a14df6209da0c6a4f896.mp3str"]
 
 [params]
 

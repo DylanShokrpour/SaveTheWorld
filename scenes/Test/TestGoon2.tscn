@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c63jcbe8lwfvp"]
 
 [ext_resource type="Script" path="res://scripts/Goon.cs" id="1_oru8y"]
-[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="2_x3isp"]
-[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="3_qei2d"]
+[ext_resource type="Script" path="res://components/HealthComponent.cs" id="2_x3isp"]
+[ext_resource type="PackedScene" path="res://prefabs/Bars/HealthBar.tscn" id="3_qei2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qukgl"]
 albedo_color = Color(0.819608, 0, 0.964706, 1)
@@ -29,6 +29,8 @@ shape = SubResource("CapsuleShape3D_6smfp")
 [node name="HealthComponent" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_x3isp")
+health = null
+damageModifier = null
 
 [node name="SubViewport" type="SubViewport" parent="HealthComponent"]
 size = Vector2i(512, 22)

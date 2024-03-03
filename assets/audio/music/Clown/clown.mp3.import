@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://hr0xq4lfpba"
-path="res://.godot/imported/clown.mp3-6a1899a091898f9219f244f0f4c7f23a.mp3str"
+path="res://.godot/imported/clown.mp3-3200971dce632100e529f6f18103efae.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/music/Clown/clown.mp3"
-dest_files=["res://.godot/imported/clown.mp3-6a1899a091898f9219f244f0f4c7f23a.mp3str"]
+source_file="res://Assets/Audio/Music/Clown/clown.mp3"
+dest_files=["res://.godot/imported/clown.mp3-3200971dce632100e529f6f18103efae.mp3str"]
 
 [params]
 
