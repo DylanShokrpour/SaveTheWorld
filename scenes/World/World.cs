@@ -1,10 +1,6 @@
 using Godot;
 
 public partial class World : Node3D {
-	// lol the export doesn't even work but Hoy Hoy HOy
-	[Export] Wave wave1;
-	[Export] Wave wave2;
-
 	LocationLabel locationLabel;
 
 	Spawner spawner2;

@@ -79,10 +79,8 @@ sky = SubResource("Sky_j6nye")
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("wave1", "wave2")]
+[node name="World" type="Node3D"]
 script = ExtResource("1_x3gs8")
-wave1 = NodePath("")
-wave2 = NodePath("")
 
 [node name="Character" parent="." instance=ExtResource("1_2aadf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7, 0)
@@ -242,7 +240,6 @@ unique_name_in_owner = true
 
 [node name="StockMarket" type="Node3D" parent="."]
 script = ExtResource("22_3t81j")
-WaitTime = 1
 
 [node name="Building" parent="." instance=ExtResource("25_0uq6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, -13.5)
