@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scenes/Test/PathFollowBuilding.cs" id="1_4pmjj"]
 [ext_resource type="Script" path="res://scripts/Building.cs" id="1_cloit"]
-[ext_resource type="Script" path="res://components/BlockComponent.cs" id="2_wn6ik"]
-[ext_resource type="Script" path="res://components/HealthComponent.cs" id="3_q8hmo"]
-[ext_resource type="PackedScene" path="res://prefabs/Bars/HealthBar.tscn" id="4_xo2nv"]
+[ext_resource type="Script" path="res://scripts/components/BlockComponent.cs" id="2_wn6ik"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="3_q8hmo"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="4_xo2nv"]
 [ext_resource type="Script" path="res://prefabs/Buildings/Killable.cs" id="5_bvbtq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d228h"]
@@ -38,7 +38,6 @@ shape = SubResource("BoxShape3D_1mqok")
 unique_name_in_owner = true
 script = ExtResource("3_q8hmo")
 health = 300
-damageModifier = null
 
 [node name="SubViewport" type="SubViewport" parent="HealthComponent"]
 size = Vector2i(512, 22)

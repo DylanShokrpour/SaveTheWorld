@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://8p2340h68lbt"
-path="res://.godot/imported/ChaseMusic.mp3-3aa7b4c3d7909a49dbaea0b8c374ee31.mp3str"
+path="res://.godot/imported/ChaseMusic.mp3-44f7badb7f96d6cc825f615ab696d965.mp3str"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/ChaseMusic.mp3"
-dest_files=["res://.godot/imported/ChaseMusic.mp3-3aa7b4c3d7909a49dbaea0b8c374ee31.mp3str"]
+source_file="res://assets/audio/music/ChaseMusic.mp3"
+dest_files=["res://.godot/imported/ChaseMusic.mp3-44f7badb7f96d6cc825f615ab696d965.mp3str"]
 
 [params]
 
