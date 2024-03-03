@@ -4,7 +4,7 @@ using Godot;
 using GodotExtensions.extensions.node;
 
 public partial class StockMarket : Node {
-	[Export] int WaitTime;
+	[Export] int waitTime = 1;
 	List<Stock> stocks = new();
 	Timer timeToChangeStocks;
 
@@ -15,7 +15,7 @@ public partial class StockMarket : Node {
 
 	void ConfigureTimer() {
 		timeToChangeStocks = new();
-		timeToChangeStocks.WaitTime = WaitTime;
+		timeToChangeStocks.WaitTime = waitTime;
 		AddChild(timeToChangeStocks);
 		timeToChangeStocks.Start();
 		timeToChangeStocks.Timeout += ChangeStockPrices;
