@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Godot;
 using GodotExtensions.extensions.node;
 
@@ -24,7 +25,7 @@ public partial class WaveManager : Node3D {
 		waveTimer.Timeout += StartNewWave;
 		StartNewWave();
 	}
-	
+
 	void ConfigureTimer() {
 		waveTimer = new();
 		waveTimer.WaitTime = waveDuration;
@@ -37,10 +38,18 @@ public partial class WaveManager : Node3D {
 		foreach (Spawner spawner in spawners) {
 			// ! An exception will be thrown when the waveCount exceeds the number of waves
 			Wave currentWave = waves[waveCount];
-			_ = spawner.SpawnGoonsInWave(currentWave);
+			_ = SpawnGoonsInWave(spawner, currentWave);
 		}
 
 		waveCount++;
 		EmitSignal(SignalName.NewWaveStarted);
+	}
+
+	/// <returns>Once all the enemies in the wave have been spawned</returns>
+	async Task SpawnGoonsInWave(Spawner spawner, Wave wave) {
+		foreach (PackedScene enemy in wave.enemyList) {
+			await this.WaitForSeconds(wave.timeBetweenSpawn);
+			spawner.SpawnGoon(enemy);
+		}
 	}
 }

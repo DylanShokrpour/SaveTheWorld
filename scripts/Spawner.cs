@@ -1,6 +1,4 @@
-using System.Threading.Tasks;
 using Godot;
-using GodotExtensions.extensions.node;
 
 public partial class Spawner : Node3D {
 	[Export] Path3D path3D;
@@ -13,15 +11,7 @@ public partial class Spawner : Node3D {
 		GlobalPosition = position;
 	}
 
-	/// <returns>Once all the enemies in the wave have been spawned</returns>
-	public async Task SpawnGoonsInWave(Wave wave) {
-		foreach (PackedScene enemy in wave.enemyList) {
-			await this.WaitForSeconds(wave.timeBetweenSpawn);
-			SpawnGoon(enemy);
-		}
-	}
-
-	void SpawnGoon(PackedScene goonPrefab) {
+	public void SpawnGoon(PackedScene goonPrefab) {
 		var goon = goonPrefab.Instantiate<Goon>();
 		AutoPathFollow autoPathFollow = new(goon.speed);
 		path3D.AddChild(autoPathFollow);
