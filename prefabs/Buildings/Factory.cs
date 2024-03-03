@@ -14,10 +14,10 @@ public partial class Factory : Node3D {
 	}
 
 	void Spawn() {
+		// ! Does not queue free when reaches end of the path
 		var unit = spawnPrefab.Instantiate<Node3D>();
-		Path path;
 		var trackBuilding = unit.FindFirstChild<PathFollowBuilding>();
-		path = new(-trackBuilding.speed);
+		Path path = new(-trackBuilding.speed);
 		pathFollowed.AddChild(path);
 		trackBuilding.path = path;
 		path.ProgressRatio = 1f;
