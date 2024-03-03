@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdyrgsu3xva08"]
 
 [ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="1_1mrjg"]
-[ext_resource type="Script" path="res://scripts/Goon.cs" id="1_sv60u"]
+[ext_resource type="Script" path="res://prefabs/enemies/goons/Goon.cs" id="1_sv60u"]
 [ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="2_urakg"]
 [ext_resource type="Script" path="res://scripts/goon_abilities/Teleporter.cs" id="4_78ap4"]
 

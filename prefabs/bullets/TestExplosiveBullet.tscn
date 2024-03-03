@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://degj0y2pnynkq"]
 
-[ext_resource type="Script" path="res://scripts/Bullet.cs" id="1_e4ee7"]
+[ext_resource type="Script" path="res://prefabs/bullets/Bullet.cs" id="1_e4ee7"]
 [ext_resource type="Script" path="res://scripts/AreaDamageComponent.cs" id="2_ri855"]
 [ext_resource type="Script" path="res://scripts/components/DetectionComponent.cs" id="3_ddeun"]
 

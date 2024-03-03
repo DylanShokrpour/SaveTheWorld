@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bxmwfvnv8andu"]
 
-[ext_resource type="Script" path="res://scenes/Test/PathFollowBuilding.cs" id="1_4pmjj"]
-[ext_resource type="Script" path="res://scripts/Building.cs" id="1_cloit"]
+[ext_resource type="Script" path="res://scenes/World/PathFollowBuilding.cs" id="1_4pmjj"]
+[ext_resource type="Script" path="res://prefabs/Buildings/Building.cs" id="1_cloit"]
 [ext_resource type="Script" path="res://scripts/components/BlockComponent.cs" id="2_wn6ik"]
 [ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="3_q8hmo"]
 [ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://prefabs/ui/HealthBar/HealthBar.tscn" id="4_xo2nv"]

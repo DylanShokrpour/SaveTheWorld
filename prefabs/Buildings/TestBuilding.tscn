@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bog22fx3632jl"]
 
-[ext_resource type="Script" path="res://scripts/Building.cs" id="1_fscct"]
+[ext_resource type="Script" path="res://prefabs/Buildings/Building.cs" id="1_fscct"]
 [ext_resource type="Script" path="res://scripts/components/DetectionComponent.cs" id="2_qq82q"]
-[ext_resource type="PackedScene" uid="uid://hkdl5adfod3v" path="res://scenes/Test/TestBullet.tscn" id="3_6llhk"]
+[ext_resource type="PackedScene" uid="uid://hkdl5adfod3v" path="res://prefabs/bullets/TestBullet.tscn" id="3_6llhk"]
 [ext_resource type="Script" path="res://scripts/components/RangedAttackComponent.cs" id="3_xu8t0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jboqi"]
