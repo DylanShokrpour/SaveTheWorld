@@ -10,19 +10,19 @@ public partial class FreeEnemy : CharacterBody3D {
 	float gravity = 6f;
 	DetectionComponent detection;
 	DetectionComponent attackArea;
+	TargetedPathFinderComponent targetPathFinder;
 	Vector3 velocity = Vector3.Zero;
-	TargetComponent targetComponent;
 
 	public override void _Ready() {
-		targetComponent = GetNode<TargetComponent>("%TargetingComponent");
-		
+		targetPathFinder = GetNode<TargetedPathFinderComponent>("TargetedPathFinderComponent");
+
 		detection = GetNode<DetectionComponent>("%DetectionComponent");
 		detection.ValidBodyEntered += Target;
 		detection.ValidBodyExited += RemoveTarget;
-		
+
 		health = GetNode<HealthComponent>("%HealthComponent");
 		health.OnHealthChanged += OnDeath;
-		
+
 		var rangedAttackComponent = GetNodeOrNull<RangedAttackComponent>("RangedAttackComponent");
 		if (rangedAttackComponent != null)
 			rangedAttackComponent.targetType = typeof(Character);
@@ -31,11 +31,11 @@ public partial class FreeEnemy : CharacterBody3D {
 	void Target(CharacterBody3D target) {
 		if (target is not Character)
 			return;
-		targetComponent.SetTarget(target);
+		targetPathFinder.Target = target;
 	}
 
 	void RemoveTarget() {
-		targetComponent.RemoveTarget();
+		targetPathFinder.Target = null;
 	}
 
 	async void OnDeath() {
@@ -48,10 +48,9 @@ public partial class FreeEnemy : CharacterBody3D {
 		MoveAndSlide();
 		if (shooting)
 			return;
-		if (targetComponent.DoesNotHaveTarget)
+		if (!targetPathFinder.HasTarget)
 			return;
-		targetComponent.UpdateTarget();
-		Vector3 nextLocation = targetComponent.GetNextPathPosition();
+		Vector3 nextLocation = targetPathFinder.NextPathPosition;
 		//Vector3 VelocityToTarget = (nextLocation - GlobalPosition).Normalized();
 		Velocity = Velocity with { X = nextLocation.X - GlobalPosition.X };
 		Velocity = Velocity with { Z = nextLocation.Z - GlobalPosition.Z };
