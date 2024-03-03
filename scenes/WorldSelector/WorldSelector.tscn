@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cf4tbi5fapriu" path="res://assets/images/SecretCircus.webp" id="5_o0ii7"]
 [ext_resource type="Texture2D" uid="uid://01xacy28kqq2" path="res://assets/images/WildWest2.webp" id="6_6l44c"]
 [ext_resource type="Texture2D" uid="uid://calx1wjjn45e3" path="res://assets/images/Arrow.png" id="6_curla"]
-[ext_resource type="Script" path="res://scripts/ChangeMapButton.cs" id="6_j63hx"]
+[ext_resource type="Script" path="res://scenes/WorldSelector/ChangeMapButton.cs" id="6_j63hx"]
 [ext_resource type="FontFile" uid="uid://bvfa7s6offpqh" path="res://assets/font/waflerd-demo-version/Waflerd DEMO VERSION.otf" id="6_k00ew"]
 [ext_resource type="Texture2D" uid="uid://d2g00n68w4oif" path="res://assets/images/WildWest.webp" id="6_sojx6"]
 [ext_resource type="Script" path="res://scenes/WorldSelector/MenuAudioManager.cs" id="11_e7jpn"]
