@@ -10,12 +10,14 @@ public partial class Base : Building {
 		healthComponent = GetNode<HealthComponent>("%HealthComponent");
 		detectionComponent = GetNode<DetectionComponent>("DetectionComponent");
 		detectionComponent.ValidBodyEntered += Hit;
-		
+
 		rangedAttackComponent = GetNode<RangedAttackComponent>("RangedAttackComponent");
 		rangedAttackComponent.targetType = typeof(Goon);
-		
+
 		int lastPoint = path.Curve.PointCount - 1;
-		Position = path.Curve.GetPointPosition(lastPoint);
+		Vector3 position = path.GlobalPosition;
+		position += path.Curve.GetPointPosition(lastPoint);
+		Position = position;
 	}
 
 	void Hit(CharacterBody3D character) {
