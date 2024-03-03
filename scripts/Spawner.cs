@@ -23,9 +23,9 @@ public partial class Spawner : Node3D {
 
 	void SpawnGoon(PackedScene goonPrefab) {
 		var goon = goonPrefab.Instantiate<Goon>();
-		Path path = new(goon.speed);
-		path3D.AddChild(path);
-		goon.path = path;
-		path.AddChild(goon);
+		AutoPathFollow autoPathFollow = new(goon.speed);
+		path3D.AddChild(autoPathFollow);
+		goon.autoPathFollow = autoPathFollow;
+		autoPathFollow.AddChild(goon);
 	}
 }

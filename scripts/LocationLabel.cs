@@ -9,16 +9,12 @@ public partial class LocationLabel : RichTextLabel {
 	Tween tween;
 	//This is a label that will be used to introduce the level(I AM A TROLL OK)
 
-	public override void _Ready() {
-		//Color = new Color(1, 1, 1,1);
-	}
-
 	public async Task ShowLocationAnimation() {
 		await DropDown();
 		await this.WaitForSeconds(2);
 		await RetractUp(); // await does not really matter on the last one.
 	}
-	
+
 	async Task DropDown() {
 		Text = Font + GetOwner<Node3D>().Name;
 		RefreshTween();

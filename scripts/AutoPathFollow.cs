@@ -1,9 +1,9 @@
 using Godot;
 
-public partial class Path : PathFollow3D {
+public partial class AutoPathFollow : PathFollow3D {
 	public float speed;
 
-	public Path(float speed) {
+	public AutoPathFollow(float speed) {
 		this.speed = speed;
 	}
 

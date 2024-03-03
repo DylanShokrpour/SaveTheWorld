@@ -5,7 +5,7 @@ public partial class Goon : CharacterBody3D {
 	[Export] public int damage = 10;
 	[Export] public float speed = 1;
 	public HealthComponent HealthComponent { get; private set; }
-	public Path path;
+	public AutoPathFollow autoPathFollow;
 	public List<Item> items = new();
 
 	public override void _EnterTree() {

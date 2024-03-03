@@ -24,6 +24,7 @@ public partial class RangedAttackComponent : Node3D {
 		attackTimer.Timeout += Attack;
 		determineTargetType();
 	}
+
 	void determineTargetType() {
 		if (GetParent().GetType() == typeof(Building))
 			targetType = typeof(Goon);
@@ -57,7 +58,7 @@ public partial class RangedAttackComponent : Node3D {
 			return;
 		if (!IsInstanceValid(currentTarget))
 			return;
-		if (currentTarget.GetParent() is Path path)
+		if (currentTarget.GetParent() is AutoPathFollow path)
 			ShootBulletAtTarget(path);
 		else
 			ShootBulletAtTarget(currentTarget);

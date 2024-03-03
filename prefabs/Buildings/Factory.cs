@@ -17,11 +17,11 @@ public partial class Factory : Node3D {
 		// ! Does not queue free when reaches end of the path
 		var unit = spawnPrefab.Instantiate<Node3D>();
 		var trackBuilding = unit.FindFirstChild<PathFollowBuilding>();
-		Path path = new(-trackBuilding.speed);
-		pathFollowed.AddChild(path);
-		trackBuilding.path = path;
-		path.ProgressRatio = 1f;
-		path.AddChild(unit);
+		AutoPathFollow autoPathFollow = new(-trackBuilding.speed);
+		pathFollowed.AddChild(autoPathFollow);
+		trackBuilding.autoPathFollow = autoPathFollow;
+		autoPathFollow.ProgressRatio = 1f;
+		autoPathFollow.AddChild(unit);
 	}
 
 	void ChangePathFollowed(Path3D newPath) {

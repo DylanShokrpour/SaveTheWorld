@@ -3,23 +3,23 @@ using Godot;
 public partial class Necromancer : Node3D {
 	[Export] PackedScene spawnPrefab;
 	[Export] int spawnTime;
-	Path pathCategory;
+	AutoPathFollow autoPathFollowCategory;
 	Timer spawnTimer;
 
 	public override void _Ready() {
 		ConfigureTimer();
 		spawnTimer.Timeout += Spawn;
-		pathCategory = GetParent().GetParent<Path>();
+		autoPathFollowCategory = GetParent().GetParent<AutoPathFollow>();
 	}
 
 	void Spawn() {
 		var unit = spawnPrefab.Instantiate<Goon>();
-		Path path = new(unit.speed);
-		pathCategory.GetParent().AddChild(path);
-		path.Progress = pathCategory.Progress;
-		path.AddChild(unit);
+		AutoPathFollow autoPathFollow = new(unit.speed);
+		autoPathFollowCategory.GetParent().AddChild(autoPathFollow);
+		autoPathFollow.Progress = autoPathFollowCategory.Progress;
+		autoPathFollow.AddChild(unit);
 	}
-	
+
 	void ConfigureTimer() {
 		spawnTimer = new();
 		spawnTimer.WaitTime = spawnTime;

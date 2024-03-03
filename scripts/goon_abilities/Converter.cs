@@ -21,7 +21,7 @@ public partial class Converter : Area3D {
 	}
 
 	async void Convert(BlockComponent block, PathFollowBuilding building) {
-		GetParent<Goon>().path.speed = 0;
+		GetParent<Goon>().autoPathFollow.speed = 0;
 		building.ChangePathSpeed(0);
 		await this.WaitForSeconds(timeToConvert);
 		block.targetType = typeof(Building);
