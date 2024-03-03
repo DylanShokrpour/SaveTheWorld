@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dvadqh33ntn8d"
-path="res://.godot/imported/chinese-music-traditional-new-year-celebration-115500.mp3-89a99dcc436a6b8001e909a69d9a5f97.mp3str"
+path="res://.godot/imported/chinese-music-traditional-new-year-celebration-115500.mp3-6d8157e33d1dab181f6a0dc684ba7ec0.mp3str"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/chinese-music-traditional-new-year-celebration-115500.mp3"
-dest_files=["res://.godot/imported/chinese-music-traditional-new-year-celebration-115500.mp3-89a99dcc436a6b8001e909a69d9a5f97.mp3str"]
+source_file="res://assets/audio/music/chinese-music-traditional-new-year-celebration-115500.mp3"
+dest_files=["res://.godot/imported/chinese-music-traditional-new-year-celebration-115500.mp3-6d8157e33d1dab181f6a0dc684ba7ec0.mp3str"]
 
 [params]
 

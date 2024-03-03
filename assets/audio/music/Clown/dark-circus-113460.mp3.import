@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bmiv21p4unore"
-path="res://.godot/imported/dark-circus-113460.mp3-a15930b9e9dfd8806592cc53a5b73e97.mp3str"
+path="res://.godot/imported/dark-circus-113460.mp3-0ad933d7112ba89b4b4abe7fed70edea.mp3str"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/Clown/dark-circus-113460.mp3"
-dest_files=["res://.godot/imported/dark-circus-113460.mp3-a15930b9e9dfd8806592cc53a5b73e97.mp3str"]
+source_file="res://assets/audio/music/Clown/dark-circus-113460.mp3"
+dest_files=["res://.godot/imported/dark-circus-113460.mp3-0ad933d7112ba89b4b4abe7fed70edea.mp3str"]
 
 [params]
 

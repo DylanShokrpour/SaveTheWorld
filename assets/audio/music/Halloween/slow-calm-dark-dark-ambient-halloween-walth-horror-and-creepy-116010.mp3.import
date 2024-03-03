@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://6svrcswyy1y3"
-path="res://.godot/imported/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3-50452e247287ee3ae438e6c048e95e1c.mp3str"
+path="res://.godot/imported/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3-9270b36e5aeea632cf6001dffd7b001e.mp3str"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/Halloween/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3"
-dest_files=["res://.godot/imported/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3-50452e247287ee3ae438e6c048e95e1c.mp3str"]
+source_file="res://assets/audio/music/Halloween/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3"
+dest_files=["res://.godot/imported/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3-9270b36e5aeea632cf6001dffd7b001e.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c8vyi6dschw8q"
-path="res://.godot/imported/NutCracker.mp3-2708a603a4b2a462131ab1f65546f64f.mp3str"
+path="res://.godot/imported/NutCracker.mp3-dcfe0540488fdef27d25b61501936259.mp3str"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/NutCracker.mp3"
-dest_files=["res://.godot/imported/NutCracker.mp3-2708a603a4b2a462131ab1f65546f64f.mp3str"]
+source_file="res://assets/audio/music/NutCracker.mp3"
+dest_files=["res://.godot/imported/NutCracker.mp3-dcfe0540488fdef27d25b61501936259.mp3str"]
 
 [params]
 

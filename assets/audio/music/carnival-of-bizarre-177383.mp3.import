@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bdcspcnuvvddf"
-path="res://.godot/imported/carnival-of-bizarre-177383.mp3-06ca42c4fa1ac566820d150a5b6bab03.mp3str"
+path="res://.godot/imported/carnival-of-bizarre-177383.mp3-edf825421bbd012d69ee19dcc918dc5e.mp3str"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/carnival-of-bizarre-177383.mp3"
-dest_files=["res://.godot/imported/carnival-of-bizarre-177383.mp3-06ca42c4fa1ac566820d150a5b6bab03.mp3str"]
+source_file="res://assets/audio/music/carnival-of-bizarre-177383.mp3"
+dest_files=["res://.godot/imported/carnival-of-bizarre-177383.mp3-edf825421bbd012d69ee19dcc918dc5e.mp3str"]
 
 [params]
 
