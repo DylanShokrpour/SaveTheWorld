@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy1lvchok23fq"
-path="res://.godot/imported/Circus3.webp-9194d165754f00ce1e524c5c623df8da.ctex"
+uid="uid://bpptweqhqdgo3"
+path="res://.godot/imported/SnowyWorld1.png-7a5d4f14d00cbfb1a232286ab875bb33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Circus3.webp"
-dest_files=["res://.godot/imported/Circus3.webp-9194d165754f00ce1e524c5c623df8da.ctex"]
+source_file="res://assets/images/SnowyWorld1.png"
+dest_files=["res://.godot/imported/SnowyWorld1.png-7a5d4f14d00cbfb1a232286ab875bb33.ctex"]
 
 [params]
 

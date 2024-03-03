@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vke7icx8q4kn"
-path="res://.godot/imported/Circus2.jpg-36189b8c886223c6900f7cf6b4d6b6d3.ctex"
+uid="uid://d2g00n68w4oif"
+path="res://.godot/imported/WildWest.webp-bd6e8b48c39f5dd0bd6cceffd7171ab6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Circus2.jpg"
-dest_files=["res://.godot/imported/Circus2.jpg-36189b8c886223c6900f7cf6b4d6b6d3.ctex"]
+source_file="res://assets/images/WildWest.webp"
+dest_files=["res://.godot/imported/WildWest.webp-bd6e8b48c39f5dd0bd6cceffd7171ab6.ctex"]
 
 [params]
 

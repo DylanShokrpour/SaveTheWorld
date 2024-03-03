@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2g00n68w4oif"
-path="res://.godot/imported/WildWest.webp-841921c064355b573b47dc159fe2e517.ctex"
+uid="uid://brhwix0v550xw"
+path="res://.godot/imported/SnowyWorld2.png-cdd113c5c6af36cde694ac48a7e1a94c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/WildWest.webp"
-dest_files=["res://.godot/imported/WildWest.webp-841921c064355b573b47dc159fe2e517.ctex"]
+source_file="res://assets/images/SnowyWorld2.png"
+dest_files=["res://.godot/imported/SnowyWorld2.png-cdd113c5c6af36cde694ac48a7e1a94c.ctex"]
 
 [params]
 

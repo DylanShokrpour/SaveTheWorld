@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3lwyq6v0kyay"
-path="res://.godot/imported/ChinaTown2.png-fb9fe99550ec922c7178b18d063cccd6.ctex"
+uid="uid://cy1lvchok23fq"
+path="res://.godot/imported/Circus3.webp-e7125e97c749d3ba9c6cc76ef2aabafa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/ChinaTown2.png"
-dest_files=["res://.godot/imported/ChinaTown2.png-fb9fe99550ec922c7178b18d063cccd6.ctex"]
+source_file="res://assets/images/Circus3.webp"
+dest_files=["res://.godot/imported/Circus3.webp-e7125e97c749d3ba9c6cc76ef2aabafa.ctex"]
 
 [params]
 

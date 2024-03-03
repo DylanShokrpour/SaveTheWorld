@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brhwix0v550xw"
-path="res://.godot/imported/SnowyWorld2.png-f2ecae08d9c02168b7250ecb5d712e6e.ctex"
+uid="uid://d1wox3o3q3ic2"
+path="res://.godot/imported/ChinaTown3.png-cbbdb98a4a98bd90d42a0d787dd8de87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/SnowyWorld2.png"
-dest_files=["res://.godot/imported/SnowyWorld2.png-f2ecae08d9c02168b7250ecb5d712e6e.ctex"]
+source_file="res://assets/images/ChinaTown3.png"
+dest_files=["res://.godot/imported/ChinaTown3.png-cbbdb98a4a98bd90d42a0d787dd8de87.ctex"]
 
 [params]
 

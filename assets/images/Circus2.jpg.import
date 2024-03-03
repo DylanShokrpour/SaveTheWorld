@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf4tbi5fapriu"
-path="res://.godot/imported/SecretCircus.webp-8a0597b1b2ff82ff11902b17af752721.ctex"
+uid="uid://vke7icx8q4kn"
+path="res://.godot/imported/Circus2.jpg-51c35c8e2aaef4a31a7cbf3ebf41c41f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/SecretCircus.webp"
-dest_files=["res://.godot/imported/SecretCircus.webp-8a0597b1b2ff82ff11902b17af752721.ctex"]
+source_file="res://assets/images/Circus2.jpg"
+dest_files=["res://.godot/imported/Circus2.jpg-51c35c8e2aaef4a31a7cbf3ebf41c41f.ctex"]
 
 [params]
 

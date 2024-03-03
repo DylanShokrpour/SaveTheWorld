@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg3y5xfrukgri"
-path="res://.godot/imported/Circus1.webp-9cd905f6d5cd60fa47b0c156e72d9c37.ctex"
+path="res://.godot/imported/Circus1.webp-47a26468e1181e453141565b583a153b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Circus1.webp"
-dest_files=["res://.godot/imported/Circus1.webp-9cd905f6d5cd60fa47b0c156e72d9c37.ctex"]
+source_file="res://assets/images/Circus1.webp"
+dest_files=["res://.godot/imported/Circus1.webp-47a26468e1181e453141565b583a153b.ctex"]
 
 [params]
 

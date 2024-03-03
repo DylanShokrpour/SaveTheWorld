@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01xacy28kqq2"
-path="res://.godot/imported/WildWest2.webp-1f3ea70dd4777241fae22975dc2ba058.ctex"
+uid="uid://b3lwyq6v0kyay"
+path="res://.godot/imported/ChinaTown2.png-09bf961c88d7ce3bc5819d6e48e8f5c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/WildWest2.webp"
-dest_files=["res://.godot/imported/WildWest2.webp-1f3ea70dd4777241fae22975dc2ba058.ctex"]
+source_file="res://assets/images/ChinaTown2.png"
+dest_files=["res://.godot/imported/ChinaTown2.png-09bf961c88d7ce3bc5819d6e48e8f5c8.ctex"]
 
 [params]
 
