@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcj6le4lsx8cf"
-path="res://.godot/imported/Snow010A_1K-PNG_AmbientOcclusion.png-ed425dd15d459c2ac9b4dcf00d5f45cf.ctex"
+uid="uid://cay5p1ihjoiwm"
+path="res://.godot/imported/Snow010A_1K-PNG_Displacement.png-7ebc96aee3ca92faf544743d01619ca6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/SnowWorld/assets/Snow010A_1K-PNG/Snow010A_1K-PNG_AmbientOcclusion.png"
-dest_files=["res://.godot/imported/Snow010A_1K-PNG_AmbientOcclusion.png-ed425dd15d459c2ac9b4dcf00d5f45cf.ctex"]
+source_file="res://scenes/SnowWorld/assets/images/textures/Snow010A_1K-PNG/Snow010A_1K-PNG_Displacement.png"
+dest_files=["res://.godot/imported/Snow010A_1K-PNG_Displacement.png-7ebc96aee3ca92faf544743d01619ca6.ctex"]
 
 [params]
 

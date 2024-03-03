@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tbe3msgbdsgv"
-path="res://.godot/imported/Snow010A_1K-PNG_NormalGL.png-fd496b02e819fa746735066d7ffc5ab4.ctex"
+uid="uid://11gntlw4b0df"
+path="res://.godot/imported/Rock035_1K-PNG_AmbientOcclusion.png-923a79dd79953adc7fc23a68c64b41a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/SnowWorld/assets/Snow010A_1K-PNG/Snow010A_1K-PNG_NormalGL.png"
-dest_files=["res://.godot/imported/Snow010A_1K-PNG_NormalGL.png-fd496b02e819fa746735066d7ffc5ab4.ctex"]
+source_file="res://scenes/SnowWorld/assets/images/textures/Rock035_1K-PNG/Rock035_1K-PNG_AmbientOcclusion.png"
+dest_files=["res://.godot/imported/Rock035_1K-PNG_AmbientOcclusion.png-923a79dd79953adc7fc23a68c64b41a1.ctex"]
 
 [params]
 

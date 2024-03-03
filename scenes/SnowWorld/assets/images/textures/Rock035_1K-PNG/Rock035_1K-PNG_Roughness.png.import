@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cay5p1ihjoiwm"
-path="res://.godot/imported/Snow010A_1K-PNG_Displacement.png-dbad0835e98bef5847f5fda40a5253ae.ctex"
+uid="uid://3j6kh3x0q6g4"
+path="res://.godot/imported/Rock035_1K-PNG_Roughness.png-2588d171015e1a2eaa0281000503f916.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/SnowWorld/assets/Snow010A_1K-PNG/Snow010A_1K-PNG_Displacement.png"
-dest_files=["res://.godot/imported/Snow010A_1K-PNG_Displacement.png-dbad0835e98bef5847f5fda40a5253ae.ctex"]
+source_file="res://scenes/SnowWorld/assets/images/textures/Rock035_1K-PNG/Rock035_1K-PNG_Roughness.png"
+dest_files=["res://.godot/imported/Rock035_1K-PNG_Roughness.png-2588d171015e1a2eaa0281000503f916.ctex"]
 
 [params]
 

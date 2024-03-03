@@ -1,9 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl6txdhvvviyu"]
+[gd_scene load_steps=18 format=3 uid="uid://dl6txdhvvviyu"]
 
-[ext_resource type="Texture2D" uid="uid://d3gah6ps84m54" path="res://scenes/SnowWorld/assets/snow_field_puresky_2k.exr" id="1_1h6i7"]
+[ext_resource type="Texture2D" uid="uid://d3gah6ps84m54" path="res://scenes/SnowWorld/assets/images/snow_field_puresky_2k.exr" id="1_1h6i7"]
 [ext_resource type="Terrain3DStorage" uid="uid://b0ptk1y4yegac" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_storage.res" id="1_biomm"]
 [ext_resource type="Terrain3DMaterial" uid="uid://c5lviigehrd5i" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_material.res" id="2_pfj11"]
 [ext_resource type="Terrain3DTextureList" uid="uid://d1jb7jc2tx61t" path="res://scenes/SnowWorld/terrain/snow_terrain_3d_texture_list.res" id="3_1arhm"]
+[ext_resource type="AudioStream" uid="uid://dikbo3620i6ip" path="res://scenes/SnowWorld/assets/music/carol-of-the-bells-hip-hop-version-christmas-music-for-video-vlog-171731.mp3" id="5_0cc8a"]
+[ext_resource type="AudioStream" uid="uid://bqwkwairf5jhe" path="res://scenes/SnowWorld/assets/music/deck-the-halls-hip-hop-version-christmas-music-for-video-vlog-60sec-172531.mp3" id="6_6rxyr"]
+[ext_resource type="AudioStream" uid="uid://okl4csqlf8is" path="res://scenes/SnowWorld/assets/music/jingle-bells-background-christmas-music-in-dance-tropical-house-style-171038.mp3" id="7_1pf4g"]
+[ext_resource type="AudioStream" uid="uid://bt5omoyvt0g58" path="res://scenes/SnowWorld/assets/music/jingle-bells-background-hip-hop-music-for-new-yearx27s-videos-170723.mp3" id="8_e3efp"]
+[ext_resource type="AudioStream" uid="uid://ym8shop0um6i" path="res://scenes/SnowWorld/assets/music/silent-night-christmas-music-for-video-vlog-hip-hop-version-174362.mp3" id="9_etnhc"]
+[ext_resource type="AudioStream" uid="uid://croglg6iiptqc" path="res://scenes/SnowWorld/assets/music/the-nutcracker-dance-of-the-sugar-plum-fairy-electro-house-version-173832.mp3" id="10_kg7ye"]
+[ext_resource type="AudioStream" uid="uid://b7fxh5c8rueli" path="res://scenes/SnowWorld/assets/music/we-wish-you-a-merry-christmas-hip-hop-version-music-for-video-vlog-172818.mp3" id="11_bb7la"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eo0gm"]
 panorama = ExtResource("1_1h6i7")
@@ -23,6 +30,39 @@ glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0001
 
+[sub_resource type="BoxMesh" id="BoxMesh_v07ds"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pwhr7"]
+streams_count = 7
+stream_0/stream = ExtResource("5_0cc8a")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_6rxyr")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_1pf4g")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_e3efp")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_etnhc")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("10_kg7ye")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("11_bb7la")
+stream_6/weight = 1.0
+
+[sub_resource type="GDScript" id="GDScript_5fwa0"]
+resource_name = "play random looping audio"
+script/source = "@tool
+extends AudioStreamPlayer
+
+func _ready() -> void:
+	finished.connect(_change_audio)
+
+func _change_audio() -> void:
+	stop()
+	play()
+"
+
 [node name="SnowWorld" type="Node3D"]
 
 [node name="Enviroment" type="Node3D" parent="."]
@@ -41,3 +81,13 @@ transform = Transform3D(1, 0, 0, 0, 0.946176, 0.323653, 0, -0.323653, 0.946176, 
 light_volumetric_fog_energy = 15000.0
 shadow_enabled = true
 shadow_blur = 2.325
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74531, 0)
+mesh = SubResource("BoxMesh_v07ds")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_pwhr7")
+volume_db = -16.0
+autoplay = true
+script = SubResource("GDScript_5fwa0")
