@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://sec6t5cnfse"]
+
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/enemies/goons/Goon.cs" id="1_j0dhc"]
+[ext_resource type="Script" path="res://scenes/TestWorld/components/HealthComponent.cs" id="2_37mvv"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://scenes/TestWorld/prefabs/ui/HealthBar/HealthBar.tscn" id="3_um183"]
+[ext_resource type="Script" path="res://scenes/TestWorld/components/DetectionComponent.cs" id="5_dhtk4"]
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/enemies/goons/Shield.cs" id="5_tb2ym"]
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/enemies/goons/goon_abilities/Armour.cs" id="6_to55v"]
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/enemies/goons/goon_abilities/Weapon.cs" id="7_aiytl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tenco"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r5rgb"]
+material = SubResource("StandardMaterial3D_tenco")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3s7jn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x7ss1"]
+viewport_path = NodePath("HealthComponent/SubViewport")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8cmh5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_su7xj"]
+size = Vector3(1.4, 1.8, 0.7)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ruylk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xglma"]
+top_radius = 0.01
+bottom_radius = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjgjt"]
+size = Vector3(1, 0.4, 2.1)
+
+[node name="TestGoon6" type="CharacterBody3D"]
+script = ExtResource("1_j0dhc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_r5rgb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3s7jn")
+
+[node name="HealthComponent" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_37mvv")
+
+[node name="SubViewport" type="SubViewport" parent="HealthComponent"]
+size = Vector2i(512, 22)
+
+[node name="HealthBar" parent="HealthComponent/SubViewport" instance=ExtResource("3_um183")]
+
+[node name="Health" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_x7ss1")
+
+[node name="Shield" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("5_tb2ym")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shield"]
+transform = Transform3D(1, 0, 0, 0, 1.3, 0, 0, 0, 0.15, 0, 0, 0.7)
+mesh = SubResource("BoxMesh_8cmh5")
+
+[node name="SDetectionComponent" type="Area3D" parent="Shield"]
+script = ExtResource("5_dhtk4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shield/SDetectionComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.596e-08, 0, 0.95)
+shape = SubResource("BoxShape3D_su7xj")
+
+[node name="SHealthComponent" type="Node3D" parent="Shield"]
+script = ExtResource("2_37mvv")
+health = 500
+
+[node name="SubViewport" type="SubViewport" parent="Shield/SHealthComponent"]
+size = Vector2i(512, 22)
+
+[node name="HealthBar" parent="Shield/SHealthComponent/SubViewport" instance=ExtResource("3_um183")]
+modulate = Color(0.337255, 0.486275, 1, 1)
+offset_top = 71.0
+offset_bottom = 98.0
+
+[node name="Armour" type="StaticBody3D" parent="."]
+script = ExtResource("6_to55v")
+amourStrength = 5.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Armour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+mesh = SubResource("PrismMesh_ruylk")
+skeleton = NodePath("../..")
+
+[node name="Weapon" type="StaticBody3D" parent="."]
+script = ExtResource("7_aiytl")
+damageToTrackBuildingsModifer = 10
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Weapon"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.6, 0.1, -1)
+mesh = SubResource("CylinderMesh_xglma")
+skeleton = NodePath("../..")
+
+[node name="TrackBuildingDetector" type="Area3D" parent="Weapon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Weapon/TrackBuildingDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -1.05)
+shape = SubResource("BoxShape3D_hjgjt")

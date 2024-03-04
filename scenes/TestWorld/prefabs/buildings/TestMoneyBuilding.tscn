@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwiw2ks0joir4"]
+
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/buildings/Building.cs" id="1_jb74w"]
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/buildings/CurrencyGenerator.cs" id="2_ga7rw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loifi"]
+albedo_color = Color(1, 0.290196, 0.741176, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_grps3"]
+material = SubResource("StandardMaterial3D_loifi")
+
+[node name="TestMoneyBuilding" type="StaticBody3D"]
+script = ExtResource("1_jb74w")
+
+[node name="CurrencyGeneratorConponent" type="Node3D" parent="."]
+script = ExtResource("2_ga7rw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_grps3")

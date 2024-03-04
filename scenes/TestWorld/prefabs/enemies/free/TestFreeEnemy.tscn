@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://cd3d7acs8w1i3"]
+
+[ext_resource type="Script" path="res://scenes/TestWorld/prefabs/enemies/free/FreeEnemy.cs" id="1_d84c3"]
+[ext_resource type="Script" path="res://scenes/TestWorld/components/HealthComponent.cs" id="1_u4sms"]
+[ext_resource type="PackedScene" uid="uid://c3syga30pyy48" path="res://scenes/TestWorld/prefabs/ui/HealthBar/HealthBar.tscn" id="2_star3"]
+[ext_resource type="Script" path="res://scenes/TestWorld/components/TargetedPathFinderComponent.cs" id="4_gv17t"]
+[ext_resource type="Script" path="res://scenes/TestWorld/components/DetectionComponent.cs" id="4_x824d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea73j"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_0bugn"]
+material = SubResource("StandardMaterial3D_ea73j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_puvl7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aehx3"]
+viewport_path = NodePath("HealthComponent/SubViewport")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_djn86"]
+radius = 7.0
+
+[node name="FreeEnemy" type="CharacterBody3D"]
+script = ExtResource("1_d84c3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_0bugn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_puvl7")
+
+[node name="HealthComponent" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_u4sms")
+health = 200
+
+[node name="SubViewport" type="SubViewport" parent="HealthComponent"]
+size = Vector2i(512, 22)
+
+[node name="HealthBar" parent="HealthComponent/SubViewport" instance=ExtResource("2_star3")]
+
+[node name="Health" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_aehx3")
+
+[node name="TargetedPathFinderComponent" type="NavigationAgent3D" parent="."]
+script = ExtResource("4_gv17t")
+
+[node name="DetectionComponent" type="Area3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_x824d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionComponent"]
+shape = SubResource("SphereShape3D_djn86")
