@@ -8,7 +8,7 @@
 [ext_resource type="Terrain3DMaterial" uid="uid://c5lviigehrd5i" path="res://maps/SnowMap/terrain/snow_terrain_3d_material.res" id="2_pfj11"]
 [ext_resource type="Terrain3DTextureList" uid="uid://d1jb7jc2tx61t" path="res://maps/SnowMap/terrain/snow_terrain_3d_texture_list.res" id="3_1arhm"]
 [ext_resource type="AudioStream" uid="uid://dikbo3620i6ip" path="res://maps/SnowMap/assets/music/carol-of-the-bells-hip-hop-version-christmas-music-for-video-vlog-171731.mp3" id="5_0cc8a"]
-[ext_resource type="Script" path="res://scripts/LocationLabel.cs" id="5_g8kxb"]
+[ext_resource type="Script" path="res://maps/TestMap/LocationLabel.cs" id="5_g8kxb"]
 [ext_resource type="AudioStream" uid="uid://bqwkwairf5jhe" path="res://maps/SnowMap/assets/music/deck-the-halls-hip-hop-version-christmas-music-for-video-vlog-60sec-172531.mp3" id="6_6rxyr"]
 [ext_resource type="AudioStream" uid="uid://okl4csqlf8is" path="res://maps/SnowMap/assets/music/jingle-bells-background-christmas-music-in-dance-tropical-house-style-171038.mp3" id="7_1pf4g"]
 [ext_resource type="AudioStream" uid="uid://bt5omoyvt0g58" path="res://maps/SnowMap/assets/music/jingle-bells-background-hip-hop-music-for-new-yearx27s-videos-170723.mp3" id="8_e3efp"]
