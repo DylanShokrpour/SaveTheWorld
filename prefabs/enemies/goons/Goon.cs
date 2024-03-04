@@ -6,7 +6,6 @@ public partial class Goon : CharacterBody3D {
 	[Export] public float speed = 1;
 	public HealthComponent HealthComponent { get; private set; }
 	public AutoPathFollow autoPathFollow;
-	public List<Item> items = new();
 
 	public override void _EnterTree() {
 		HealthComponent = GetNode<HealthComponent>("%HealthComponent");
