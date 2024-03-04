@@ -7,7 +7,7 @@ public partial class CurrencyGenerator : Node3D {
 	Character character;
 	Currency editedCurrency;
 	Timer currencyTimer;
-	Food food;
+	// Food food;
 
 	public CurrencyGenerator(Character owner) {
 		character = owner;
@@ -21,7 +21,7 @@ public partial class CurrencyGenerator : Node3D {
 	void DetectCurrencyType() {
 		switch (currencyType) {
 			case CurrentType.Food:
-				editedCurrency = character.food; // ASK THE VANGUARD MASTER TO SEE 
+				// editedCurrency = character.food; // ASK THE VANGUARD MASTER TO SEE 
 				break;
 		}
 	}

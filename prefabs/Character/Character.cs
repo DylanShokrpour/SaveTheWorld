@@ -9,7 +9,7 @@ public partial class Character : CharacterBody3D {
 	[Export] float speed = 5;
 	[Export] float acceleration = 10;
 	[Export] float sensitivity = 0.01f;
-	public Currency food = new();
+	// public Currency food = new();
 	RichTextLabel foodLabel;
 	float jumpPower = 10;
 	Vector3 velocity;
@@ -21,7 +21,7 @@ public partial class Character : CharacterBody3D {
 		head = GetNode<Node3D>("%Head");
 		camera = GetNode<Camera3D>("%PlayerCamera");
 		foodLabel = GetNode<RichTextLabel>("%FoodLabel");
-		food.OnCurrencyChanged += UpdateLabel;
+		// food.OnCurrencyChanged += UpdateLabel;
 		UpdateLabel();
 	}
 
@@ -63,7 +63,7 @@ public partial class Character : CharacterBody3D {
 	}
 
 	void UpdateLabel() {
-		foodLabel.Text = "Food: " + food.Amount;
+		// foodLabel.Text = "Food: " + food.Amount;
 	}
 
 	public void AddResource(Currency resource) {
