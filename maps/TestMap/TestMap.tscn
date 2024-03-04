@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bog22fx3632jl" path="res://prefabs/Buildings/TestBuilding.tscn" id="20_i4loj"]
 [ext_resource type="AudioStream" uid="uid://b8bf820t8io78" path="res://DANGER/Instrumental.mp3" id="20_yuv5s"]
 [ext_resource type="PackedScene" uid="uid://bqowd4itlvmko" path="res://prefabs/enemies/free/TestShooterFreeEnemy.tscn" id="21_aepx3"]
-[ext_resource type="Script" path="res://scripts/StockMarket.cs" id="22_3t81j"]
+[ext_resource type="Script" path="res://maps/TestMap/extras/StockMarket.cs" id="22_3t81j"]
 [ext_resource type="PackedScene" uid="uid://jq1drkfb8u43" path="res://prefabs/Buildings/TestBuilding2.tscn" id="25_0uq6f"]
 
 [sub_resource type="Curve3D" id="Curve3D_6chdn"]
@@ -108,15 +108,21 @@ script = ExtResource("4_3vu67")
 enemyList = Array[PackedScene]([ExtResource("5_dyha3"), ExtResource("5_dyha3"), ExtResource("7_mp8cd"), ExtResource("10_qb576"), ExtResource("10_qb576")])
 timeBetweenSpawn = 1
 
-[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
+[node name="TestSpawner2" parent="WaveManager" instance=ExtResource("2_fqdl5")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 9.5)
-path3D = NodePath("../../Path/Path3D2")
+spawnTimer = Object(Timer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","process_callback":1,"wait_time":1.0,"one_shot":false,"autostart":true,"script":null)
 
-[node name="TestSpawner" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("2_fqdl5")]
+path3D = Object(Path3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"curve":SubResource("Curve3D_6chdn"),"script":null)
+
+
+[node name="TestSpawner" parent="WaveManager" instance=ExtResource("2_fqdl5")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 0)
-path3D = NodePath("../../Path/Path3D")
+spawnTimer = Object(Timer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","process_callback":1,"wait_time":1.0,"one_shot":false,"autostart":true,"script":null)
+
+path3D = Object(Path3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"curve":SubResource("Curve3D_l8qfo"),"script":null)
+
 
 [node name="Wave4" type="Node3D" parent="WaveManager"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
