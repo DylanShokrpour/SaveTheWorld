@@ -60,7 +60,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_huxwb")
-gamePackedScenePath = "res://scenes/World/World.tscn"
+gamePackedScenePath = "res://maps/TestMap/TestMap.tscn"
 forcePlayersToWatchSplashScreen = false
 
 [node name="BackgroundBlurred" type="TextureRect" parent="."]
@@ -173,7 +173,7 @@ theme_override_colors/font_shadow_color = Color(9.62615e-07, 0.51522, 0.609054, 
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/normal_font_size = 36
-text = " Loading..."
+text = " Loading.."
 script = ExtResource("2_uwpqf")
 message = " Loading"
 metadata/_edit_use_anchors_ = true

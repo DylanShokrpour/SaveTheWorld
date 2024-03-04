@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3gah6ps84m54"
-path.bptc="res://.godot/imported/snow_field_puresky_2k.exr-56650da9d510b14154d79b8b93533a85.bptc.ctex"
+uid="uid://bcj6le4lsx8cf"
+path="res://.godot/imported/Snow010A_1K-PNG_AmbientOcclusion.png-d642db4915b686ed48b64089fed7d2d4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/SnowWorld/assets/images/snow_field_puresky_2k.exr"
-dest_files=["res://.godot/imported/snow_field_puresky_2k.exr-56650da9d510b14154d79b8b93533a85.bptc.ctex"]
+source_file="res://maps/SnowMap/assets/images/textures/Snow010A_1K-PNG/Snow010A_1K-PNG_AmbientOcclusion.png"
+dest_files=["res://.godot/imported/Snow010A_1K-PNG_AmbientOcclusion.png-d642db4915b686ed48b64089fed7d2d4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

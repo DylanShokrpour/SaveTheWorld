@@ -1,8 +1,8 @@
 [gd_scene load_steps=41 format=3 uid="uid://c6byir8d0b7ro"]
 
 [ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://prefabs/Character/Character.tscn" id="1_2aadf"]
-[ext_resource type="Script" path="res://scenes/World/World.cs" id="1_x3gs8"]
-[ext_resource type="PackedScene" uid="uid://cgby4t2cdaokk" path="res://scenes/World/TestSpawner.tscn" id="2_fqdl5"]
+[ext_resource type="Script" path="res://maps/TestMap/TestMap.cs" id="1_x3gs8"]
+[ext_resource type="PackedScene" uid="uid://cgby4t2cdaokk" path="res://maps/TestMap/TestSpawner.tscn" id="2_fqdl5"]
 [ext_resource type="Script" path="res://scripts/Wave.cs" id="4_3vu67"]
 [ext_resource type="PackedScene" uid="uid://b1u6bnvn8nn6s" path="res://prefabs/enemies/goons/TestGoon8.tscn" id="5_c5pxh"]
 [ext_resource type="PackedScene" uid="uid://bwyd7mdd8no0t" path="res://prefabs/enemies/goons/TestGoon.tscn" id="5_dyha3"]

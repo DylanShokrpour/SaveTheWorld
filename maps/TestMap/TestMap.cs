@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class World : Node3D {
+public partial class TestMap : Node3D {
 	WaveManager waveManager;
 	AudioManager audioManager;
 

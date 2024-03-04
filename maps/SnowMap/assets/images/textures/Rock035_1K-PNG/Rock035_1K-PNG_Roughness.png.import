@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://11gntlw4b0df"
-path="res://.godot/imported/Rock035_1K-PNG_AmbientOcclusion.png-923a79dd79953adc7fc23a68c64b41a1.ctex"
+uid="uid://3j6kh3x0q6g4"
+path="res://.godot/imported/Rock035_1K-PNG_Roughness.png-e5871c127337c13642746f736857dac2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/SnowWorld/assets/images/textures/Rock035_1K-PNG/Rock035_1K-PNG_AmbientOcclusion.png"
-dest_files=["res://.godot/imported/Rock035_1K-PNG_AmbientOcclusion.png-923a79dd79953adc7fc23a68c64b41a1.ctex"]
+source_file="res://maps/SnowMap/assets/images/textures/Rock035_1K-PNG/Rock035_1K-PNG_Roughness.png"
+dest_files=["res://.godot/imported/Rock035_1K-PNG_Roughness.png-e5871c127337c13642746f736857dac2.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crrfcuyoc8agv"
-path.s3tc="res://.godot/imported/Rock035_1K-PNG_Color.png-64ad59da660fe366d1faee50f7b1c25b.s3tc.ctex"
+uid="uid://bohnifpqq2fj0"
+path.s3tc="res://.godot/imported/Snow010A_1K-PNG_Color.png-fc2f857bf1ae37f6a2fd6f9e3eecb9ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/SnowWorld/assets/images/textures/Rock035_1K-PNG/Rock035_1K-PNG_Color.png"
-dest_files=["res://.godot/imported/Rock035_1K-PNG_Color.png-64ad59da660fe366d1faee50f7b1c25b.s3tc.ctex"]
+source_file="res://maps/SnowMap/assets/images/textures/Snow010A_1K-PNG/Snow010A_1K-PNG_Color.png"
+dest_files=["res://.godot/imported/Snow010A_1K-PNG_Color.png-fc2f857bf1ae37f6a2fd6f9e3eecb9ec.s3tc.ctex"]
 
 [params]
 
