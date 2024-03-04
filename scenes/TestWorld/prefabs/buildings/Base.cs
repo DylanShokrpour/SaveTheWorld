@@ -17,7 +17,7 @@ public partial class Base : Building {
 		int lastPoint = path.Curve.PointCount - 1;
 		Vector3 position = path.GlobalPosition;
 		position += path.Curve.GetPointPosition(lastPoint);
-		Position = position;
+		GlobalPosition = position;
 	}
 
 	void Hit(CharacterBody3D character) {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c6byir8d0b7ro"]
+[gd_scene load_steps=40 format=3 uid="uid://c6byir8d0b7ro"]
 
 [ext_resource type="Script" path="res://scenes/TestWorld/TestWorld.cs" id="1_55637"]
 [ext_resource type="PackedScene" uid="uid://ho8uu2ni0n4r" path="res://scenes/TestWorld/prefabs/Character/Character.tscn" id="2_clpfd"]
@@ -20,26 +20,14 @@
 [ext_resource type="Script" path="res://scenes/TestWorld/LocationLabel.cs" id="18_2lgpg"]
 [ext_resource type="Script" path="res://scenes/TestWorld/manager/AudioManager.cs" id="19_c72n6"]
 [ext_resource type="AudioStream" uid="uid://1e18eg1rw30t" path="res://assets/audio/music/Adoption.mp3" id="20_gq72k"]
-[ext_resource type="AudioStream" uid="uid://bdcspcnuvvddf" path="res://assets/audio/music/carnival-of-bizarre-177383.mp3" id="21_elu4v"]
+[ext_resource type="AudioStream" uid="uid://bdcspcnuvvddf" path="res://assets/audio/music/Clown/carnival-of-bizarre-177383.mp3" id="21_elu4v"]
 [ext_resource type="AudioStream" uid="uid://hr0xq4lfpba" path="res://assets/audio/music/Clown/clown.mp3" id="22_5v7dq"]
-[ext_resource type="AudioStream" uid="uid://b8bf820t8io78" path="res://DANGER/Instrumental.mp3" id="23_34kdn"]
-[ext_resource type="AudioStream" uid="uid://c8vyi6dschw8q" path="res://assets/audio/music/NutCracker.mp3" id="24_jtt61"]
+[ext_resource type="AudioStream" uid="uid://b8bf820t8io78" path="res://DANGER/audio/Instrumental.mp3" id="23_34kdn"]
 [ext_resource type="AudioStream" uid="uid://bmiv21p4unore" path="res://assets/audio/music/Clown/dark-circus-113460.mp3" id="25_of8dt"]
 [ext_resource type="PackedScene" uid="uid://bqowd4itlvmko" path="res://scenes/TestWorld/prefabs/enemies/free/TestShooterFreeEnemy.tscn" id="26_iaj1c"]
 [ext_resource type="PackedScene" uid="uid://bog22fx3632jl" path="res://scenes/TestWorld/prefabs/buildings/TestBuilding.tscn" id="27_q562d"]
 [ext_resource type="Script" path="res://scenes/TestWorld/extras/StockMarket.cs" id="28_3v8i8"]
 [ext_resource type="PackedScene" uid="uid://jq1drkfb8u43" path="res://scenes/TestWorld/prefabs/buildings/TestBuilding2.tscn" id="29_yna64"]
-
-[sub_resource type="Curve3D" id="Curve3D_6chdn"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.271201, 0, 21.0972, 0, 0, 0, 0, 0, 0, -0.504115, 0, 15.1967, 0, 0, 0, 0, 0, 0, 7.64786, 0, 14.9638, 0, 0, 0, 0, 0, 0, 7.7255, 0, 10.2279, 0, 0, 0, 0, 0, 0, -1.35813, 0, 9.99496, 0, 0, 0, 0, 0, 0, -0.271201, 0, 3.08519, 0, 0, 0, 0, 0, 0, -0.686973, 0, -1.14262),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 7
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bc72"]
-no_depth_test = true
-shading_mode = 0
 
 [sub_resource type="Curve3D" id="Curve3D_l8qfo"]
 _data = {
@@ -49,6 +37,17 @@ _data = {
 point_count = 5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fghdk"]
+no_depth_test = true
+shading_mode = 0
+
+[sub_resource type="Curve3D" id="Curve3D_6chdn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.271201, 0, 21.0972, 0, 0, 0, 0, 0, 0, -0.504115, 0, 15.1967, 0, 0, 0, 0, 0, 0, 7.64786, 0, 14.9638, 0, 0, 0, 0, 0, 0, 7.7255, 0, 10.2279, 0, 0, 0, 0, 0, 0, -1.35813, 0, 9.99496, 0, 0, 0, 0, 0, 0, -0.271201, 0, 3.08519, 0, 0, 0, 0, 0, 0, -0.686973, 0, -1.14262),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bc72"]
 no_depth_test = true
 shading_mode = 0
 
@@ -108,21 +107,15 @@ script = ExtResource("4_lm5ny")
 enemyList = Array[PackedScene]([ExtResource("11_oowc1"), ExtResource("11_oowc1"), ExtResource("10_jf121"), ExtResource("9_f5gf5"), ExtResource("9_f5gf5")])
 timeBetweenSpawn = 1
 
-[node name="TestSpawner2" parent="WaveManager" instance=ExtResource("12_us2fq")]
-unique_name_in_owner = true
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 9.5)
-spawnTimer = Object(Timer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","process_callback":1,"wait_time":1.0,"one_shot":false,"autostart":true,"script":null)
-
-path3D = Object(Path3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"curve":SubResource("Curve3D_6chdn"),"script":null)
-
-
-[node name="TestSpawner" parent="WaveManager" instance=ExtResource("12_us2fq")]
+[node name="TestSpawner" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("12_us2fq")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 0)
-spawnTimer = Object(Timer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","process_callback":1,"wait_time":1.0,"one_shot":false,"autostart":true,"script":null)
+path3D = NodePath("../../Path/Path3D2")
 
-path3D = Object(Path3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"curve":SubResource("Curve3D_l8qfo"),"script":null)
-
+[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("12_us2fq")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 9.5)
+path3D = NodePath("../../Path/Path3D")
 
 [node name="Wave4" type="Node3D" parent="WaveManager"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
@@ -132,6 +125,23 @@ timeBetweenSpawn = 1
 
 [node name="Path" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="Path3D" type="Path3D" parent="Path"]
+curve = SubResource("Curve3D_l8qfo")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path/Path3D"]
+material_override = SubResource("StandardMaterial3D_fghdk")
+polygon = PackedVector2Array(-0.1, -0.1, -0.1, 0.1, 0.1, 0.1, 0.1, -0.1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
 [node name="Path3D2" type="Path3D" parent="Path"]
 curve = SubResource("Curve3D_6chdn")
@@ -150,36 +160,9 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path/Path3D2"]
-transform = Transform3D(0.99519, 0, 0.0978691, 0, 1, 0, -0.0978691, 0, 0.99519, -0.528415, 0, 0.469688)
-progress = 37.5059
-
-[node name="Path3D" type="Path3D" parent="Path"]
-curve = SubResource("Curve3D_l8qfo")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path/Path3D"]
-transform = Transform3D(0.999962, 0, -0.00870042, 0, 1, 0, 0.00870042, 0, 0.999962, 18.9488, 0, 23.2856)
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path/Path3D"]
-material_override = SubResource("StandardMaterial3D_fghdk")
-polygon = PackedVector2Array(-0.1, -0.1, -0.1, 0.1, 0.1, 0.1, 0.1, -0.1)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_local = true
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-
-[node name="Spawners" type="Node3D" parent="Path"]
-
-[node name="Base" parent="Path" instance=ExtResource("14_o7hov")]
+[node name="Base" parent="Path" node_paths=PackedStringArray("path") instance=ExtResource("14_o7hov")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.8, 0, 0)
-path = Object(Path3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"curve":SubResource("Curve3D_l8qfo"),"script":null)
-
+path = NodePath("../Path3D")
 
 [node name="FreeEnemy" parent="." instance=ExtResource("15_tnlk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.9, 15.1)
@@ -230,7 +213,7 @@ script = ExtResource("18_2lgpg")
 [node name="AudioManager" type="Node3D" parent="."]
 script = ExtResource("19_c72n6")
 ambiance = Array[AudioStream]([ExtResource("20_gq72k"), ExtResource("21_elu4v"), ExtResource("22_5v7dq"), ExtResource("23_34kdn")])
-epicAmbiance = Array[AudioStream]([ExtResource("22_5v7dq"), ExtResource("24_jtt61"), ExtResource("25_of8dt")])
+epicAmbiance = Array[AudioStream]([ExtResource("22_5v7dq"), ExtResource("25_of8dt")])
 
 [node name="CurrentMusic" type="AudioStreamPlayer" parent="AudioManager"]
 autoplay = true
