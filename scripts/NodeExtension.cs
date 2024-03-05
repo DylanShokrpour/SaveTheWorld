@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Godot;
+using GodotExtensions.scripts.onready;
 
 namespace GodotExtensions.extensions.node;
 
 public static class NodeExtensions {
+	public static void InitializeOnReadyVariables(this Node node) {
+		NodeGrabber.SetOnReadyNodes(node);
+	}
+	
 	public static T? FindFirstChild<T>(this Node node) where T : Node {
 		foreach (Node child in node.GetChildren())
 			if (child is T t)
@@ -86,5 +91,30 @@ public static class NodeExtensions {
 		// using the C++ method for optimization.
 		var descendants = node.FindChildren("*", "", true, false);
 		return descendants;
+	}
+	
+	public static string DumpNodeDebugInfo(this Node node) {
+		string nodeName = node.Name;
+		string typeName = node.GetType().Name;
+
+		var message = $"Node with name: \"{nodeName}\" of type: \"({typeName})\"";
+
+		if (node.IsInsideTree()) {
+			string path = node.GetPath();
+			message += $" at node-path: \"{path}\"";
+		} else
+			message += " (not in tree)";
+
+		// if it has a script
+		Script script;
+		Variant scriptVariant = node.GetScript();
+		if (scriptVariant.VariantType != Variant.Type.Nil) {
+			script = scriptVariant.As<Script>();
+			string scriptPath = script.ResourcePath;
+			message += $" with script: \"{scriptPath}\"";
+		} else
+			message += " (no script)";
+
+		return message;
 	}
 }
