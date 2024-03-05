@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bdk27gmhs1881"]
+
+[node name="Lazer" type="StaticBody3D"]
