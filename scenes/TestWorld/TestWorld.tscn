@@ -107,15 +107,17 @@ script = ExtResource("4_lm5ny")
 enemyList = Array[PackedScene]([ExtResource("11_oowc1"), ExtResource("11_oowc1"), ExtResource("10_jf121"), ExtResource("9_f5gf5"), ExtResource("9_f5gf5")])
 timeBetweenSpawn = 1
 
-[node name="TestSpawner" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("12_us2fq")]
+[node name="TestSpawner" parent="WaveManager" node_paths=PackedStringArray("path", "spawnNode") instance=ExtResource("12_us2fq")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 0)
-path3D = NodePath("../../Path/Path3D2")
+path = NodePath("../../Path/Path3D")
+spawnNode = NodePath("../../Enemies")
 
-[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path3D") instance=ExtResource("12_us2fq")]
+[node name="TestSpawner2" parent="WaveManager" node_paths=PackedStringArray("path", "spawnNode") instance=ExtResource("12_us2fq")]
 unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 5, 9.5)
-path3D = NodePath("../../Path/Path3D")
+path = NodePath("../../Path/Path3D2")
+spawnNode = NodePath("../../Enemies")
 
 [node name="Wave4" type="Node3D" parent="WaveManager"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.5, 2.5, 0)
@@ -164,6 +166,10 @@ path_joined = false
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.8, 0, 0)
 path = NodePath("../Path3D")
 
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Buildings" type="Node3D" parent="."]
+
 [node name="FreeEnemy" parent="." instance=ExtResource("15_tnlk0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.9, 15.1)
 
@@ -192,6 +198,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="LocationLabel" type="RichTextLabel" parent="MapUI"]
 unique_name_in_owner = true
@@ -204,6 +211,7 @@ offset_top = -100.0
 offset_right = 269.5
 offset_bottom = 16.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 61
 bbcode_enabled = true
 text = "Bro why it no work BRO"

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Godot;
 
 public partial class Goon : CharacterBody3D {
@@ -13,6 +12,6 @@ public partial class Goon : CharacterBody3D {
 	}
 
 	void Die() {
-		GetParent().QueueFree();
+		QueueFree();
 	}
 }

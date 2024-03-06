@@ -1,21 +1,30 @@
 using Godot;
 
 public partial class Spawner : Node3D {
-	[Export] Path3D path3D;
+	[Export] public Path3D path;
+	[Export] public Node spawnNode;
 
-	public override void _Ready() {
-		// practically copy pasted from base.
-		const int FIRST_POINT = 0;
-		Vector3 position = path3D.GlobalPosition;
-		position += path3D.Curve.GetPointPosition(FIRST_POINT);
-		GlobalPosition = position;
+	public void SpawnUnit(Node3D unit, AutoPathFollow autoPathFollow) {
+		unit.TreeExiting += autoPathFollow.QueueFree;
+		path.AddChild(autoPathFollow, true);
+
+		unit.Position = autoPathFollow.GlobalPosition;
+		spawnNode.AddChild(unit, true);
+
+		RemoteTransform3D remoteTransform3D = CreateRemoteTransform(unit.Name);
+		autoPathFollow.AddChild(remoteTransform3D, true);
+		remoteTransform3D.RemotePath = remoteTransform3D.GetPathTo(unit);
 	}
 
-	public void SpawnGoon(PackedScene goonPrefab) {
-		var goon = goonPrefab.Instantiate<Goon>();
-		AutoPathFollow autoPathFollow = new(goon.speed);
-		path3D.AddChild(autoPathFollow);
-		goon.autoPathFollow = autoPathFollow;
-		autoPathFollow.AddChild(goon);
+	static RemoteTransform3D CreateRemoteTransform(string unitName) {
+		RemoteTransform3D remoteTransform3D = new() {
+			Name = $"RemoteTransform3D for {unitName}",
+			UseGlobalCoordinates = true,
+			UpdateScale = true,
+			UpdatePosition = true,
+			UpdateRotation = true
+		};
+
+		return remoteTransform3D;
 	}
 }

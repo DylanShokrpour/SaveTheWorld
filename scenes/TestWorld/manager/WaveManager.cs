@@ -47,9 +47,12 @@ public partial class WaveManager : Node3D {
 
 	/// <returns>Once all the enemies in the wave have been spawned</returns>
 	async Task SpawnGoonsInWave(Spawner spawner, Wave wave) {
-		foreach (PackedScene enemy in wave.enemyList) {
+		foreach (PackedScene enemyPrefab in wave.enemyList) {
 			await this.WaitForSeconds(wave.timeBetweenSpawn);
-			spawner.SpawnGoon(enemy);
+			var enemy = enemyPrefab.Instantiate<Goon>();
+			var autoPathFollow = new AutoPathFollow(enemy.Name, enemy.speed);
+			enemy.autoPathFollow = autoPathFollow; // ! Not replicated
+			spawner.SpawnUnit(enemy, autoPathFollow);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tnmqbcenbch5"]
+[gd_scene load_steps=15 format=3 uid="uid://tnmqbcenbch5"]
 
 [ext_resource type="Script" path="res://scenes/TestWorld/prefabs/buildings/Base.cs" id="1_6cuiv"]
 [ext_resource type="Script" path="res://scenes/TestWorld/components/HealthComponent.cs" id="2_rulra"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hkdl5adfod3v" path="res://scenes/TestWorld/prefabs/bullets/TestBullet.tscn" id="6_8epar"]
 [ext_resource type="PackedScene" uid="uid://bxmwfvnv8andu" path="res://scenes/TestWorld/prefabs/buildings/TestTrackBuilding.tscn" id="8_0af0c"]
 [ext_resource type="Script" path="res://scenes/TestWorld/prefabs/buildings/Factory.cs" id="9_ecmob"]
+[ext_resource type="Script" path="res://scenes/TestWorld/Spawner.cs" id="9_stcs8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q2f8n"]
 
@@ -61,3 +62,6 @@ shape = SubResource("SphereShape3D_4gbi5")
 script = ExtResource("9_ecmob")
 spawnPrefab = ExtResource("8_0af0c")
 spawnTime = 3
+
+[node name="Spawner" type="Node3D" parent="Factory"]
+script = ExtResource("9_stcs8")

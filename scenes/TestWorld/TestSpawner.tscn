@@ -8,10 +8,9 @@ albedo_color = Color(1, 0, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_k6tom"]
 material = SubResource("StandardMaterial3D_huxsv")
 
-[node name="TestSpawner" type="Node3D" node_paths=PackedStringArray("spawnTimer")]
+[node name="TestSpawner" type="Node3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_ij6dl")
-spawnTimer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

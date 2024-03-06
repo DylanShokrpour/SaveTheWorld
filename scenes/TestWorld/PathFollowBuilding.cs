@@ -9,6 +9,7 @@ public partial class PathFollowBuilding : Node3D {
 	}
 
 	public void ChangePathSpeed(float newSpeed) {
+		return; // too bad for now.
 		autoPathFollow.speed = speed;
 	}
 }

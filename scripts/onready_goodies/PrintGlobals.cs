@@ -76,7 +76,7 @@ public static class PrintGlobals {
 		string fileName = filePath.GetFile().GetBaseName();
 		string clientOrServer = LogConfig.runContextPrefix;
 		string lineStuff = LogConfig.SHOW_LINE_NUMBERS ? $"{line}:" : "";
-		var prefix = $"{clientOrServer}      | {lineStuff}{fileName}.{caller}()"; //+ $" \t| {what}";
+		var prefix = $"{lineStuff}{fileName}.{caller}()"; //+ $" \t| {what}";
 		string padding = LogConfig.CreatePadding(LogConfig.TAB_PADDING_CHARS, prefix.Length) + " | ";
 		return prefix + padding + what;
 	}
@@ -86,8 +86,8 @@ public static class PrintGlobals {
 
 public static class LogConfig {
 	public const bool SHOW_LINE_NUMBERS = false;
-	public const int TAB_PADDING_CHARS = 48 + 8;
-	public static string runContextPrefix = "Unknown(GodotExtensions)";
+	public const int TAB_PADDING_CHARS = 0;
+	public static string runContextPrefix = "";
 
 	public static string CreateObjectToString(object? what) {
 		var objectString = "<null object>";
